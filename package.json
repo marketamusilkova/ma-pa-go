@@ -1,0 +1,29 @@
+{
+  "name": "react-starter-kit",
+  "version": "1.0.0",
+  "description": "Starter kit for React JavaScript project",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:vite": "vite build",
+    "build:api": "copyfiles api/* deno.* dist/",
+    "build": "npm run build:vite && npm run build:api",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "dayjs": "^1.11.11",
+    "framer-motion": "^11.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5"
+  }
+}
