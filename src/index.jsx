@@ -8,6 +8,7 @@ import { App } from './pages/App';
 import { PlanDetail } from './components/PlanDetail';
 import { PlanEdit } from './components/PlanEdit';
 import { NewTask } from './components/NewTask';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const router = createBrowserRouter([
   {
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
         element: <ToDo />,
       },
       {
-        path: "/new",
-        element: <NewTask/>,
+        path: '/new',
+        element: <NewTask />,
       },
       {
         path: 'plan/:planId',
@@ -43,5 +44,7 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.querySelector('#app')).render(
-  <RouterProvider router={router} />,
+  <ChakraProvider>
+    <RouterProvider router={router} />{' '}
+  </ChakraProvider>,
 );

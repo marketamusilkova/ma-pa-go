@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { appendPlans, listPlans } from "../../library/api";
-import { PlansList } from "../PlansList";
-import { NewPlan } from "../NewPlan";
-import { Spinner } from "@chakra-ui/react";
+import { useEffect, useState } from 'react';
+import { appendPlans, listPlans } from '../../library/api';
+import { PlansList } from '../PlansList';
+import { NewPlan } from '../NewPlan';
+import { Spinner } from '@chakra-ui/react';
+
 
 export const ToDo = () => {
   const [plans, setPlans] = useState(null);
@@ -27,11 +28,14 @@ export const ToDo = () => {
 
   return (
     <>
+      <h2>Seznam všech mých To Do listů</h2>
+
       {plans ? (
         <PlansList plans={plans} onDelete={handleDelete} />
       ) : (
         <Spinner />
       )}
+
       <NewPlan onAppend={handleAppend} />
     </>
   );

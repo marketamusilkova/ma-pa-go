@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Spinner } from "../../components/Spinner";
 import { getPlan, updatePlan } from "../../library/api";
+import { Spinner } from "@chakra-ui/react";
 
 export const PlanEdit = () => {
   const [title, setTitle] = useState("");

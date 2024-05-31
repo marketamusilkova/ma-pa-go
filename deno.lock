@@ -116,7 +116,7 @@
         "npm:@types/react@^18.2.15",
         "npm:@vitejs/plugin-react@^4.0.3",
         "npm:dayjs@^1.11.11",
-        "npm:framer-motion@^11.2.6",
+        "npm:framer-motion@^11.2.9",
         "npm:react-dom@^18.2.0",
         "npm:react-router-dom@^6.23.1",
         "npm:react@^18.2.0",

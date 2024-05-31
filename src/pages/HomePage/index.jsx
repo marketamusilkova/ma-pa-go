@@ -1,6 +1,7 @@
 import { Header } from '../../components/Header';
 import './style.css';
 import dayjs from 'dayjs';
+import { Heading } from '@chakra-ui/react';
 
 export const HomePage = () => {
   const dnes = dayjs();
@@ -11,7 +12,7 @@ export const HomePage = () => {
     <>
       <Header />
       <div>Toto je HomePage.</div>
-      <div>Do Vánoc zbývá ještě {zbyva} dní!</div>
+      <Heading>Do Vánoc zbývá ještě {zbyva} dní!</Heading>
     </>
   );
 };

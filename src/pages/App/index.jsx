@@ -1,8 +1,8 @@
 import { Link, Outlet } from 'react-router-dom';
-import "./style.css"
+import './style.css';
 
 const Navigation = () => (
-  <nav className='nav'>
+  <nav className="nav">
     <Link to="/">Domů</Link>
     <Link to="/todo">TO DO</Link>
     <Link to="/new">Nový úkol</Link>

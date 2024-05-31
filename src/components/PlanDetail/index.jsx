@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
-import { Spinner } from '../../components/Spinner';
 import { getPlan, listAllTasks, listDayTasks } from '../../library/api';
+import { Spinner } from '@chakra-ui/react';
 
 const formatTime = (time) =>
   time ? time.substring(0, 2) + ':' + time.substring(2) : '';

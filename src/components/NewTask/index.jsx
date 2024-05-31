@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Spinner } from '../Spinner';
 import { useNavigate } from 'react-router-dom';
 import { appendTask, listPlans } from '../../library/api';
+import { Button, Input, Select, Spinner } from '@chakra-ui/react'
+import "./style.css"
 
 export const NewTask = () => {
   const [plans, setPlans] = useState([]);
@@ -41,10 +42,10 @@ export const NewTask = () => {
   return (
     <>
       <h1>Přidej nový úkol.</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form'>
         <div>
           <label htmlFor="plan">To Do list</label>
-          <select
+          <Select
             aria-label="Výběr To Do listu"
             value={plan}
             onChange={(event) => setPlan(event.target.value)}
@@ -55,11 +56,11 @@ export const NewTask = () => {
                 {plan.title}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
         <div>
           <label htmlFor="title">Název úkolu</label>
-          <input
+          <Input
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
@@ -68,7 +69,7 @@ export const NewTask = () => {
         </div>
         <div>
           <label htmlFor="date">Datum</label>
-          <input
+          <Input
             type="date"
             value={date}
             onChange={(event) => setDate(event.target.value)}
@@ -79,13 +80,13 @@ export const NewTask = () => {
           <label htmlFor="time">
             Čas <small>(nepovinný)</small>
           </label>
-          <input
+          <Input
             type="time"
             value={time}
             onChange={(event) => setTime(event.target.value)}
           />
         </div>
-        <button type="submit">Přidat</button>
+        <Button type="submit">Přidat</Button>
       </form>
     </>
   );
