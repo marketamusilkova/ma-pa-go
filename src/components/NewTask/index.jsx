@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { appendTask, listPlans } from '../../library/api';
-import { Button, Input, Select, Spinner } from '@chakra-ui/react'
+import { Button, FormControl, FormLabel, Input, Select, Spinner } from '@chakra-ui/react'
 import "./style.css"
 
 export const NewTask = () => {
@@ -42,9 +42,9 @@ export const NewTask = () => {
   return (
     <>
       <h1>Přidej nový úkol.</h1>
-      <form onSubmit={handleSubmit} className='form'>
+      <FormControl onSubmit={handleSubmit} className='form'>
         <div>
-          <label htmlFor="plan">To Do list</label>
+          <FormLabel htmlFor="plan">To Do list</FormLabel>
           <Select
             aria-label="Výběr To Do listu"
             value={plan}
@@ -59,7 +59,7 @@ export const NewTask = () => {
           </Select>
         </div>
         <div>
-          <label htmlFor="title">Název úkolu</label>
+          <FormLabel htmlFor="title">Název úkolu</FormLabel>
           <Input
             type="text"
             value={title}
@@ -68,7 +68,7 @@ export const NewTask = () => {
           />
         </div>
         <div>
-          <label htmlFor="date">Datum</label>
+          <FormLabel htmlFor="date">Datum</FormLabel>
           <Input
             type="date"
             value={date}
@@ -77,9 +77,9 @@ export const NewTask = () => {
           />
         </div>
         <div>
-          <label htmlFor="time">
+          <FormLabel htmlFor="time">
             Čas <small>(nepovinný)</small>
-          </label>
+          </FormLabel>
           <Input
             type="time"
             value={time}
@@ -87,7 +87,7 @@ export const NewTask = () => {
           />
         </div>
         <Button type="submit">Přidat</Button>
-      </form>
+      </FormControl>
     </>
   );
 };

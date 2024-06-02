@@ -1,8 +1,6 @@
-.nav {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  align-items: baseline;
-  background-color: #D0BEB7;
-  padding: 16px;
+.background {
+  background-image: url(./white_bricks.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

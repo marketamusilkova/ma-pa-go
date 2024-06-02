@@ -9,6 +9,8 @@ import { PlanDetail } from './components/PlanDetail';
 import { PlanEdit } from './components/PlanEdit';
 import { NewTask } from './components/NewTask';
 import { ChakraProvider } from '@chakra-ui/react';
+import '@fontsource/chakra-petch/400.css'
+import theme from './theme';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +46,7 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.querySelector('#app')).render(
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <RouterProvider router={router} />{' '}
   </ChakraProvider>,
 );
