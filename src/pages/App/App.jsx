@@ -1,6 +1,6 @@
 import { Link as RouterLink, Outlet } from 'react-router-dom';
 import './App.css';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text } from '@chakra-ui/react';
 
 const Navigation = () => (
   <Breadcrumb>
@@ -45,6 +45,7 @@ export const App = () => {
             <BreadcrumbLink as={RouterLink} to="/aboutus">
               O nás
             </BreadcrumbLink>
+            <Text>Vyvořeno v rámci Digitální akademie web od Czechitas na jaře 2024</Text>
           </BreadcrumbItem>
         </Breadcrumb>
       </footer>

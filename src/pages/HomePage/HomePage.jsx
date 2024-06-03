@@ -13,12 +13,17 @@ import {
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
+import { Link as ReactRouterLink } from 'react-router-dom'
+import { Link as ChakraLink } from '@chakra-ui/react'
+import { PlusSquareIcon } from '@chakra-ui/icons';
 
 export const HomePage = () => {
   const dnes = dayjs();
-  const dnesNaformatovano = dnes.format('MM. DD. YYYY');
+  const dnesNaformatovano = dnes.format('DD. MM. YYYY');
   const stedryDen = dayjs('2024-12-24');
-  const zbyva = stedryDen.diff(dnes, 'day');
+  const zbyvaDoVanoc = stedryDen.diff(dnes, 'day');
+  const galavecer = dayjs('2024-06-20');
+  const zbyvaDoGalavecera = galavecer.diff(dnes, 'day');
 
   const [plans, setPlans] = useState(null);
   const [tasks, setTasks] = useState([]);
@@ -69,7 +74,8 @@ export const HomePage = () => {
       <>
         <Header />
         <Heading>Dnes je {dnesNaformatovano}.</Heading>
-        <Heading>Do Vánoc zbývá ještě {zbyva} dní!</Heading>
+        <Heading>Do Vánoc zbývá ještě {zbyvaDoVanoc} dní!</Heading>
+        <Heading>Do Galavečera zbývá ještě {zbyvaDoGalavecera} dní!</Heading>
         <Heading>Nemáš zatím žádné plány?</Heading>
       </>
     );
@@ -83,7 +89,10 @@ export const HomePage = () => {
     <>
       <Header />
       <Heading>Dnes je {dnesNaformatovano}.</Heading>
-      <Heading>Do Vánoc zbývá ještě {zbyva} dní!</Heading>
+      <Heading>Do Vánoc zbývá ještě {zbyvaDoVanoc} dní!</Heading>
+      <Heading>
+        Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní!
+      </Heading>
       <Heading>Aktuální plány:</Heading>
       <Accordion allowToggle className="accordion">
         {plans.map((plan) => (
@@ -106,6 +115,9 @@ export const HomePage = () => {
           </AccordionItem>
         ))}
       </Accordion>
+      <ChakraLink as={ReactRouterLink} to="/newplan">
+        Přidat nový plán <PlusSquareIcon mx="2px" />
+      </ChakraLink>
     </>
   );
 };
