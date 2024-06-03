@@ -1,15 +1,15 @@
-const API_URL = import.meta.env.VITE_API_URL ?? "/api";
+const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
 export const listPlans = async () => {
   const response = await fetch(`${API_URL}/plans`);
   return await response.json();
 };
 
-export const appendPlans = async (plan) => {
+export const appendPlan = async (plan) => {
   const response = await fetch(`${API_URL}/plans`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(plan),
   });
@@ -18,15 +18,15 @@ export const appendPlans = async (plan) => {
 
 export const deletePlan = async (id) => {
   const response = await fetch(`${API_URL}/plans/${id}`, {
-    method: "DELETE",
+    method: 'DELETE',
   });
 };
 
 export const updatePlan = async (id, plan) => {
   const response = await fetch(`${API_URL}/plans/${id}`, {
-    method: "PUT",
+    method: 'PUT',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(plan),
   });
@@ -40,9 +40,9 @@ export const getPlan = async (id) => {
 
 export const appendTask = async (task) => {
   const response = await fetch(`${API_URL}/tasks`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(task),
   });

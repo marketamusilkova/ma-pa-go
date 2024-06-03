@@ -33,7 +33,7 @@ export const PlanEdit = () => {
 
   return (
     <form onSubmit={handleSubmit} >
-      <h3>Úprava To Do listu</h3>
+      <h3>Úprava plánu</h3>
       <div>
         <label htmlFor="title">
           Chceš změnit název?

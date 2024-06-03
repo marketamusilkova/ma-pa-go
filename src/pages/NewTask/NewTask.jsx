@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { appendTask, listPlans } from '../../library/api';
-import { Button, FormControl, FormLabel, Input, Select, Spinner } from '@chakra-ui/react'
-import "./style.css"
+import { Button, FormLabel, Input, Select, Spinner } from '@chakra-ui/react';
+import './NewTask.css';
 
 export const NewTask = () => {
   const [plans, setPlans] = useState([]);
   const [plan, setPlan] = useState('');
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetchPlans();
-  }, []);
 
   const fetchPlans = async () => {
     const data = await listPlans();
@@ -22,13 +17,16 @@ export const NewTask = () => {
     setPlan(data[0].$$id);
   };
 
+  useEffect(() => {
+    fetchPlans();
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const task = {
       plan,
       title,
-      date,
-      time: time ? time.replace(':', '') : null,
+      date: date ? date : null,
     };
 
     await appendTask(task);
@@ -42,11 +40,13 @@ export const NewTask = () => {
   return (
     <>
       <h1>Přidej nový úkol.</h1>
-      <FormControl onSubmit={handleSubmit} className='form'>
+      <form onSubmit={handleSubmit}>
         <div>
-          <FormLabel htmlFor="plan">To Do list</FormLabel>
+          <FormLabel htmlFor="plan">
+            Vyber k jakému plánu chceš přidat úkol:
+          </FormLabel>
           <Select
-            aria-label="Výběr To Do listu"
+            aria-label="Výběr Plánu"
             value={plan}
             onChange={(event) => setPlan(event.target.value)}
             required
@@ -68,26 +68,17 @@ export const NewTask = () => {
           />
         </div>
         <div>
-          <FormLabel htmlFor="date">Datum</FormLabel>
+          <FormLabel htmlFor="date">
+            Datum <small>(nepovinné)</small>
+          </FormLabel>
           <Input
             type="date"
             value={date}
             onChange={(event) => setDate(event.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <FormLabel htmlFor="time">
-            Čas <small>(nepovinný)</small>
-          </FormLabel>
-          <Input
-            type="time"
-            value={time}
-            onChange={(event) => setTime(event.target.value)}
           />
         </div>
         <Button type="submit">Přidat</Button>
-      </FormControl>
+      </form>
     </>
   );
 };

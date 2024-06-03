@@ -1,17 +1,26 @@
 import { useState } from 'react';
+import { appendPlan } from '../../library/api';
+import { useNavigate } from 'react-router-dom';
 import { Button, Input, Text, Textarea } from '@chakra-ui/react';
 
-export const NewPlan = ({ onAppend }) => {
+export const NewPlan = () => {
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
+    console.log('funguju');
     event.preventDefault();
-    if (onAppend) {
-      onAppend({ title, description });
-    }
-    setTitle('');
-    setDescription('');
+    const plan = {
+      title,
+      description: description ? description : null,
+    };
+
+    console.log(plan);
+    await appendPlan(plan);
+    navigate(`/plans`);
   };
 
   return (
@@ -26,26 +35,12 @@ export const NewPlan = ({ onAppend }) => {
         onChange={(event) => setTitle(event.target.value)}
         required
       />
-      <Text mb="8px">Popiš a upřesni si tento To Do list:</Text>
+      <Text mb="8px">Popiš a upřesni si tento Plán: <small>(nepovinný údaj)</small></Text>
       <Textarea
         rows="3"
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
-      {/* <label htmlFor="title">Zadej název:</label>
-      <input
-        type="text"
-        id="title"
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}
-        required
-      />
-      <label htmlFor="description">Popiš a upřesni si tento To Do list:</label> */}
-      {/* <textarea
-        rows="3"
-        value={description}
-        onChange={(event) => setDescription(event.target.value)}
-      ></textarea> */}
       <Button type="submit">Vytvořit</Button>
     </form>
   );

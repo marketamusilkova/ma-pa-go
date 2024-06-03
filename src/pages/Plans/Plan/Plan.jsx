@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { deletePlan } from '../../library/api';
+import { deletePlan } from '../../../library/api';
 
 export const Plan = ({ plan, onDelete }) => {
   const handleDeleteClick = async () => {

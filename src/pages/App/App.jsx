@@ -1,24 +1,30 @@
-import { Link, Outlet } from 'react-router-dom';
-import './style.css';
+import { Link as RouterLink, Outlet } from 'react-router-dom';
+import './App.css';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 
 const Navigation = () => (
   <Breadcrumb>
     <BreadcrumbItem>
-      <BreadcrumbLink>
-        <Link to="/">Domů</Link>
+      <BreadcrumbLink as={RouterLink} to="/">
+        Domů
       </BreadcrumbLink>
     </BreadcrumbItem>
 
     <BreadcrumbItem>
-      <BreadcrumbLink>
-        <Link to="/todo">TO DO</Link>
+      <BreadcrumbLink as={RouterLink} to="/plans">
+        Plány
       </BreadcrumbLink>
     </BreadcrumbItem>
 
     <BreadcrumbItem>
-      <BreadcrumbLink>
-        <Link to="/new">Nový úkol</Link>
+      <BreadcrumbLink as={RouterLink} to="/newplan">
+        Nový plán
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+
+    <BreadcrumbItem>
+      <BreadcrumbLink as={RouterLink} to="/newtask">
+        Nový úkol
       </BreadcrumbLink>
     </BreadcrumbItem>
   </Breadcrumb>
@@ -26,7 +32,7 @@ const Navigation = () => (
 
 export const App = () => {
   return (
-    <div className='background'>
+    <div className="background">
       <header>
         <Navigation />
       </header>
@@ -36,8 +42,8 @@ export const App = () => {
       <footer>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink>
-              <Link to="/aboutus">O nás</Link>
+            <BreadcrumbLink as={RouterLink} to="/aboutus">
+              O nás
             </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>

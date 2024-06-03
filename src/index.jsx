@@ -1,16 +1,18 @@
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
+import { HomePage } from './pages/HomePage/HomePage';
 import './global.css';
-import { ToDo } from './components/ToDoPage';
-import { AboutUs } from './components/AboutUsPage';
-import { App } from './pages/App';
-import { PlanDetail } from './components/PlanDetail';
-import { PlanEdit } from './components/PlanEdit';
-import { NewTask } from './components/NewTask';
+import { AboutUs } from './pages/AboutUs/AboutUs';
+import { App } from './pages/App/App';
 import { ChakraProvider } from '@chakra-ui/react';
-import '@fontsource/chakra-petch/400.css'
+import '@fontsource/chakra-petch/400.css';
 import theme from './theme';
+import { Plans } from './pages/Plans/Plans';
+import { NewTask } from './pages/NewTask/NewTask';
+import { NewPlan } from './pages/NewPlan/NewPlan';
+import { PlanDetail } from './components/PlanDetail/PlanDetail';
+import { PlanEdit } from './components/PlanEdit/PlanEdit';
+
 
 const router = createBrowserRouter([
   {
@@ -22,11 +24,15 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: '/todo',
-        element: <ToDo />,
+        path: '/plans',
+        element: <Plans />,
       },
       {
-        path: '/new',
+        path: '/newplan',
+        element: <NewPlan />,
+      },
+      {
+        path: '/newtask',
         element: <NewTask />,
       },
       {

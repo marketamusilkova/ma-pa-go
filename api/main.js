@@ -4,12 +4,13 @@ import { load } from '@dotenv';
 import { RESTfulCollections } from '@czechitas/restful-collections';
 
 const api = await new RESTfulCollections()
-  .collection('plans')
+  .collection('plans', {
+    keyBuilder: (value) =>
+      value.description ? [value.title, value.description] : [value.title, '*'],
+  })
   .collection('tasks', {
     keyBuilder: (value) =>
-      value.time
-        ? [value.plan, value.date, value.time]
-        : [value.plan, value.date, '*'],
+      value.date ? [value.plan, value.title, value.date] : [value.plan, value.title, '*'],
   })
   .buildServer();
 

@@ -1,12 +1,12 @@
-import { Plan } from '../Plan';
+import { Plan } from '../Plan/Plan';
 import { Card, CardBody } from '@chakra-ui/react';
-import './style.css';
+import './PlansList.css';
 
 export const PlansList = ({ plans, onDelete }) => {
   return (
     <>
       {plans.map((plan) => (
-        <Card className="card">
+        <Card key={plan.$$id} className="card">
           <CardBody>
             {' '}
             <Plan key={plan.$$id} plan={plan} onDelete={onDelete} />
