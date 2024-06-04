@@ -1,4 +1,4 @@
-.header {
+.banner {
   width: 100%;
   background-image: url(./batman_superman.jpg);
   background-repeat: no-repeat;
@@ -7,6 +7,6 @@
   padding-bottom: 400px;
 }
 
-.header__text {
+.text_banner {
   padding: 40px;
 }

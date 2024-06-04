@@ -23,17 +23,21 @@ export const Plans = () => {
 
   return (
     <div className="plan">
-      <img className="frineds" src={frineds} alt="Frineds" />
       <Heading className="heading_plans" as="h2" size="xl">
         Moje plány
       </Heading>
       <div className="cards_plans">
         {plans ? (
-          <PlansList className="card_plans" plans={plans} onDelete={handleDelete} />
+          <PlansList
+            className="card_plans"
+            plans={plans}
+            onDelete={handleDelete}
+          />
         ) : (
           <Spinner />
         )}
       </div>
+      <img className="frineds" src={frineds} alt="Frineds" />
     </div>
   );
 };
