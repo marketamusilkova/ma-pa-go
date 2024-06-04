@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPlan, listAllTasks } from '../../library/api';
-import { Spinner } from '@chakra-ui/react';
+import { Heading, Spinner, Text } from '@chakra-ui/react';
 
 export const PlanDetail = () => {
   const [plan, setPlan] = useState(null);
@@ -37,13 +37,13 @@ export const PlanDetail = () => {
 
   return (
     <>
-      <h1>{plan.title}</h1>
-      <p>{plan.description}</p>
-      <h2>Úkoly</h2>
+      <Heading as='h1' size='2xl'>{plan.title}</Heading>
+      <Text>{plan.description}</Text>
+      <Heading as='h2' size='lg'>Úkoly</Heading>
       {tasks.map((task) => (
         <div key={task.$$id}>
-          <div>{task.title}</div>
-          <div>{task.date ? task.date : null}</div>
+          <Text>{task.title}</Text>
+          <Text>{task.date ? task.date : null}</Text>
         </div>
       ))}
     </>

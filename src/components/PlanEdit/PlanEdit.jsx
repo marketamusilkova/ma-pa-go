@@ -1,11 +1,18 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { getPlan, updatePlan } from "../../library/api";
-import { Spinner } from "@chakra-ui/react";
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getPlan, updatePlan } from '../../library/api';
+import {
+  Button,
+  FormLabel,
+  Heading,
+  Input,
+  Spinner,
+  Textarea,
+} from '@chakra-ui/react';
 
 export const PlanEdit = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [plan, setPlan] = useState(null);
   const { planId } = useParams();
   const navigate = useNavigate();
@@ -24,7 +31,7 @@ export const PlanEdit = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await updatePlan(planId, { title, description });
-    navigate("/");
+    navigate('/plans');
   };
 
   if (!plan) {
@@ -32,31 +39,27 @@ export const PlanEdit = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} >
-      <h3>Úprava plánu</h3>
+    <form onSubmit={handleSubmit}>
+      <Heading as="h2" size="xl">
+        Úprava plánu
+      </Heading>
       <div>
-        <label htmlFor="title">
-          Chceš změnit název?
-        </label>
-        <input
+        <FormLabel>Chceš změnit název?</FormLabel>
+        <Input
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="description">
-          Nebo chceš změnit popis?
-        </label>
-        <textarea
+        <FormLabel>Nebo chceš změnit popis?</FormLabel>
+        <Textarea
           rows="3"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
-        ></textarea>
+        ></Textarea>
       </div>
-      <button type="submit">
-        Upravit
-      </button>
+      <Button type="submit">Upravit</Button>
     </form>
   );
 };

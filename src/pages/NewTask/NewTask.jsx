@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { appendTask, listPlans } from '../../library/api';
-import { Button, FormLabel, Input, Select, Spinner } from '@chakra-ui/react';
+import { Button, FormLabel, Heading, Input, Select, Spinner } from '@chakra-ui/react';
 import './NewTask.css';
 
 export const NewTask = () => {
@@ -39,10 +39,10 @@ export const NewTask = () => {
 
   return (
     <>
-      <h1>Přidej nový úkol.</h1>
+      <Heading>Přidej nový úkol.</Heading>
       <form onSubmit={handleSubmit}>
         <div>
-          <FormLabel htmlFor="plan">
+          <FormLabel>
             Vyber k jakému plánu chceš přidat úkol:
           </FormLabel>
           <Select
@@ -59,7 +59,7 @@ export const NewTask = () => {
           </Select>
         </div>
         <div>
-          <FormLabel htmlFor="title">Název úkolu</FormLabel>
+          <FormLabel>Název úkolu</FormLabel>
           <Input
             type="text"
             value={title}
@@ -68,7 +68,7 @@ export const NewTask = () => {
           />
         </div>
         <div>
-          <FormLabel htmlFor="date">
+          <FormLabel>
             Datum <small>(nepovinné)</small>
           </FormLabel>
           <Input

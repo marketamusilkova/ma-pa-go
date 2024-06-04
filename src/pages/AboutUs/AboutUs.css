@@ -1,0 +1,8 @@
+/* Nefunguje, pravděpodobně proto, že bílé kostky jsou nastaveny jako pozadí pro celou App */
+
+.background_aboutus {
+  background-image: url(./pink_bricks.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

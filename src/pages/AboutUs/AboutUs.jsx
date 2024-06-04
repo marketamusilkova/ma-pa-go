@@ -1,5 +1,5 @@
 export const AboutUs = () => {
   return (
-    <div>Stránka o nás...</div>
+    <div className="background_aboutus">Stránka o nás...</div>
   )
 }

@@ -1,5 +1,9 @@
-import { Link } from 'react-router-dom';
+import "./Plan.css"
 import { deletePlan } from '../../../library/api';
+import { Button, Heading, Text } from '@chakra-ui/react';
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
+
 
 export const Plan = ({ plan, onDelete }) => {
   const handleDeleteClick = async () => {
@@ -11,14 +15,18 @@ export const Plan = ({ plan, onDelete }) => {
 
   return (
     <>
-      <div>{plan.title}</div>
-      <p>{plan.description}</p>
-      <div>
-        <Link to={`/plan/${plan.$$id}`}>Zobrazit tento To Do list</Link>
-        <Link to={`/plan/${plan.$$id}/edit`}>Upravit tento To Do list</Link>
-        <button type="button" onClick={handleDeleteClick}>
-          Smazat To Do List
-        </button>
+      <Heading>{plan.title}</Heading>
+      <Text>{plan.description}</Text>
+      <div className="plan_action">
+        <ChakraLink as={ReactRouterLink} to={`/plan/${plan.$$id}`}>
+          Zobrazit
+        </ChakraLink>
+        <ChakraLink as={ReactRouterLink} to={`/plan/${plan.$$id}/edit`}>
+          Upravit
+        </ChakraLink>
+        <Button type="button" onClick={handleDeleteClick}>
+          Smazat
+        </Button>
       </div>
     </>
   );
