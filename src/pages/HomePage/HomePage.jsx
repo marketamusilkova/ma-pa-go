@@ -1,9 +1,19 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
-import { Header } from './Header/Header';
 import './HomePage.css';
 import dayjs from 'dayjs';
-import { Box, Heading } from '@chakra-ui/react';
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+  Heading,
+  Spinner,
+  Stack,
+  StackDivider,
+  Text,
+} from '@chakra-ui/react';
 import {
   Accordion,
   AccordionItem,
@@ -13,9 +23,10 @@ import {
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
-import { Link as ReactRouterLink } from 'react-router-dom'
-import { Link as ChakraLink } from '@chakra-ui/react'
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
 import { PlusSquareIcon } from '@chakra-ui/icons';
+import { Banner } from './Banner/Banner';
 
 export const HomePage = () => {
   const dnes = dayjs();
@@ -72,11 +83,7 @@ export const HomePage = () => {
   if (plans === null) {
     return (
       <>
-        <Header />
-        <Heading>Dnes je {dnesNaformatovano}.</Heading>
-        <Heading>Do Vánoc zbývá ještě {zbyvaDoVanoc} dní!</Heading>
-        <Heading>Do Galavečera zbývá ještě {zbyvaDoGalavecera} dní!</Heading>
-        <Heading>Nemáš zatím žádné plány?</Heading>
+        <Spinner />
       </>
     );
   }
@@ -86,14 +93,35 @@ export const HomePage = () => {
   console.log(planTasks);
 
   return (
-    <>
-      <Header />
-      <Heading>Dnes je {dnesNaformatovano}.</Heading>
-      <Heading>Do Vánoc zbývá ještě {zbyvaDoVanoc} dní!</Heading>
-      <Heading>
-        Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní!
+    <div className="homepage">
+      <Banner />
+      <div className="card_days">
+        <Card>
+          <CardHeader>
+            <Heading size="lg">Dnes je {dnesNaformatovano}.</Heading>
+          </CardHeader>
+          <CardBody>
+            <Stack divider={<StackDivider />} spacing="4">
+              <Box>
+                <Text pt="2" fontSize="lg">
+                  Do Vánoc zbývá ještě {zbyvaDoVanoc} dní.
+                </Text>
+              </Box>
+              <Box>
+                <Text pt="2" fontSize="lg">
+                  Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní.
+                </Text>
+              </Box>
+            </Stack>
+          </CardBody>
+        </Card>
+      </div>
+      {/* <div className="divider">
+        <Divider />
+      </div> */}
+      <Heading className="plans_homepage" as="h2" size="lg">
+        Aktuální plány
       </Heading>
-      <Heading>Aktuální plány:</Heading>
       <Accordion allowToggle className="accordion">
         {plans.map((plan) => (
           <AccordionItem key={plan.$$id}>
@@ -115,9 +143,11 @@ export const HomePage = () => {
           </AccordionItem>
         ))}
       </Accordion>
-      <ChakraLink as={ReactRouterLink} to="/newplan">
-        Přidat nový plán <PlusSquareIcon mx="2px" />
-      </ChakraLink>
-    </>
+      <Heading className="addPlan" as="h2" size="lg">
+        <ChakraLink as={ReactRouterLink} to="/newplan">
+          Přidat nový plán <PlusSquareIcon mx="2px" />
+        </ChakraLink>
+      </Heading>
+    </div>
   );
 };

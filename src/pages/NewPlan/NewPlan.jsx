@@ -3,7 +3,7 @@ import { appendPlan } from '../../library/api';
 import { useNavigate } from 'react-router-dom';
 import { Button, FormLabel, Heading, Input, Textarea } from '@chakra-ui/react';
 import './NewPlan.css';
-import harry from "./Harry.jpg"
+import beatles from './Beatles_StarWars.jpg';
 
 export const NewPlan = () => {
   const [title, setTitle] = useState('');
@@ -25,13 +25,14 @@ export const NewPlan = () => {
   };
 
   return (
-    <>
-      <Heading as="h2" size="xl" className='heading_newplan'>
-        Zde si můžeš vytvořit zbrusu nový plán.
-      </Heading>
-      <div className="newPlan">
-        <img className='harry' src={harry} alt="Harry and Hedwig" />
-        <form className="form_newplan" onSubmit={handleSubmit}>
+    <div className='newplan'>
+      <div className="heading_newplan">
+        <Heading as="h2" size="xl">
+          Vytvořit nový plán
+        </Heading>
+        <img className="beatles" src={beatles} alt="Star wars as The Beatles" />
+      </div>
+        <form onSubmit={handleSubmit} className='form_newplan'>
           <FormLabel>Zadej název:</FormLabel>
           <Input
             type="text"
@@ -49,7 +50,6 @@ export const NewPlan = () => {
           />
           <Button type="submit">Vytvořit</Button>
         </form>
-      </div>
-    </>
+    </div>
   );
 };

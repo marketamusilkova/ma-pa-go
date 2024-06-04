@@ -1,4 +1,27 @@
+.homepage {
+  margin: 2rem;
+  padding: 2rem;
+  background-color: rgba(253, 251, 251, 0.8);
+  border-radius: 8px;
+}
+
 .accordion {
-  max-width: 80%;
-  margin: 30px;
+  margin: 2rem
+}
+
+/* .divider {
+  margin: 2rem;
+} */
+
+.card_days {
+  margin-top: 2rem;
+}
+
+.plans_homepage {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.addPlan {
+  text-align: right;
 }

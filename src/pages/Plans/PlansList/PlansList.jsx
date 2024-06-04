@@ -6,9 +6,8 @@ export const PlansList = ({ plans, onDelete }) => {
   return (
     <>
       {plans.map((plan) => (
-        <Card key={plan.$$id} className="card">
+        <Card key={plan.$$id}>
           <CardBody>
-            {' '}
             <Plan key={plan.$$id} plan={plan} onDelete={onDelete} />
           </CardBody>
         </Card>
