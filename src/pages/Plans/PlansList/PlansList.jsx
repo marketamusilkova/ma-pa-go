@@ -2,13 +2,21 @@ import { Plan } from '../Plan/Plan';
 import { Card, CardBody } from '@chakra-ui/react';
 import './PlansList.css';
 
-export const PlansList = ({ plans, onDelete }) => {
+export const PlansList = ({ plans, onDelete, tasksByPlans }) => {
   return (
     <>
       {plans.map((plan) => (
         <Card key={plan.$$id}>
           <CardBody>
-            <Plan key={plan.$$id} plan={plan} onDelete={onDelete} />
+            <Plan
+              key={plan.$$id}
+              plan={plan}
+              onDelete={onDelete}
+              tasksTitle={
+                tasksByPlans[plan.$$id]?.map((task) => task.title).join(', ') ||
+                ''
+              }
+            />
           </CardBody>
         </Card>
       ))}

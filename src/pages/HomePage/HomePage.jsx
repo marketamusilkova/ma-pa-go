@@ -7,12 +7,13 @@ import {
   Card,
   CardBody,
   CardHeader,
-  Divider,
   Heading,
+  ListItem,
   Spinner,
   Stack,
   StackDivider,
   Text,
+  UnorderedList,
 } from '@chakra-ui/react';
 import {
   Accordion,
@@ -116,9 +117,6 @@ export const HomePage = () => {
           </CardBody>
         </Card>
       </div>
-      {/* <div className="divider">
-        <Divider />
-      </div> */}
       <Heading className="plans_homepage" as="h2" size="lg">
         Aktuální plány
       </Heading>
@@ -127,18 +125,23 @@ export const HomePage = () => {
           <AccordionItem key={plan.$$id}>
             <h2>
               <AccordionButton>
-                <Box as="span" flex="1" textAlign="left">
+                <Box as="h2" flex="1" textAlign="left">
                   {plan.title}
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              <ul>
+              <UnorderedList>
                 {planTasks[plan.$$id]?.map((title, index) => (
-                  <li key={index}>{title}</li>
+                  <ListItem key={index}>{title}</ListItem>
                 ))}
-              </ul>
+              </UnorderedList>
+              <Text textAlign="right">
+                <ChakraLink as={ReactRouterLink} to="/newtask">
+                  Přidat nový úkol <PlusSquareIcon mx="2px" />
+                </ChakraLink>
+              </Text>
             </AccordionPanel>
           </AccordionItem>
         ))}

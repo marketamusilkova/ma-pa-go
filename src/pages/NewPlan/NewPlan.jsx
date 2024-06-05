@@ -24,7 +24,7 @@ export const NewPlan = () => {
 
     console.log(plan);
     await appendPlan(plan);
-    navigate(`/plans`);
+    navigate(`/newtask`);
   };
 
   return (

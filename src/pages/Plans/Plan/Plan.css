@@ -8,3 +8,10 @@
   display: flex;
   gap: 10px;
 }
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem
+}
