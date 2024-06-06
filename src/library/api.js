@@ -58,3 +58,9 @@ export const listDayTasks = async (planId, date) => {
   const response = await fetch(`${API_URL}/tasks/${planId}/${date}`);
   return await response.json();
 };
+
+export const deleteTask = async (planId, taskId) => {
+  const response = await fetch(`${API_URL}/tasks/${planId}/${taskId}`, {
+    method: 'DELETE',
+  });
+};

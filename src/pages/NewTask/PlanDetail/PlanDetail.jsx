@@ -3,19 +3,19 @@ import { useParams } from 'react-router-dom';
 import {
   Divider,
   Heading,
-  ListItem,
   Spinner,
   Text,
-  UnorderedList,
 } from '@chakra-ui/react';
-import { getPlan, listAllTasks } from '../../../library/api';
+import { deleteTask, getPlan, listAllTasks } from '../../../library/api';
 import './PlanDetail.css';
 import tbbt from './TBBT.jpg';
+import { Task } from './Task/Task';
 
 export const PlanDetail = () => {
   const [plan, setPlan] = useState(null);
   const { planId } = useParams();
   const [tasks, setTasks] = useState(null);
+  const [taskId, setTaskId] = useState(null)
 
   const fetchPlan = async () => {
     const plan = await getPlan(planId);
@@ -44,6 +44,11 @@ export const PlanDetail = () => {
 
   console.log(tasks);
 
+  const handleClick = async (taskId) => {
+    setTaskId(taskId)
+    tasks ? await deleteTask(planId, taskId) : null;
+  };
+
   return (
     <div className="plan_detail">
       <img className="tbbt" src={tbbt} alt="The Big Bang Theory" />
@@ -53,18 +58,7 @@ export const PlanDetail = () => {
         </Heading>
         <Text>{plan.description}</Text>
         <Divider />
-        <Heading as="h2" size="lg">
-          Úkoly
-        </Heading>
-        <UnorderedList>
-          {tasks.map((task) => (
-            <div key={task.$$id}>
-              <ListItem>{task.title}</ListItem>
-              <Text> {task.date ? `datum: ${task.date}` : null}</Text>
-              <Divider />
-            </div>
-          ))}
-        </UnorderedList>
+        <Task tasks={tasks} onClick={handleClick} />
       </div>
     </div>
   );
