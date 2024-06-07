@@ -1,0 +1,21 @@
+.task_edit {
+  margin: 2rem;
+  padding: 2rem;
+  background-color: rgba(253, 251, 251, 0.8);
+  border-radius: 8px;
+}
+
+.form_task_edit {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.edit_task_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mario {
+  max-width: 30%;
+}

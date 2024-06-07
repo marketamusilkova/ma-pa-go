@@ -38,12 +38,17 @@ export const Plan = ({ plan, onDelete, tasksTitle }) => {
         </Button>
       </div>
       <Divider />
-      <div className='tasks'>
+      <div className="tasks">
         <Stack spacing={5} direction="column">
           {tasksListArray.map((task, index) => (
-            <Checkbox key={index} colorScheme="red">
-              {task}
-            </Checkbox>
+            <div key={index}>
+              <Checkbox colorScheme="red">{task}</Checkbox>
+              <Button>
+                <ChakraLink as={ReactRouterLink} to={`/task/${task.$$id}/edit`}>
+                  Upravit úkol
+                </ChakraLink>
+              </Button>
+            </div>
           ))}
         </Stack>
         <Button>

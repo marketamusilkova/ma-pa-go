@@ -12,6 +12,7 @@ import { NewTask } from './pages/NewTask/NewTask';
 import { NewPlan } from './pages/NewPlan/NewPlan';
 import { PlanDetail } from './pages/NewTask/PlanDetail/PlanDetail';
 import { PlanEdit } from './pages/Plans/PlanEdit/PlanEdit';
+import { TaskEdit } from './components/TaskEdit/TaskEdit';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: 'plan/:planId/edit',
         element: <PlanEdit />,
+      },
+      {
+        path: 'task/:taskId/edit',
+        element: <TaskEdit />,
       },
       {
         path: '/aboutus',

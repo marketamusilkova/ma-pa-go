@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {
-  Divider,
-  Heading,
-  Spinner,
-  Text,
-} from '@chakra-ui/react';
+import { Divider, Heading, Spinner, Text } from '@chakra-ui/react';
 import { deleteTask, getPlan, listAllTasks } from '../../../library/api';
 import './PlanDetail.css';
 import tbbt from './TBBT.jpg';
@@ -15,7 +10,6 @@ export const PlanDetail = () => {
   const [plan, setPlan] = useState(null);
   const { planId } = useParams();
   const [tasks, setTasks] = useState(null);
-  const [taskId, setTaskId] = useState(null)
 
   const fetchPlan = async () => {
     const plan = await getPlan(planId);
@@ -44,9 +38,9 @@ export const PlanDetail = () => {
 
   console.log(tasks);
 
-  const handleClick = async (taskId) => {
-    setTaskId(taskId)
-    tasks ? await deleteTask(planId, taskId) : null;
+  const handleClick = async (Id) => {
+    tasks ? await deleteTask(Id) : null;
+    fetchTasks();
   };
 
   return (
