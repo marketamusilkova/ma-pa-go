@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-  Button,
-  FormLabel,
-  Heading,
-  Input,
-  Spinner,
-} from '@chakra-ui/react';
+import { Button, FormLabel, Heading, Input, Spinner } from '@chakra-ui/react';
 import './TaskEdit.css';
-import mario from './Mario.jpg';
+import toys_story from './Toys_story.jpg';
 import { getTask, updateTask } from '../../library/api';
 
 export const TaskEdit = () => {
@@ -18,21 +12,20 @@ export const TaskEdit = () => {
   const { taskId } = useParams();
   const navigate = useNavigate();
 
-  const loadPlan = async () => {
+  const loadTask = async () => {
     const task = await getTask(taskId);
     setTask(task);
-    console.log(task)
     setTitle(task.title);
     setDate(task.date);
   };
 
   useEffect(() => {
-    loadPlan();
-  }, []);
+    loadTask();
+  }, [taskId]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await updateTask(taskId, { title, date });
+    await updateTask(taskId, { plan: task.plan, title, date });
     navigate('/plans');
   };
 
@@ -44,10 +37,10 @@ export const TaskEdit = () => {
     <div className="task_edit">
       <form onSubmit={handleSubmit} className="form_task_edit">
         <div className="edit_task_header">
+          <img className="mario" src={toys_story} alt="Super Mario" />
           <Heading as="h2" size="xl">
             Úprava úkolu
           </Heading>
-          <img className="mario" src={mario} alt="Super Mario" />
         </div>
         <div>
           <FormLabel>Chceš změnit název?</FormLabel>

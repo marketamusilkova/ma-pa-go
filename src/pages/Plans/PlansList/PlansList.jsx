@@ -12,9 +12,8 @@ export const PlansList = ({ plans, onDelete, tasksByPlans }) => {
               key={plan.$$id}
               plan={plan}
               onDelete={onDelete}
-              tasksTitle={
-                tasksByPlans[plan.$$id]?.map((task) => task.title).join(', ') ||
-                ''
+              tasks={
+                tasksByPlans[plan.$$id]
               }
             />
           </CardBody>

@@ -15,14 +15,12 @@ export const NewPlan = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    console.log('funguju');
     event.preventDefault();
     const plan = {
       title,
       description: description ? description : null,
     };
 
-    console.log(plan);
     await appendPlan(plan);
     navigate(`/newtask`);
   };

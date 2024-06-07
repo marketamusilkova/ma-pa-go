@@ -9,8 +9,8 @@ const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
 export const Plans = () => {
   const [plans, setPlans] = useState(null);
-  const [tasks, setTasks] = useState([]);
-  const [tasksByPlans, setTasksByPlans] = useState({});
+  const [tasks, setTasks] = useState(null);
+  const [tasksByPlans, setTasksByPlans] = useState(null);
 
   const fetchPlans = async () => {
     const data = await listPlans();
@@ -38,8 +38,10 @@ export const Plans = () => {
   }, [plans]);
 
   useEffect(() => {
-    const groupedById = Object.groupBy(tasks, (task) => task.plan);
-    setTasksByPlans(groupedById);
+    if (tasks) {
+      const groupedById = Object.groupBy(tasks, (task) => task.plan);
+      setTasksByPlans(groupedById);
+    }
   }, [tasks]);
 
   const handleDelete = () => {
@@ -52,7 +54,7 @@ export const Plans = () => {
         Moje plány
       </Heading>
       <div className="cards_plans">
-        {plans ? (
+        {plans && tasksByPlans ? (
           <PlansList
             className="card_plans"
             plans={plans}

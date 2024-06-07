@@ -29,15 +29,10 @@ export const PlanDetail = () => {
     fetchTasks();
   }, []);
 
-  if (!tasks) {
+  if (!tasks && !plan) {
     return <Spinner />;
   }
-  if (!plan) {
-    return <Spinner />;
-  }
-
-  console.log(tasks);
-
+ 
   const handleClick = async (Id) => {
     tasks ? await deleteTask(Id) : null;
     fetchTasks();

@@ -2,12 +2,17 @@ import {
   Button,
   Heading,
   ListItem,
+  Spinner,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
 import './Task.css';
 
 export const Task = ({ tasks, onClick }) => {
+  if (!tasks) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       <Heading as="h2" size="lg" className="heading_task">
@@ -24,9 +29,7 @@ export const Task = ({ tasks, onClick }) => {
               <Text> {task.date ? `datum: ${task.date}` : null}</Text>
             </div>
             <div>
-              <Button onClick={() => onClick(task.$$id)}>
-                Smazat
-              </Button>
+              <Button onClick={() => onClick(task.$$id)}>Smazat</Button>
             </div>
           </div>
         ))}

@@ -12,16 +12,13 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { PlusSquareIcon } from '@chakra-ui/icons';
 
-export const Plan = ({ plan, onDelete, tasksTitle }) => {
+export const Plan = ({ plan, onDelete, tasks }) => {
   const handleDeleteClick = async () => {
     await deletePlan(plan.$$id);
     if (onDelete) {
       onDelete();
     }
   };
-  console.log(tasksTitle);
-  const tasksListArray = tasksTitle.split(',').map((task) => task.trim());
-  console.log(tasksListArray);
 
   return (
     <div className="card_plan">
@@ -40,9 +37,9 @@ export const Plan = ({ plan, onDelete, tasksTitle }) => {
       <Divider />
       <div className="tasks">
         <Stack spacing={5} direction="column">
-          {tasksListArray.map((task, index) => (
-            <div key={index}>
-              <Checkbox colorScheme="red">{task}</Checkbox>
+          {tasks.map((task) => (
+            <div key={task.$$id}>
+              <Checkbox colorScheme="red">{task.title}</Checkbox>
               <Button>
                 <ChakraLink as={ReactRouterLink} to={`/task/${task.$$id}/edit`}>
                   Upravit úkol
@@ -51,6 +48,7 @@ export const Plan = ({ plan, onDelete, tasksTitle }) => {
             </div>
           ))}
         </Stack>
+
         <Button>
           <ChakraLink as={ReactRouterLink} to={`/newtask`}>
             Přidat úkol <PlusSquareIcon mx="2px" />
