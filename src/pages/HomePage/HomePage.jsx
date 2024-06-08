@@ -4,15 +4,12 @@ import './HomePage.css';
 import dayjs from 'dayjs';
 import {
   Box,
-  Button,
   Card,
   CardBody,
   CardHeader,
   Divider,
-  FormLabel,
   Heading,
-  Input,
-  ListItem,
+   ListItem,
   Spinner,
   Stack,
   StackDivider,
@@ -118,7 +115,7 @@ export const HomePage = () => {
           </CardBody>
         </Card>
       </div>
-      <Heading className="plans_homepage" as="h2" size="lg">
+      <Heading className="plans_homepage" as="h2" size="xl">
         Aktuální plány
       </Heading>
       <Accordion allowToggle className="accordion">

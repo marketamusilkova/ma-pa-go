@@ -53,10 +53,9 @@ export const Plans = () => {
       <Heading className="heading_plans" as="h2" size="xl">
         Moje plány
       </Heading>
-      <div className="cards_plans">
+      
         {plans && tasksByPlans ? (
           <PlansList
-            className="card_plans"
             plans={plans}
             onDelete={handleDelete}
             tasksByPlans={tasksByPlans}
@@ -64,7 +63,7 @@ export const Plans = () => {
         ) : (
           <Spinner />
         )}
-      </div>
+      
       <Img className="friends" src={friends} alt="Friends" />
     </div>
   );

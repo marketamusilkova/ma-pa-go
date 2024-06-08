@@ -9,11 +9,12 @@ import {
   useDisclosure,
   Button,
   Input,
-  FormLabel,
+  Text,
+  Stack,
 } from '@chakra-ui/react';
-import './AI.css';
 import React, { useState } from 'react';
 import { run } from './AIAPI/AIAPI';
+import { Spinner } from '../Spinner/Spinner';
 
 export const AI = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,24 +22,31 @@ export const AI = () => {
 
   const [aianswer, setAianswer] = useState('');
   const [aiquestion, setAiquestion] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     console.log('Funguju.');
     const answer = await run(aiquestion);
     setAianswer(answer);
+    setIsLoading(false);
   };
 
   return (
     <>
       <Button
         ref={btnRef}
-        colorScheme="teal"
+        colorScheme="yellow"
         onClick={onOpen}
-        className="AIButton"
+        pos="fixed"
+        bottom="1rem"
+        right="1rem"
+        zIndex="1000"
       >
         Zeptej se AI
       </Button>
+
       <Drawer
         isOpen={isOpen}
         placement="right"
@@ -53,12 +61,15 @@ export const AI = () => {
 
             <DrawerBody>
               <Input
+                mb={7}
                 placeholder="Piš sem..."
                 type="text"
                 value={aiquestion}
                 onChange={(event) => setAiquestion(event.target.value)}
-              /> 
-              <div>{aianswer}</div>
+              />
+              <Stack align="center">
+                {isLoading === true ? <Spinner /> : <Text>{aianswer}</Text>}
+              </Stack>
             </DrawerBody>
 
             <DrawerFooter>
@@ -70,7 +81,6 @@ export const AI = () => {
               </Button>
             </DrawerFooter>
           </form>
-         
         </DrawerContent>
       </Drawer>
     </>
