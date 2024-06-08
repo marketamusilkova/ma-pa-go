@@ -3,17 +3,17 @@ import { Weather } from './Weather/Weather';
 import { Button, FormLabel, Input } from '@chakra-ui/react';
 import { sendZipcode } from '../../library/api';
 
-export const Psc = () => {
+export const ZipCode = () => {
   const [pocasi, setPocasi] = useState(null);
-  const [psc, setPsc] = useState('');
+  const [zipCode, setZipCode] = useState('');
 
-  console.log(psc);
+  console.log(zipCode);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await sendZipcode({ psc });
+    await sendZipcode({ zipCode });
     // const response = await fetch(
-    //   `https://api.openweathermap.org/data/2.5/forecast?zip=${psc},cz&appid=1cf0721eeb8d383ccf388a7164c37012`,
+    //   `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},cz&appid=1cf0721eeb8d383ccf388a7164c37012`,
     // );
     // const data = await response.json();
     // const weatherData = data.list;
@@ -26,8 +26,8 @@ export const Psc = () => {
         <FormLabel>Zadej PSČ (s mezerou, např. 550 01)</FormLabel>
         <Input
           type="text"
-          value={psc}
-          onChange={(event) => setPsc(event.target.value)}
+          value={zipCode}
+          onChange={(event) => setZipCode(event.target.value)}
         />
         <Button type="submit">Klikni</Button>
       </form>
