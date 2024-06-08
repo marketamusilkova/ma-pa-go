@@ -1,0 +1,6 @@
+.AIButton {
+  position: fixed;
+  bottom: 0vh;
+  right: 0vh;
+  z-index: 1000;
+}

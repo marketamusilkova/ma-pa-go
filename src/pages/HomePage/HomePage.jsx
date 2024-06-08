@@ -33,7 +33,6 @@ import { Link as ChakraLink } from '@chakra-ui/react';
 import { PlusSquareIcon } from '@chakra-ui/icons';
 import { Banner } from './Banner/Banner';
 import { Psc } from '../../components/Psc/Psc';
-import { run } from './AI/AI';
 
 export const HomePage = () => {
   const dnes = dayjs();
@@ -46,8 +45,6 @@ export const HomePage = () => {
   const [plans, setPlans] = useState(null);
   const [tasks, setTasks] = useState([]);
   const [planTasks, setPlanTasks] = useState({});
-  const [aiquestion, setAiquestion] = useState('');
-  const [aianswer, setAianswer] = useState('');
 
   const fetchPlans = async () => {
     const data = await listPlans();
@@ -88,13 +85,6 @@ export const HomePage = () => {
       setPlanTasks(planTasksMap);
     }
   }, [plans, tasks]);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log('Funguju.');
-    const answer = await run(aiquestion);
-    setAianswer(answer);
-  };
 
   if (plans === null) {
     return (
@@ -165,16 +155,6 @@ export const HomePage = () => {
       <Divider />
       <Psc />
       <Divider />
-      <form onSubmit={handleSubmit}>
-        <FormLabel>Na co se chceš zeptat AI?</FormLabel>
-        <Input
-          type="text"
-          value={aiquestion}
-          onChange={(event) => setAiquestion(event.target.value)}
-        />
-        <Button type="submit">Odešli svou otázku</Button>
-      </form>
-      <div>{aianswer}</div>
     </div>
   );
 };
