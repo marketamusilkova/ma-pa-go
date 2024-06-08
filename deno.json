@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "dev": "deno serve --watch --unstable-kv --allow-read api/main.js",
-    "start": "deno serve  --unstable-kv --allow-read api/main.js"
+    "dev": "deno serve --unstable-cron --watch --unstable-kv --allow-read --allow-net --allow-env api/main.js",
+    "start": "deno serve  --unstable-kv --allow-read --allow-net --allow-env api/main.js"
   },
   "imports": {
     "@czechitas/restful-collections": "jsr:@czechitas/restful-collections@^0.1.0",

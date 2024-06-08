@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { Weather } from './Weather/Weather';
 import { Button, FormLabel, Input } from '@chakra-ui/react';
-import { sendZipcode } from '../../library/api';
+import { appendUser } from '../../library/api';
 
 export const ZipCode = () => {
   const [zipCode, setZipCode] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await sendZipcode({ zipcode: zipCode });
+    await appendUser({ zipcode: zipCode, email: email });
   };
 
   return (
@@ -19,6 +20,13 @@ export const ZipCode = () => {
           type="text"
           value={zipCode}
           onChange={(event) => setZipCode(event.target.value)}
+        />
+        <FormLabel>Zadej email
+        </FormLabel>
+        <Input
+          type="text"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <Button type="submit">Klikni</Button>
       </form>

@@ -1,6 +1,6 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
-console.log(API_URL)
+console.log(API_URL);
 
 // fetches for plans
 
@@ -41,7 +41,6 @@ export const updatePlan = async (planId, plan) => {
   });
   return await response.json();
 };
-
 
 // fetches for tasks
 export const listAllTasks = async (planId) => {
@@ -88,13 +87,25 @@ export const updateTask = async (taskId, task) => {
 // };
 
 // fetch for zipcode
-export const sendZipcode = async (zipcode) => {
-  const response = await fetch(`${API_URL}/zipcode`, {
+// export const sendZipcode = async (zipcode) => {
+//   const response = await fetch(`${API_URL}/zipcode`, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(zipcode),
+//   });
+//   return await response.json();
+// };
+
+// fetch for notifications
+export const appendUser = async (user) => {
+  const response = await fetch(`${API_URL}/notifications`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(zipcode),
+    body: JSON.stringify(user),
   });
   return await response.json();
-}
+};
