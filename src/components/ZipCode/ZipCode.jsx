@@ -3,12 +3,12 @@ import { Weather } from './Weather/Weather';
 import { Button, FormLabel, Input } from '@chakra-ui/react';
 import { sendZipcode } from '../../library/api';
 
-export const Psc = () => {
-  const [zipcode, setZipcode] = useState('');
+export const ZipCode = () => {
+  const [zipCode, setZipCode] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await sendZipcode({ zipcode });
+    await sendZipcode({ zipcode: zipCode });
   };
 
   return (
@@ -17,8 +17,8 @@ export const Psc = () => {
         <FormLabel>Zadej PSČ (s mezerou, např. 550 01)</FormLabel>
         <Input
           type="text"
-          value={zipcode}
-          onChange={(event) => setZipcode(event.target.value)}
+          value={zipCode}
+          onChange={(event) => setZipCode(event.target.value)}
         />
         <Button type="submit">Klikni</Button>
       </form>

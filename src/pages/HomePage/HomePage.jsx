@@ -32,7 +32,7 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { PlusSquareIcon } from '@chakra-ui/icons';
 import { Banner } from './Banner/Banner';
-import { Psc } from '../../components/Psc/Psc';
+import { ZipCode } from '../../components/ZipCode/ZipCode';
 
 export const HomePage = () => {
   const dnes = dayjs();
@@ -153,7 +153,7 @@ export const HomePage = () => {
         </ChakraLink>
       </Heading>
       <Divider />
-      <Psc />
+      <ZipCode />
       <Divider />
     </div>
   );
