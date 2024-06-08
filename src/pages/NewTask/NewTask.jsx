@@ -5,6 +5,7 @@ import {
   Button,
   FormLabel,
   Heading,
+  Img,
   Input,
   Select,
   Spinner,
@@ -47,7 +48,7 @@ export const NewTask = () => {
 
   return (
     <div className="container_newtask">
-      <img className="img_newtask" src={harry_potter} alt="Harry Potter" />
+      <Img className="img_newtask" src={harry_potter} alt="Harry Potter" />
       <div className='newtask'>
         <Heading>Přidej nový úkol</Heading>
         <form className='form_newtask' onSubmit={handleSubmit}>

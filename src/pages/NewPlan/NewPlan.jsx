@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { appendPlan } from '../../library/api';
 import { useNavigate } from 'react-router-dom';
-import { Button, FormLabel, Heading, Input, Textarea } from '@chakra-ui/react';
+import { Button, FormLabel, Heading, Img, Input, Textarea } from '@chakra-ui/react';
 import './NewPlan.css';
 import star_wars0 from './star_wars_0.jpg';
 import star_wars1 from './star_wars_1.jpg';
@@ -53,12 +53,12 @@ export const NewPlan = () => {
         </div>
         <div className='img_tab'>
           <div className="newplan_img">
-            <img src={star_wars0} alt="Star wars" />
-            <img src={star_wars1} alt="Star wars" />
+            <Img src={star_wars0} alt="Star wars" />
+            <Img src={star_wars1} alt="Star wars" />
           </div>
           <div className="newplan_img">
-            <img src={star_wars2} alt="Star wars" />
-            <img src={star_wars3} alt="Star wars" />
+            <Img src={star_wars2} alt="Star wars" />
+            <Img src={star_wars3} alt="Star wars" />
           </div>
         </div>
       </div>

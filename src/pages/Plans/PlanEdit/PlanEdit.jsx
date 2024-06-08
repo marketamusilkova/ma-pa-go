@@ -4,6 +4,7 @@ import {
   Button,
   FormLabel,
   Heading,
+  Img,
   Input,
   Spinner,
   Textarea,
@@ -47,7 +48,7 @@ export const PlanEdit = () => {
           <Heading as="h2" size="xl">
             Úprava plánu
           </Heading>
-          <img className='mario' src={mario} alt="Super Mario" />
+          <Img className='mario' src={mario} alt="Super Mario" />
         </div>
         <div>
           <FormLabel>Chceš změnit název?</FormLabel>

@@ -4,6 +4,7 @@ import {
   Button,
   Checkbox,
   Divider,
+  Flex,
   Heading,
   Stack,
   Text,
@@ -38,14 +39,14 @@ export const Plan = ({ plan, onDelete, tasks }) => {
       <div className="tasks">
         <Stack spacing={5} direction="column">
           {tasks.map((task) => (
-            <div key={task.$$id}>
+            <Stack key={task.$$id} justifyContent="space-between" spacing={2} direction={'row'}>
               <Checkbox colorScheme="red">{task.title}</Checkbox>
               <Button>
                 <ChakraLink as={ReactRouterLink} to={`/task/${task.$$id}/edit`}>
                   Upravit úkol
                 </ChakraLink>
               </Button>
-            </div>
+            </Stack>
           ))}
         </Stack>
 

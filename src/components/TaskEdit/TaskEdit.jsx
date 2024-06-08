@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, FormLabel, Heading, Input, Spinner } from '@chakra-ui/react';
+import { Button, FormLabel, Heading, Img, Input, Spinner } from '@chakra-ui/react';
 import './TaskEdit.css';
 import toys_story from './Toys_story.jpg';
 import { getTask, updateTask } from '../../library/api';
@@ -37,7 +37,7 @@ export const TaskEdit = () => {
     <div className="task_edit">
       <form onSubmit={handleSubmit} className="form_task_edit">
         <div className="edit_task_header">
-          <img className="mario" src={toys_story} alt="Super Mario" />
+          <Img className="mario" src={toys_story} alt="Super Mario" />
           <Heading as="h2" size="xl">
             Úprava úkolu
           </Heading>

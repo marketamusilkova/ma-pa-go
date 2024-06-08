@@ -1,4 +1,4 @@
-import { Heading, Spinner } from '@chakra-ui/react';
+import { Heading, Img, Spinner } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
@@ -65,7 +65,7 @@ export const Plans = () => {
           <Spinner />
         )}
       </div>
-      <img className="friends" src={friends} alt="Friends" />
+      <Img className="friends" src={friends} alt="Friends" />
     </div>
   );
 };

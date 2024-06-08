@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Divider, Heading, Spinner, Text } from '@chakra-ui/react';
+import { Divider, Heading, Img, Spinner, Text } from '@chakra-ui/react';
 import { deleteTask, getPlan, listAllTasks } from '../../../library/api';
 import './PlanDetail.css';
 import tbbt from './TBBT.jpg';
@@ -40,7 +40,7 @@ export const PlanDetail = () => {
 
   return (
     <div className="plan_detail">
-      <img className="tbbt" src={tbbt} alt="The Big Bang Theory" />
+      <Img className="tbbt" src={tbbt} alt="The Big Bang Theory" />
       <div className="detail_content">
         <Heading as="h1" size="2xl">
           {plan.title}
