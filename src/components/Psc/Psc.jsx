@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Weather } from './Weather/Weather';
 import { Button, FormLabel, Input } from '@chakra-ui/react';
+import { sendZipcode } from '../../library/api';
 
 export const Psc = () => {
   const [pocasi, setPocasi] = useState(null);
@@ -10,13 +11,13 @@ export const Psc = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Tak co?');
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?zip=${psc},cz&appid=1cf0721eeb8d383ccf388a7164c37012`,
-    );
-    const data = await response.json();
-    const weatherData = data.list;
-    setPocasi(weatherData);
+    await sendZipcode({ psc });
+    // const response = await fetch(
+    //   `https://api.openweathermap.org/data/2.5/forecast?zip=${psc},cz&appid=1cf0721eeb8d383ccf388a7164c37012`,
+    // );
+    // const data = await response.json();
+    // const weatherData = data.list;
+    // setPocasi(weatherData);
   };
 
   return (

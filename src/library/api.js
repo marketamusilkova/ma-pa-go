@@ -85,3 +85,14 @@ export const updateTask = async (taskId, task) => {
 //   return await response.json();
 // };
 
+// fetch for zipcode
+export const sendZipcode = async (zipcode) => {
+  const response = await fetch(`${API_URL}/zipcode`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(zipcode),
+  });
+  return await response.json();
+}

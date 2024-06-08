@@ -10,7 +10,9 @@ const api = await new RESTfulCollections()
   })
   .collection('tasks', {
     keyBuilder: (value) =>
-      value.date ? [value.plan, value.title, value.date] : [value.plan, value.title, '*'],
+      value.date
+        ? [value.plan, value.title, value.date]
+        : [value.plan, value.title, '*'],
   })
   .buildServer();
 
@@ -28,5 +30,10 @@ if (env['CORS_ORIGIN']) {
 app.route('/api', api);
 app.use('/*', serveStatic({ root: './' }));
 app.get('*', serveStatic({ path: './index.html' }));
+app.post('/api/zipcode', async (c) => {
+  const post = await c.req.json();
+  console.log(post);
+  return c.text('ok');
+});
 
 export default app;

@@ -13,13 +13,13 @@ import {
 } from '@chakra-ui/react';
 import './AI.css';
 import React, { useState } from 'react';
-import { run } from './AIAPI/AIAPI';
-
 
 export const AI = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
   const [aianswer, setAianswer] = useState('');
+  const [aiquestion, setAiquestion] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
