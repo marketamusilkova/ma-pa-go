@@ -23,13 +23,13 @@ export const Footer = () => {
           O nás
         </ChakraLink>
       </GridItem>
-      <GridItem rowStart={2} maxW="100px" justifySelf="center">
+      <GridItem rowStart={2} maxW={{base: "100px", md: "150px"}} justifySelf="center">
         <a className="a_footer" href="https://www.czechitas.cz/">
           <img src={czechitas} alt="czechitas" />
         </a>
       </GridItem>
-      <GridItem rowStart={2} textAlign="center">
-        <Text fontSize={{ base: '12px', lg: '14px' }}>
+      <GridItem rowStart={2} textAlign="center" >
+        <Text fontSize={{ base: '12px', md: '18px' }}>
           Vytvořeno v rámci Digitální akademie web na jaře 2024
         </Text>
       </GridItem>

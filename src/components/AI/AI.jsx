@@ -54,7 +54,11 @@ export const AI = () => {
       <Drawer
         isOpen={isOpen}
         placement="right"
-        onClose={onClose}
+        onClose={() => {
+          onClose()
+          setAianswer("")
+          setAiquestion ("")
+        } }
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
