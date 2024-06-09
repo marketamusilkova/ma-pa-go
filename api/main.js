@@ -15,6 +15,7 @@ const api = await new RESTfulCollections()
         ? [value.plan, value.title, value.date]
         : [value.plan, value.title, '*'],
   })
+  .collection('books', {})
   .collection('notifications', {})
   .buildServer();
 
@@ -33,7 +34,7 @@ app.route('/api', api);
 app.use('/*', serveStatic({ root: './' }));
 app.get('*', serveStatic({ path: './index.html' }));
 
-runCron()
+runCron();
 
 export const deletePlan = async (userId) => {
   const response = await fetch(

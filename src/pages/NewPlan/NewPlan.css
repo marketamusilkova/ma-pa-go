@@ -1,6 +1,41 @@
 .background_newplan {
-  margin: 1rem;
-  padding: 1rem;
+  margin: 2rem;
+  padding: 2rem;
   background-color: rgba(253, 251, 251, 0.8);
   border-radius: 8px;
+}
+
+.container_newplan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newplan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form_newplan {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.img_tab {
+  display: flex;
+  max-width: 66%;
+  gap: 2rem;
+}
+
+.newplan_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }

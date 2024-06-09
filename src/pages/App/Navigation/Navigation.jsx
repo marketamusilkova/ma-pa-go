@@ -4,7 +4,7 @@ import './Navigation.css';
 
 export const Navigation = () => (
   <div className='navigation'>
-    <Breadcrumb fontWeight="medium" fontSize={{ base: 'md', lg: 'xl' }}>
+    <Breadcrumb fontWeight="medium" fontSize="xl">
       <BreadcrumbItem>
         <BreadcrumbLink as={RouterLink} to="/">
           Domů

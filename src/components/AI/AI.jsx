@@ -27,7 +27,7 @@ export const AI = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    
+    console.log('Funguju.');
     const answer = await run(aiquestion);
     setAianswer(answer);
     setIsLoading(false);
@@ -40,7 +40,7 @@ export const AI = () => {
         colorScheme="yellow"
         onClick={onOpen}
         pos="fixed"
-        bottom="2rem"
+        bottom="1rem"
         right="1rem"
         zIndex="1000"
       >
@@ -73,7 +73,9 @@ export const AI = () => {
             </DrawerBody>
 
             <DrawerFooter>
-          
+              <Button variant="outline" mr={3} onClick={onClose}>
+                Zavřít
+              </Button>
               <Button type="submit" colorScheme="blue">
                 Zeptej se
               </Button>

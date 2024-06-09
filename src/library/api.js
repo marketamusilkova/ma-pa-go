@@ -1,9 +1,6 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
-console.log(API_URL);
-
 // fetches for plans
-
 export const listPlans = async () => {
   const response = await fetch(`${API_URL}/plans`);
   return await response.json();
@@ -81,22 +78,28 @@ export const updateTask = async (taskId, task) => {
   return await response.json();
 };
 
-// export const listDayTasks = async (planId, date) => {
-//   const response = await fetch(`${API_URL}/tasks/${planId}/${date}`);
-//   return await response.json();
-// };
+// fetches for books
+export const listBooks = async () => {
+  const response = await fetch(`${API_URL}/books`);
+  return await response.json();
+};
 
-// fetch for zipcode
-// export const sendZipcode = async (zipcode) => {
-//   const response = await fetch(`${API_URL}/zipcode`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(zipcode),
-//   });
-//   return await response.json();
-// };
+export const appendBook = async (book) => {
+  const response = await fetch(`${API_URL}/books`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  });
+  return await response.json();
+};
+
+export const deleteBook = async (bookId) => {
+  const response = await fetch(`${API_URL}/books/${bookId}`, {
+    method: 'DELETE',
+  });
+};
 
 // fetch for notifications
 export const appendUser = async (user) => {

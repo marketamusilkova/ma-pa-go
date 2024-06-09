@@ -1,44 +1,16 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
 import './HomePage.css';
-import dayjs from 'dayjs';
-import {
-  Box,
-  Card,
-  CardBody,
-  CardHeader,
-  Divider,
-  Heading,
-   ListItem,
-  Spinner,
-  Stack,
-  StackDivider,
-  Text,
-  UnorderedList,
-} from '@chakra-ui/react';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-} from '@chakra-ui/react';
+
 import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
-import { Link as ReactRouterLink } from 'react-router-dom';
-import { Link as ChakraLink } from '@chakra-ui/react';
-import { PlusSquareIcon } from '@chakra-ui/icons';
-import { Banner } from './Banner/Banner';
-import { ZipCode } from '../../components/ZipCode/ZipCode';
+import { Dayjs } from './Dayjs/Dayjs';
+import { PlansAccordion } from './PlansAccordion/PlansAccordion';
+import { Heading, Img, Spinner } from '@chakra-ui/react';
+import batman_superman from './batman_superman.jpg';
+import { Notifications } from './Notifications/Notifications';
 
 export const HomePage = () => {
-  const dnes = dayjs();
-  const dnesNaformatovano = dnes.format('DD. MM. YYYY');
-  const stedryDen = dayjs('2024-12-24');
-  const zbyvaDoVanoc = stedryDen.diff(dnes, 'day');
-  const galavecer = dayjs('2024-06-20');
-  const zbyvaDoGalavecera = galavecer.diff(dnes, 'day');
-
   const [plans, setPlans] = useState(null);
   const [tasks, setTasks] = useState([]);
   const [planTasks, setPlanTasks] = useState({});
@@ -83,75 +55,30 @@ export const HomePage = () => {
     }
   }, [plans, tasks]);
 
-  if (plans === null) {
+  console.log(plans);
+  if (plans === null || plans.length === 0) {
     return (
-      <>
-        <Spinner />
-      </>
+      <div className="homepage">
+        <Heading colorScheme="yellow">
+          My secret plan how to rule the world
+        </Heading>
+        <Img src={batman_superman} alt="Batman and Superman" />
+        <Dayjs />
+        <Heading>Nemáš ještě založené žádné plány...</Heading>
+        <Notifications />
+      </div>
     );
   }
 
   return (
     <div className="homepage">
-      <Banner />
-      <div className="card_days">
-        <Card>
-          <CardHeader>
-            <Heading size="lg">Dnes je {dnesNaformatovano}.</Heading>
-          </CardHeader>
-          <CardBody>
-            <Stack divider={<StackDivider />} spacing="4">
-              <Box>
-                <Text pt="2" fontSize="lg">
-                  Do Vánoc zbývá ještě {zbyvaDoVanoc} dní.
-                </Text>
-              </Box>
-              <Box>
-                <Text pt="2" fontSize="lg">
-                  Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní.
-                </Text>
-              </Box>
-            </Stack>
-          </CardBody>
-        </Card>
-      </div>
-      <Heading className="plans_homepage" as="h2" size="xl">
-        Aktuální plány
+      <Heading colorScheme="yellow">
+        My secret plan how to rule the world
       </Heading>
-      <Accordion allowToggle className="accordion">
-        {plans.map((plan) => (
-          <AccordionItem key={plan.$$id}>
-            <h2>
-              <AccordionButton>
-                <Box as="h2" flex="1" textAlign="left">
-                  {plan.title}
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>
-              <UnorderedList>
-                {planTasks[plan.$$id]?.map((title, index) => (
-                  <ListItem key={index}>{title}</ListItem>
-                ))}
-              </UnorderedList>
-              <Text textAlign="right">
-                <ChakraLink as={ReactRouterLink} to="/newtask">
-                  Přidat nový úkol <PlusSquareIcon mx="2px" />
-                </ChakraLink>
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
-        ))}
-      </Accordion>
-      <Heading className="addPlan" as="h2" size="lg">
-        <ChakraLink as={ReactRouterLink} to="/newplan">
-          Přidat nový plán <PlusSquareIcon mx="2px" />
-        </ChakraLink>
-      </Heading>
-      <Divider />
-      <ZipCode />
-      <Divider />
+      <Img src={batman_superman} alt="Batman and Superman" />
+      <Dayjs />
+      <PlansAccordion plans={plans} planTasks={planTasks} />
+      <Notifications />
     </div>
   );
 };

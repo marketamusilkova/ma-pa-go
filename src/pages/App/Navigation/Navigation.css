@@ -1,8 +1,9 @@
 .navigation {
-  margin: 0 1rem;
-  padding: 1rem;
+  margin: 0 2rem;
+  padding: 2rem;
   background-color: rgba(253, 251, 251, 0.8);
   border-radius: 8px;
   display: flex;
   justify-content: end;
+  
 }
