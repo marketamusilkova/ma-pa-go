@@ -45,9 +45,7 @@ export const HomePage = () => {
   useEffect(() => {
     if (plans && tasks.length > 0) {
       const planTasksMap = plans.reduce((acc, plan) => {
-        acc[plan.$$id] = tasks
-          .filter((task) => task.plan === plan.$$id)
-          .map((task) => task.title);
+        acc[plan.$$id] = tasks.filter((task) => task.plan === plan.$$id);
         return acc;
       }, {});
 
@@ -55,11 +53,13 @@ export const HomePage = () => {
     }
   }, [plans, tasks]);
 
-  if (plans === null || plans.length === 0) {
-    return (
-      <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
-        <Heading color="yellow.300">
-          My secret plan how to rule the world
+  console.log({ planTasks });
+
+  return (
+    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+      <Stack spacing={5}>
+        <Heading color="yellow.300" size={{ base: 'lg', md: '2xl' }}>
+          MY SECRET PLAN HOW TO RULE THE WORLD
         </Heading>
         <Image
           src={batman_superman}
@@ -67,28 +67,27 @@ export const HomePage = () => {
           borderRadius="lg"
         />
         <Dayjs />
-        <Heading>Nemáš ještě založené žádné plány...</Heading>
+        {plans === null || plans.length === 0 ? (
+          <Heading>Nemáš ještě založené žádné plány...</Heading>
+        ) : (
+          <PlansAccordion
+            plans={plans}
+            planTasks={Object.fromEntries(
+              Object.entries(planTasks).map(([key, value]) => [
+                key,
+                value.sort((a, b) => a.order - b.order).map((task) => task.title),
+              ]),
+            )}
+          />
+        )}
         <Notifications />
-        <Books />
-        <Films />
-      </Card>
-    );
-  }
-
-  return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
-      <Heading>MY SECRET PLAN HOW TO RULE THE WORLD</Heading>
-      <Image
-        src={batman_superman}
-        alt="Batman and Superman"
-        borderRadius="lg"
-      />
-      <Dayjs />
-      <PlansAccordion plans={plans} planTasks={planTasks} />
-      <Notifications />
-      <Stack direction="row" justifyContent="space-around">
-        <Books />
-        <Films />
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          justifyContent="space-around"
+        >
+          <Books />
+          <Films />
+        </Stack>
       </Stack>
     </Card>
   );

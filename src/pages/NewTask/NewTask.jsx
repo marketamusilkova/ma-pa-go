@@ -24,7 +24,7 @@ export const NewTask = () => {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   
-  const imageSrc = useBreakpointValue({ base: dumbledor, md: harry_potter})
+  const imageSrc = useBreakpointValue({ base: dumbledor, md: harry_potter}, {ssr:false})
 
   const navigate = useNavigate();
 

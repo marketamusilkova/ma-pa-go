@@ -42,7 +42,7 @@ export const PlansAccordion = ({ plans, planTasks }) => {
           </AccordionItem>
         ))}
       </Accordion>
-      <Heading as="h2" size="lg">
+      <Heading as="h2" size={{base: "md", md: "lg"}}>
         <ChakraLink as={ReactRouterLink} to="/newplan">
           Přidat nový plán <PlusSquareIcon mx="2px" />
         </ChakraLink>

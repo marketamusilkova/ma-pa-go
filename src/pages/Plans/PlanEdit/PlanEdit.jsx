@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
+  Box,
   Button,
+  Card,
   FormLabel,
   Heading,
   Image,
   Input,
   Spinner,
+  Stack,
   Textarea,
 } from '@chakra-ui/react';
 import { getPlan, updatePlan } from '../../../library/api';
@@ -42,32 +45,37 @@ export const PlanEdit = () => {
   }
 
   return (
-    <div className="plan_edit">
-      <form onSubmit={handleSubmit} className="form_plan_edit">
-        <div className="edit_header">
-          <Heading as="h2" size="xl">
-            Úprava plánu
-          </Heading>
-          <Image className="mario" src={mario} alt="Super Mario" />
-        </div>
-        <div>
-          <FormLabel>Chceš změnit název?</FormLabel>
-          <Input
-            type="text"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-        </div>
-        <div>
-          <FormLabel>Nebo chceš změnit popis?</FormLabel>
-          <Textarea
-            rows="3"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          ></Textarea>
-        </div>
-        <Button type="submit">Upravit</Button>
-      </form>
-    </div>
+    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+      <Stack direction={{ base: 'column', md: 'row' }}>
+        <Box minW={{ md: '50%' }} p={{ md: '10px' }}>
+          <form onSubmit={handleSubmit}>
+            <Stack>
+              <Heading as="h2" size="xl">
+                Úprava plánu
+              </Heading>
+
+              <div>
+                <FormLabel>Chceš změnit název?</FormLabel>
+                <Input
+                  type="text"
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </div>
+              <div>
+                <FormLabel>Nebo chceš změnit popis?</FormLabel>
+                <Textarea
+                  rows="3"
+                  value={description}
+                  onChange={(event) => setDescription(event.target.value)}
+                ></Textarea>
+              </div>
+              <Button type="submit">Upravit</Button>
+            </Stack>
+          </form>
+        </Box>
+        <Image maxW={{ md: '50%' }} src={mario} alt="Super Mario" />
+      </Stack>
+    </Card>
   );
 };
