@@ -10,8 +10,8 @@ export const Footer = () => {
       <ChakraLink
         as={ReactRouterLink}
         to="/aboutus"
-        fontWeight="medium"
-        fontSize="xl"
+        fontWeight="large"
+        fontSize={{ base: 'md', lg: 'xl' }}
       >
         O nás
       </ChakraLink>
@@ -19,7 +19,9 @@ export const Footer = () => {
         <a className="a_footer" href="https://www.czechitas.cz/">
           <img src={czechitas} alt="czechitas" />
         </a>
-        <Text>Vytvořeno v rámci Digitální akademie web na jaře 2024</Text>
+        <Text fontSize={{ base: "12px", lg: '14px' }}>
+          Vytvořeno v rámci Digitální akademie web na jaře 2024
+        </Text>
       </div>
     </div>
   );
