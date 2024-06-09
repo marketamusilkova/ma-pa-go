@@ -1,12 +1,10 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
-import './HomePage.css';
-
 import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
 import { Dayjs } from './Dayjs/Dayjs';
 import { PlansAccordion } from './PlansAccordion/PlansAccordion';
-import { Heading, Image, Stack, Spinner } from '@chakra-ui/react';
+import { Heading, Image, Stack, Spinner, Card } from '@chakra-ui/react';
 import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
 import { Books } from './Books/Books';
@@ -59,7 +57,7 @@ export const HomePage = () => {
 
   if (plans === null || plans.length === 0) {
     return (
-      <div className="homepage">
+      <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
         <Heading color="yellow.300">
           My secret plan how to rule the world
         </Heading>
@@ -73,12 +71,12 @@ export const HomePage = () => {
         <Notifications />
         <Books />
         <Films />
-      </div>
+      </Card>
     );
   }
 
   return (
-    <div className="homepage">
+    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
       <Heading>MY SECRET PLAN HOW TO RULE THE WORLD</Heading>
       <Image
         src={batman_superman}
@@ -92,6 +90,6 @@ export const HomePage = () => {
         <Books />
         <Films />
       </Stack>
-    </div>
+    </Card>
   );
 };

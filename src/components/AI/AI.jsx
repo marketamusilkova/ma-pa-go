@@ -46,6 +46,7 @@ export const AI = () => {
         bottom="2rem"
         right="1rem"
         zIndex="1000"
+        size={{ base: 'md', md: 'lg' }}
       >
         Zeptej se AI
       </Button>
