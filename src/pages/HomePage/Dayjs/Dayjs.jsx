@@ -3,6 +3,7 @@ import {
   Card,
   CardBody,
   CardHeader,
+  Divider,
   Heading,
   Stack,
   StackDivider,
@@ -24,8 +25,9 @@ export const Dayjs = () => {
         <CardHeader>
           <Heading size="lg">Dnes je {dnesNaformatovano}.</Heading>
         </CardHeader>
+        <Divider color="yellow.500"/>
         <CardBody>
-          <Stack divider={<StackDivider />} spacing="4">
+          <Stack spacing="4">
             <Box>
               <Text pt="2" fontSize="lg">
                 Do Vánoc zbývá ještě {zbyvaDoVanoc} dní.

@@ -101,6 +101,29 @@ export const deleteBook = async (bookId) => {
   });
 };
 
+// fetches for films
+export const listFilms = async () => {
+  const response = await fetch(`${API_URL}/films`);
+  return await response.json();
+};
+
+export const appendFilm = async (film) => {
+  const response = await fetch(`${API_URL}/films`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(film),
+  });
+  return await response.json();
+};
+
+export const deleteFilm = async (filmId) => {
+  const response = await fetch(`${API_URL}/films/${filmId}`, {
+    method: 'DELETE',
+  });
+};
+
 // fetch for notifications
 export const appendUser = async (user) => {
   const response = await fetch(`${API_URL}/notifications`, {

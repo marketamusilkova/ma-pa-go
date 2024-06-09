@@ -10,6 +10,8 @@ import {
   FormLabel,
   Input,
   Text,
+  Stack,
+  Image,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { appendUser } from '../../../library/api';
@@ -33,12 +35,16 @@ export const Notifications = () => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Chceš vědět, jestli dneska bude pršet?</ModalHeader>
-          <Text>
-            Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo, pro
-            které Tě zajímá informace o dešti, a svůj email. Pokud předpověď
-            počasí bude ukazovat déšť, v daný den ráno ti dorazí email, aby sis
-            nezapomněla vzít deštník...
-          </Text>
+          <Stack direction="row">
+            <Text>
+              Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo, pro
+              které Tě zajímá informace o dešti, a svůj email. Pokud předpověď
+              počasí bude ukazovat déšť, v daný den ráno ti dorazí email, aby
+              sis nezapomněla vzít deštník...
+            </Text>
+            <Image src="https://media.giphy.com/media/TvVcE5NOI46tlmblLR/giphy.gif?cid=790b7611jfh9imhxo744amefh8yq2n93zo3kgrg8jhuayi84&ep=v1_gifs_search&rid=giphy.gif&ct=g" />
+          </Stack>
+
           <ModalCloseButton />
           <ModalBody>
             <form onSubmit={handleSubmit}>
