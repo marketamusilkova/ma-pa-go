@@ -15,7 +15,7 @@ import {
   InputRightElement,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { run } from './AIAPI/AIAPI';
+import { run } from './AIApi/AIApi';
 import { Spinner } from '../Spinner/Spinner';
 import { SearchIcon } from '@chakra-ui/icons';
 
