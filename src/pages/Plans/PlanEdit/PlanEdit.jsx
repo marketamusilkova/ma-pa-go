@@ -13,7 +13,6 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 import { getPlan, updatePlan } from '../../../library/api';
-import './PlanEdit.css';
 import mario from './Mario.jpg';
 
 export const PlanEdit = () => {
