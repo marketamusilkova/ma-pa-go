@@ -3,10 +3,11 @@ import './App.css';
 import { Footer } from './Footer/Footer';
 import { Navigation } from './Navigation/Navigation';
 import { AI } from '../../components/AI/AI';
+import { Stack } from '@chakra-ui/react';
 
 export const App = () => {
   return (
-    <div className="background">
+    <Stack className="background">
       <header>
         <Navigation />
       </header>
@@ -17,6 +18,6 @@ export const App = () => {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </Stack>
   );
 };

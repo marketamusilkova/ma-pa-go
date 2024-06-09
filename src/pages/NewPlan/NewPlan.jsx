@@ -3,16 +3,17 @@ import { appendPlan } from '../../library/api';
 import { useNavigate } from 'react-router-dom';
 import {
   Button,
+  Card,
   Flex,
   FormLabel,
   Grid,
   Heading,
-  Img,
+  Image,
   Input,
   Stack,
   Textarea,
+  useBreakpoint,
 } from '@chakra-ui/react';
-import './NewPlan.css';
 import star_wars0 from './star_wars_0.jpg';
 import star_wars1 from './star_wars_1.jpg';
 import star_wars3 from './star_wars_3.jpg';
@@ -21,19 +22,13 @@ import star_wars2 from './star_wars_2.jpg';
 export const NewPlan = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024); // 1024px or larger is considered a large screen
-    };
+  const breakpoint = useBreakpoint();
+  const isSmall = breakpoint === 'base' || breakpoint === 'sm';
+  console.log(isSmall);
+  const isLarge = ['md', 'lg', 'xl', '2xl'].includes(breakpoint);
 
-    window.addEventListener('resize', checkScreenSize);
-    checkScreenSize();
-
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
-
+  console.log(isLarge);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -48,82 +43,43 @@ export const NewPlan = () => {
   };
 
   return (
-    <div className="background_newplan">
-      {isLargeScreen ? (
-        <Flex
-          direction="row"
-          wrap="nowrap"
-          align="center"
-          className="largeScreenLayout"
-        >
+    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        wrap="nowrap"
+        align="center"
+      >
+        {isSmall ? (
+          <Stack direction="row" justify="center" mb={4}>
+            <Image minWidth="50%" src={star_wars0} alt="Star wars" />
+            <Image minWidth="50%" src={star_wars1} alt="Star wars" />
+          </Stack>
+        ) : null}
+        {isLarge ? (
           <Grid
             templateColumns="repeat(2, 1fr)"
             templateRows="repeat(2, 1fr)"
             gap={4}
             width="50%"
             height="auto"
-            className="imageGrid"
           >
-            <Img src={star_wars0} alt="Star wars" objectFit="cover" />
-            <Img src={star_wars1} alt="Star wars" objectFit="cover" />
-            <Img src={star_wars2} alt="Star wars" objectFit="cover" />
-            <Img src={star_wars3} alt="Star wars" objectFit="cover" />
+            <Image src={star_wars0} alt="Star wars" objectFit="cover" />
+            <Image src={star_wars1} alt="Star wars" objectFit="cover" />
+            <Image src={star_wars2} alt="Star wars" objectFit="cover" />
+            <Image src={star_wars3} alt="Star wars" objectFit="cover" />
           </Grid>
-          <Stack
-            direction="column"
-            justify="center"
-            textAlign={'center'}
-            width="50%"
-            p={4}
-            m="30"
-            className="contentSection"
-          >
-            <Heading as="h2" size="xl" mb={4}>
-              Vytvořit nový plán
-            </Heading>
-            <form onSubmit={handleSubmit} className="form_newplan" >
-              <FormLabel>Zadej název</FormLabel>
-              <Input
-                type="text"
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-                required
-                mb={3}
-              />
-              <FormLabel>
-                Popiš a upřesni si tento plán <small>(nepovinný údaj)</small>
-              </FormLabel>
-              <Textarea
-                rows="3"
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-                mb={3}
-              />
-              <Button type="submit" colorScheme="blue">
-                Vytvořit
-              </Button>
-            </form>
-          </Stack>
-        </Flex>
-      ) : (
-        <Flex
-          direction="column"
-          align="center"
-          justify="center"
-          className="smallScreenLayout"
+        ) : null}
+
+        <Stack
+          textAlign={{ md: 'center' }}
+          width={{ md: '50%' }}
+          p={{ md: 4 }}
+          m="30"
         >
-          <Stack direction="row" justify="center" mb={4}>
-            <Img minWidth="50%" src={star_wars0} alt="Star wars" />
-            <Img minWidth="50%" src={star_wars1} alt="Star wars" />
-          </Stack>
-          <Heading as="h2" size="lg" mb={4}>
+          <Heading as="h2" size="xl" mb={4}>
             Vytvořit nový plán
           </Heading>
-          <form
-            onSubmit={handleSubmit}
-            className="form_newplan"
-            style={{ marginBottom: '20px' }}
-          >
+          <form onSubmit={handleSubmit}>
             <FormLabel>Zadej název</FormLabel>
             <Input
               type="text"
@@ -141,16 +97,16 @@ export const NewPlan = () => {
               onChange={(event) => setDescription(event.target.value)}
               mb={3}
             />
-            <Button type="submit" colorScheme="blue">
-              Vytvořit
-            </Button>
+            <Button type="submit">Vytvořit</Button>
           </form>
+        </Stack>
+        {isSmall ? (
           <Stack direction="row" justify="center">
-            <Img minWidth="50%" src={star_wars2} alt="Star wars" />
-            <Img minWidth="50%" src={star_wars3} alt="Star wars" />
+            <Image minWidth="50%" src={star_wars2} alt="Star wars" />
+            <Image minWidth="50%" src={star_wars3} alt="Star wars" />
           </Stack>
-        </Flex>
-      )}
-    </div>
+        ) : null}
+      </Flex>
+    </Card>
   );
 };

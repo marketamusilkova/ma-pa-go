@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
-import { PlusSquareIcon } from '@chakra-ui/icons';
+import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 
 export const Plan = ({ plan, onDelete, tasks }) => {
   const handleDeleteClick = async () => {
@@ -27,21 +27,20 @@ export const Plan = ({ plan, onDelete, tasks }) => {
     <Card key={plan.$$id} w={{ lg: '33%' }}>
       <CardBody>
         <Stack h="100%">
-          <Heading as="h1" size={{base: 'md', lg: 'lg'}}> 
+          <Heading as="h1" size={{base: 'sm', lg: 'md'}}> 
             {plan.title}
           </Heading>
           <Text>{plan.description}</Text>
-          <Flex className="plan_action">
+          <Stack className="plan_action" direction="row" justifyContent={'end'}>
             <Button size={{base: "sm", lg: "md"}}>
               <ChakraLink as={ReactRouterLink} to={`/plan/${plan.$$id}/edit`}>
-                Upravit plán
+              <EditIcon />
               </ChakraLink>
             </Button>
-            <Spacer />
             <Button  type="button" onClick={handleDeleteClick} size={{base: "sm", lg: "md"}}>
-              Smazat plán
+              <DeleteIcon />
             </Button>
-          </Flex>
+          </Stack>
 
           <Divider />
 
@@ -60,7 +59,7 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                       as={ReactRouterLink}
                       to={`/task/${task.$$id}/edit`}
                     >
-                      Upravit
+                      <EditIcon />
                     </ChakraLink>
                   </Button>
                 </Stack>

@@ -11,10 +11,13 @@ import {
   Input,
   Text,
   Stack,
+  InputGroup,
+  InputRightElement,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { run } from './AIAPI/AIAPI';
 import { Spinner } from '../Spinner/Spinner';
+import { SearchIcon } from '@chakra-ui/icons';
 
 export const AI = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,7 +30,7 @@ export const AI = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    
+
     const answer = await run(aiquestion);
     setAianswer(answer);
     setIsLoading(false);
@@ -60,20 +63,24 @@ export const AI = () => {
             <DrawerHeader> Na co se chceš zeptat AI?</DrawerHeader>
 
             <DrawerBody>
-              <Input
-                mb={7}
-                placeholder="Piš sem..."
-                type="text"
-                value={aiquestion}
-                onChange={(event) => setAiquestion(event.target.value)}
-              />
+              <InputGroup>
+                <Input
+                  mb={7}
+                  placeholder="Piš sem..."
+                  type="text"
+                  value={aiquestion}
+                  onChange={(event) => setAiquestion(event.target.value)}
+                />
+                <InputRightElement>
+                  <SearchIcon />
+                </InputRightElement>
+              </InputGroup>
               <Stack align="center">
                 {isLoading === true ? <Spinner /> : <Text>{aianswer}</Text>}
               </Stack>
             </DrawerBody>
 
             <DrawerFooter>
-          
               <Button type="submit" colorScheme="blue">
                 Zeptej se
               </Button>

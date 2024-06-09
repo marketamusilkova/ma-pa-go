@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
 import { Dayjs } from './Dayjs/Dayjs';
 import { PlansAccordion } from './PlansAccordion/PlansAccordion';
-import { Heading, Img, Spinner } from '@chakra-ui/react';
+import { Heading, Image, Spinner } from '@chakra-ui/react';
 import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
 
@@ -62,7 +62,7 @@ export const HomePage = () => {
         <Heading colorScheme="yellow">
           My secret plan how to rule the world
         </Heading>
-        <Img src={batman_superman} alt="Batman and Superman" />
+        <Image src={batman_superman} alt="Batman and Superman" />
         <Dayjs />
         <Heading>Nemáš ještě založené žádné plány...</Heading>
         <Notifications />
@@ -75,7 +75,7 @@ export const HomePage = () => {
       <Heading colorScheme="yellow">
         My secret plan how to rule the world
       </Heading>
-      <Img src={batman_superman} alt="Batman and Superman" />
+      <Image src={batman_superman} alt="Batman and Superman" />
       <Dayjs />
       <PlansAccordion plans={plans} planTasks={planTasks} />
       <Notifications />

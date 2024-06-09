@@ -1,4 +1,4 @@
-import { Heading, Img, Spinner } from '@chakra-ui/react';
+import { Heading, Image, Spinner } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
@@ -53,18 +53,18 @@ export const Plans = () => {
       <Heading className="heading_plans" as="h2" size="xl">
         Moje plány
       </Heading>
-      
-        {plans && tasksByPlans ? (
-          <PlansList
-            plans={plans}
-            onDelete={handleDelete}
-            tasksByPlans={tasksByPlans}
-          />
-        ) : (
-          <Spinner />
-        )}
-      
-      <Img className="friends" src={friends} alt="Friends" />
+
+      {plans && tasksByPlans ? (
+        <PlansList
+          plans={plans}
+          onDelete={handleDelete}
+          tasksByPlans={tasksByPlans}
+        />
+      ) : (
+        <Spinner />
+      )}
+
+      <Image className="friends" src={friends} alt="Friends" />
     </div>
   );
 };

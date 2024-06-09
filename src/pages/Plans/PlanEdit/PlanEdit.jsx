@@ -4,7 +4,7 @@ import {
   Button,
   FormLabel,
   Heading,
-  Img,
+  Image,
   Input,
   Spinner,
   Textarea,
@@ -44,11 +44,11 @@ export const PlanEdit = () => {
   return (
     <div className="plan_edit">
       <form onSubmit={handleSubmit} className="form_plan_edit">
-        <div className='edit_header'>
+        <div className="edit_header">
           <Heading as="h2" size="xl">
             Úprava plánu
           </Heading>
-          <Img className='mario' src={mario} alt="Super Mario" />
+          <Image className="mario" src={mario} alt="Super Mario" />
         </div>
         <div>
           <FormLabel>Chceš změnit název?</FormLabel>

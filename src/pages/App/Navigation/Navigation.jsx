@@ -1,9 +1,8 @@
 import { Link as RouterLink } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import './Navigation.css';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex } from '@chakra-ui/react';
 
 export const Navigation = () => (
-  <div className='navigation'>
+  <Flex bg="rgba(253, 251, 251, 0.8)" p="1rem" justifyContent="end">
     <Breadcrumb fontWeight="medium" fontSize={{ base: 'md', lg: 'xl' }}>
       <BreadcrumbItem>
         <BreadcrumbLink as={RouterLink} to="/">
@@ -29,5 +28,5 @@ export const Navigation = () => (
         </BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
-  </div>
+  </Flex>
 );
