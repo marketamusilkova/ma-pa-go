@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
 import { Dayjs } from './Dayjs/Dayjs';
 import { PlansAccordion } from './PlansAccordion/PlansAccordion';
-import { Heading, Img, Spinner } from '@chakra-ui/react';
+import { Heading, Image, Stack } from '@chakra-ui/react';
 import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
+import { Books } from './Books/Books';
+import { Films } from './Films/Films';
 
 export const HomePage = () => {
   const [plans, setPlans] = useState(null);
@@ -55,30 +57,41 @@ export const HomePage = () => {
     }
   }, [plans, tasks]);
 
-  console.log(plans);
   if (plans === null || plans.length === 0) {
     return (
       <div className="homepage">
-        <Heading colorScheme="yellow">
+        <Heading color="yellow.300">
           My secret plan how to rule the world
         </Heading>
-        <Img src={batman_superman} alt="Batman and Superman" />
+        <Image
+          src={batman_superman}
+          alt="Batman and Superman"
+          borderRadius="lg"
+        />
         <Dayjs />
         <Heading>Nemáš ještě založené žádné plány...</Heading>
         <Notifications />
+        <Books />
+        <Films />
       </div>
     );
   }
 
   return (
     <div className="homepage">
-      <Heading colorScheme="yellow">
-        My secret plan how to rule the world
-      </Heading>
-      <Img src={batman_superman} alt="Batman and Superman" />
+      <Heading>MY SECRET PLAN HOW TO RULE THE WORLD</Heading>
+      <Image
+        src={batman_superman}
+        alt="Batman and Superman"
+        borderRadius="lg"
+      />
       <Dayjs />
       <PlansAccordion plans={plans} planTasks={planTasks} />
       <Notifications />
+      <Stack direction="row" justifyContent="space-around">
+        <Books />
+        <Films />
+      </Stack>
     </div>
   );
 };

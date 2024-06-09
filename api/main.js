@@ -16,6 +16,7 @@ const api = await new RESTfulCollections()
         : [value.plan, value.title, '*'],
   })
   .collection('books', {})
+  .collection('films', {})
   .collection('notifications', {})
   .buildServer();
 
