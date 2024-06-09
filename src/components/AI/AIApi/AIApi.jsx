@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 const API_KEY = import.meta.env.VITE_API_KEY_API_AI;
 
-console.log(API_KEY);
+console.log(API_KEY)
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
@@ -18,6 +18,7 @@ const generationConfig = {
 };
 
 export const run = async (aiquestion) => {
+  console.log(aiquestion);
   const chatSession = model.startChat({
     generationConfig,
     // safetySettings: Adjust safety settings
@@ -39,6 +40,7 @@ export const run = async (aiquestion) => {
   });
 
   const result = await chatSession.sendMessage(aiquestion);
+  console.log(result.response.text());
 
   return result.response.text();
 };
