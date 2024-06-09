@@ -1,17 +1,7 @@
 import { useEffect, useState } from 'react';
 import { appendPlan } from '../../library/api';
 import { useNavigate } from 'react-router-dom';
-import {
-  Button,
-  Flex,
-  FormLabel,
-  Grid,
-  Heading,
-  Img,
-  Input,
-  Stack,
-  Textarea,
-} from '@chakra-ui/react';
+import { Button, FormLabel, Heading, Img, Input, Textarea } from '@chakra-ui/react';
 import './NewPlan.css';
 import star_wars0 from './star_wars_0.jpg';
 import star_wars1 from './star_wars_1.jpg';
@@ -21,18 +11,6 @@ import star_wars2 from './star_wars_2.jpg';
 export const NewPlan = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024); // 1024px or larger is considered a large screen
-    };
-
-    window.addEventListener('resize', checkScreenSize);
-    checkScreenSize();
-
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
 
   const navigate = useNavigate();
 
@@ -119,18 +97,13 @@ export const NewPlan = () => {
           <Heading as="h2" size="lg" mb={4}>
             Vytvořit nový plán
           </Heading>
-          <form
-            onSubmit={handleSubmit}
-            className="form_newplan"
-            style={{ marginBottom: '20px' }}
-          >
+          <form onSubmit={handleSubmit} className="form_newplan">
             <FormLabel>Zadej název</FormLabel>
             <Input
               type="text"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               required
-              mb={3}
             />
             <FormLabel>
               Popiš a upřesni si tento plán <small>(nepovinný údaj)</small>
@@ -139,18 +112,21 @@ export const NewPlan = () => {
               rows="3"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
-              mb={3}
             />
-            <Button type="submit" colorScheme="blue">
-              Vytvořit
-            </Button>
+            <Button type="submit">Vytvořit</Button>
           </form>
-          <Stack direction="row" justify="center">
-            <Img minWidth="50%" src={star_wars2} alt="Star wars" />
-            <Img minWidth="50%" src={star_wars3} alt="Star wars" />
-          </Stack>
-        </Flex>
-      )}
+        </div>
+        <div className='img_tab'>
+          <div className="newplan_img">
+            <Img src={star_wars0} alt="Star wars" />
+            <Img src={star_wars1} alt="Star wars" />
+          </div>
+          <div className="newplan_img">
+            <Img src={star_wars2} alt="Star wars" />
+            <Img src={star_wars3} alt="Star wars" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
