@@ -53,7 +53,6 @@ export const NewPlan = () => {
         <Flex
           direction="row"
           wrap="nowrap"
-          justify="center"
           align="center"
           className="largeScreenLayout"
         >
@@ -70,7 +69,7 @@ export const NewPlan = () => {
             <Img src={star_wars2} alt="Star wars" objectFit="cover" />
             <Img src={star_wars3} alt="Star wars" objectFit="cover" />
           </Grid>
-          <Flex
+          <Stack
             direction="column"
             justify="center"
             textAlign={'center'}
@@ -104,7 +103,7 @@ export const NewPlan = () => {
                 Vytvořit
               </Button>
             </form>
-          </Flex>
+          </Stack>
         </Flex>
       ) : (
         <Flex
