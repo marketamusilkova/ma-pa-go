@@ -9,6 +9,7 @@ import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
 import { Books } from './Books/Books';
 import { Films } from './Films/Films';
+import { Spinner } from '../../components/Spinner/Spinner';
 
 export const HomePage = () => {
   const [plans, setPlans] = useState(null);
@@ -65,7 +66,9 @@ export const HomePage = () => {
           borderRadius="lg"
         />
         <Dayjs />
-        {plans === null || plans.length === 0 ? (
+        {plans === null ? (
+          <Spinner />
+        ) : plans.length === 0 ? (
           <Heading>Nemáš ještě založené žádné plány...</Heading>
         ) : (
           <PlansAccordion
@@ -80,6 +83,7 @@ export const HomePage = () => {
             )}
           />
         )}
+
         <Notifications />
         <Stack
           direction={{ base: 'column', md: 'row' }}
