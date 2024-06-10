@@ -64,7 +64,7 @@ export const Plans = () => {
         <Spinner />
       )}
 
-      <Image className="friends" src={friends} alt="Friends" />
+      <Image className="friends" src={friends} alt="Friends" borderRadius="lg"/>
     </div>
   );
 };

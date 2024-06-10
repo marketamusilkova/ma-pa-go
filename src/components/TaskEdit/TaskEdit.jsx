@@ -44,7 +44,7 @@ export const TaskEdit = () => {
     <div className="task_edit">
       <form onSubmit={handleSubmit} className="form_task_edit">
         <div className="edit_task_header">
-          <Image className="mario" src={toys_story} alt="Super Mario" />
+          <Image className="mario" src={toys_story} alt="Super Mario" borderRadius="lg" />
           <Heading as="h2" size="xl">
             Úprava úkolu
           </Heading>

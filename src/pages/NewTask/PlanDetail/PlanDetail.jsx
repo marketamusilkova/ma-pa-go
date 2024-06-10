@@ -40,7 +40,7 @@ export const PlanDetail = () => {
 
   return (
     <div className="plan_detail">
-      <Image className="tbbt" src={tbbt} alt="The Big Bang Theory" />
+      <Image className="tbbt" src={tbbt} alt="The Big Bang Theory" borderRadius="lg"/>
       <div className="detail_content">
         <Heading as="h1" size="2xl">
           {plan.title}

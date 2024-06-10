@@ -51,8 +51,8 @@ export const NewPlan = () => {
       >
         {isSmall ? (
           <Stack direction="row" justify="center" mb={4}>
-            <Image minWidth="50%" src={star_wars0} alt="Star wars" />
-            <Image minWidth="50%" src={star_wars1} alt="Star wars" />
+            <Image minWidth="50%" src={star_wars0} alt="Star wars" borderRadius="lg"/>
+            <Image minWidth="50%" src={star_wars1} alt="Star wars" borderRadius="lg"/>
           </Stack>
         ) : null}
         {isLarge ? (
@@ -63,10 +63,10 @@ export const NewPlan = () => {
             width="50%"
             height="auto"
           >
-            <Image src={star_wars0} alt="Star wars" objectFit="cover" />
-            <Image src={star_wars1} alt="Star wars" objectFit="cover" />
-            <Image src={star_wars2} alt="Star wars" objectFit="cover" />
-            <Image src={star_wars3} alt="Star wars" objectFit="cover" />
+            <Image src={star_wars0} alt="Star wars" objectFit="cover" borderRadius="lg"/>
+            <Image src={star_wars1} alt="Star wars" objectFit="cover" borderRadius="lg"/>
+            <Image src={star_wars2} alt="Star wars" objectFit="cover" borderRadius="lg"/>
+            <Image src={star_wars3} alt="Star wars" objectFit="cover" borderRadius="lg"/>
           </Grid>
         ) : null}
 
@@ -102,8 +102,8 @@ export const NewPlan = () => {
         </Stack>
         {isSmall ? (
           <Stack direction="row" justify="center">
-            <Image minWidth="50%" src={star_wars2} alt="Star wars" />
-            <Image minWidth="50%" src={star_wars3} alt="Star wars" />
+            <Image minWidth="50%" src={star_wars2} alt="Star wars" borderRadius="lg"/>
+            <Image minWidth="50%" src={star_wars3} alt="Star wars" borderRadius="lg"/>
           </Stack>
         ) : null}
       </Flex>

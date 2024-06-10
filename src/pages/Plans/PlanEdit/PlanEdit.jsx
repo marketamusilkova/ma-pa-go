@@ -75,7 +75,7 @@ export const PlanEdit = () => {
             </Stack>
           </form>
         </Box>
-        <Image maxW={{ md: '50%' }} src={mario} alt="Super Mario" />
+        <Image maxW={{ md: '50%' }} src={mario} alt="Super Mario" borderRadius="lg"/>
       </Stack>
     </Card>
   );
