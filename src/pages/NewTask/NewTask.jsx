@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { appendTask, listPlans } from '../../library/api';
 import {
-  Box,
   Button,
   Card,
-  Flex,
   FormLabel,
   Heading,
   Image,
@@ -16,7 +14,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import harry_potter from './Harry_Potter.jpg';
-import dumbledor from './dumbledor_720.jpg';
+import dumbledor from './Dumbledor.jpg';
 
 export const NewTask = () => {
   const [plans, setPlans] = useState([]);
