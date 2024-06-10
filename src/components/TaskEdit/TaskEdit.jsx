@@ -67,7 +67,9 @@ export const TaskEdit = () => {
             onChange={(event) => setDate(event.target.value)}
           />
         </div>
-        <Button type="submit">Upravit</Button>
+        <Button bg="yellow.500" color="white" type="submit">
+          Upravit
+        </Button>
       </form>
     </div>
   );

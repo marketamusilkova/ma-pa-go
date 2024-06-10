@@ -135,3 +135,9 @@ export const appendUser = async (user) => {
   });
   return await response.json();
 };
+
+// fetch for name-days
+export const nameDays = async () => {
+  const response = await fetch(`https://svatky.adresa.info/json`);
+  return await response.json();
+};

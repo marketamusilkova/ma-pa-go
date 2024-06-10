@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { appendPlan } from '../../library/api';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -97,7 +97,7 @@ export const NewPlan = () => {
               onChange={(event) => setDescription(event.target.value)}
               mb={3}
             />
-            <Button type="submit">Vytvořit</Button>
+            <Button bg="yellow.500" color="white" type="submit">Vytvořit</Button>
           </form>
         </Stack>
         {isSmall ? (

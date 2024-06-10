@@ -1,4 +1,4 @@
-import { deletePlan, updateTask } from '../../../library/api';
+import { deletePlan, deleteTask, updateTask } from '../../../library/api';
 import {
   Button,
   Card,
@@ -16,13 +16,21 @@ import { Reorder } from 'framer-motion';
 import { useState } from 'react';
 
 export const Plan = ({ plan, onDelete, tasks }) => {
-  const [orderedTasks, setOrderedTasks] = useState(tasks.sort((a, b) => a.order - b.order));
+  const [orderedTasks, setOrderedTasks] = useState(
+    tasks.sort((a, b) => a.order - b.order),
+  );
 
   const handleDeleteClick = async () => {
     await deletePlan(plan.$$id);
     if (onDelete) {
       onDelete();
     }
+  };
+
+  const handleDeleteTaskClick = async (id) => {
+    await deleteTask(id);
+    const newTasks = orderedTasks.filter((task) => task.$$id !== id);
+    setOrderedTasks(newTasks);
   };
 
   const handleReorder = (newOrder) => {
@@ -41,12 +49,18 @@ export const Plan = ({ plan, onDelete, tasks }) => {
           </Heading>
           <Text>{plan.description}</Text>
           <Stack className="plan_action" direction="row" justifyContent={'end'}>
-            <Button size={{ base: 'sm', lg: 'md' }}>
+            <Button
+              bg="yellow.500"
+              color="white"
+              size={{ base: 'sm', lg: 'md' }}
+            >
               <ChakraLink as={ReactRouterLink} to={`/plan/${plan.$$id}/edit`}>
                 <EditIcon />
               </ChakraLink>
             </Button>
             <Button
+              bg="yellow.500"
+              color="white"
               type="button"
               onClick={handleDeleteClick}
               size={{ base: 'sm', lg: 'md' }}
@@ -81,18 +95,31 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                   cursor="move"
                 >
                   <Checkbox colorScheme="red">{task.title}</Checkbox>
-                  <Button size={{ base: 'sm', lg: 'md' }}>
-                    <ChakraLink
-                      as={ReactRouterLink}
-                      to={`/task/${task.$$id}/edit`}
+                  <Stack justifyContent="end" spacing={2} direction={'row'}>
+                    <Button
+                      bg="yellow.500"
+                      color="white"
+                      size={{ base: 'sm', lg: 'md' }}
                     >
-                      <EditIcon />
-                    </ChakraLink>
-                  </Button>
+                      <ChakraLink
+                        as={ReactRouterLink}
+                        to={`/task/${task.$$id}/edit`}
+                      >
+                        <EditIcon />
+                      </ChakraLink>
+                    </Button>
+                    <Button
+                      bg="yellow.500"
+                      color="white"
+                      onClick={() => handleDeleteTaskClick(task.$$id)}
+                    >
+                      <DeleteIcon />
+                    </Button>
+                  </Stack>
                 </Stack>
               ))}
             </Stack>
-            <Button>
+            <Button bg="yellow.500" color="white">
               <ChakraLink as={ReactRouterLink} to={`/newtask`}>
                 Přidat úkol <PlusSquareIcon mx="2px" />
               </ChakraLink>

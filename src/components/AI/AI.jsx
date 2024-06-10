@@ -17,7 +17,7 @@ import {
 import React, { useState } from 'react';
 import { run } from './AIApi/AIApi';
 import { Spinner } from '../Spinner/Spinner';
-import { SearchIcon } from '@chakra-ui/icons';
+import { ChatIcon, SearchIcon } from '@chakra-ui/icons';
 
 export const AI = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,7 +40,8 @@ export const AI = () => {
     <>
       <Button
         ref={btnRef}
-        colorScheme="yellow"
+        bg="red.500"
+        color="white"
         onClick={onOpen}
         pos="fixed"
         bottom="2rem"
@@ -48,24 +49,29 @@ export const AI = () => {
         zIndex="1000"
         size={{ base: 'md', md: 'lg' }}
       >
-        Zeptej se AI
+        <ChatIcon />
       </Button>
 
       <Drawer
         isOpen={isOpen}
         placement="right"
         onClose={() => {
-          onClose()
-          setAianswer("")
-          setAiquestion ("")
-        } }
+          onClose();
+          setAianswer('');
+          setAiquestion('');
+        }}
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <form onSubmit={handleSubmit}>
-            <DrawerHeader> Na co se chceš zeptat AI?</DrawerHeader>
+            <DrawerHeader>
+              {' '}
+              Zde se můžeš v podstatě na cokoli zeptat velmi chytré umělé
+              inteligence. Jen mysli na to, že není připojena k internetu, tudíž
+              nedokáže například stáhnout aktuální předpověď počasí.
+            </DrawerHeader>
 
             <DrawerBody>
               <InputGroup>
@@ -86,7 +92,7 @@ export const AI = () => {
             </DrawerBody>
 
             <DrawerFooter>
-              <Button type="submit" colorScheme="blue">
+              <Button bg="red.500" color="white" type="submit">
                 Zeptej se
               </Button>
             </DrawerFooter>

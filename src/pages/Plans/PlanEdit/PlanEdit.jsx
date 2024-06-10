@@ -69,7 +69,9 @@ export const PlanEdit = () => {
                   onChange={(event) => setDescription(event.target.value)}
                 ></Textarea>
               </div>
-              <Button type="submit">Upravit</Button>
+              <Button bg="yellow.500" color="white" type="submit">
+                Upravit
+              </Button>
             </Stack>
           </form>
         </Box>

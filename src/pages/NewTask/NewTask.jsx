@@ -21,8 +21,11 @@ export const NewTask = () => {
   const [plan, setPlan] = useState('');
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
-  
-  const imageSrc = useBreakpointValue({ base: dumbledor, md: harry_potter}, {ssr:false})
+
+  const imageSrc = useBreakpointValue(
+    { base: dumbledor, md: harry_potter },
+    { ssr: false },
+  );
 
   const navigate = useNavigate();
 
@@ -89,7 +92,7 @@ export const NewTask = () => {
               value={date}
               onChange={(event) => setDate(event.target.value)}
             />
-            <Button m="4" type="submit">
+            <Button bg="yellow.500" color="white" m="4" type="submit">
               Přidat
             </Button>
           </form>
