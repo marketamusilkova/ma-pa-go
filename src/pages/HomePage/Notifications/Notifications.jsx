@@ -36,18 +36,23 @@ export const Notifications = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Chceš vědět, jestli dneska bude pršet?</ModalHeader>
-          <Stack direction="row">
-            <Text>
+          <ModalHeader>Chceš vědět, jestli dnes bude pršet?</ModalHeader>
+          <Stack direction="row" p="1.5rem">
+            <Text fontSize="sm">
               Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo, pro
               které Tě zajímá informace o dešti, a svůj email. Pokud předpověď
               počasí bude ukazovat déšť, v daný den ráno ti dorazí email, aby
               sis nezapomněla vzít deštník...
             </Text>
-            <Image src="https://media.giphy.com/media/TvVcE5NOI46tlmblLR/giphy.gif?cid=790b7611jfh9imhxo744amefh8yq2n93zo3kgrg8jhuayi84&ep=v1_gifs_search&rid=giphy.gif&ct=g" borderRadius="lg"/>
+            <Image
+              src="https://media.giphy.com/media/TvVcE5NOI46tlmblLR/giphy.gif?cid=790b7611jfh9imhxo744amefh8yq2n93zo3kgrg8jhuayi84&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+              borderRadius="lg"
+              maxW="40%"
+            />
           </Stack>
 
           <ModalCloseButton />
+
           <ModalBody>
             <form onSubmit={handleSubmit}>
               <FormLabel>Zadej PSČ (s mezerou, např. 550 01)</FormLabel>
@@ -67,6 +72,7 @@ export const Notifications = () => {
                 color="white"
                 type="submit"
                 onClick={onClose}
+                m="1rem"
               >
                 Přihlaš se k notifikacím
               </Button>

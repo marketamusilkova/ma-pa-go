@@ -7,7 +7,7 @@ import { Stack } from '@chakra-ui/react';
 
 export const App = () => {
   return (
-    <Stack className="background" h="100vh">
+    <Stack className="background" minH="100vh">
       <header>
         <Navigation />
       </header>

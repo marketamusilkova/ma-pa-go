@@ -48,8 +48,13 @@ export const PlanEdit = () => {
       <Stack direction={{ base: 'column', md: 'row' }}>
         <Box minW={{ md: '50%' }} p={{ md: '10px' }}>
           <form onSubmit={handleSubmit}>
-            <Stack>
-              <Heading as="h2" size="xl">
+            <Stack p={{ md: '20px' }}>
+              <Heading
+                as="h2"
+                size="xl"
+                alignSelf={'center'}
+                mb={{ md: '10px' }}
+              >
                 Úprava plánu
               </Heading>
 
@@ -69,13 +74,18 @@ export const PlanEdit = () => {
                   onChange={(event) => setDescription(event.target.value)}
                 ></Textarea>
               </div>
-              <Button bg="yellow.500" color="white" type="submit">
+              <Button type="submit" bg="yellow.500" color="white">
                 Upravit
               </Button>
             </Stack>
           </form>
         </Box>
-        <Image maxW={{ md: '50%' }} src={mario} alt="Super Mario" borderRadius="lg"/>
+        <Image
+          maxW={{ md: '50%' }}
+          src={mario}
+          alt="Super Mario"
+          borderRadius="lg"
+        />
       </Stack>
     </Card>
   );

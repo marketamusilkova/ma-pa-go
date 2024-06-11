@@ -92,7 +92,7 @@ export const NewTask = () => {
               value={date}
               onChange={(event) => setDate(event.target.value)}
             />
-            <Button bg="yellow.500" color="white" m="4" type="submit">
+            <Button type="submit" bg="yellow.500" color="white" m="4" >
               Přidat
             </Button>
           </form>

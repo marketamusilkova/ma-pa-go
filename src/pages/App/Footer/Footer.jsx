@@ -5,35 +5,33 @@ import czechitas from './czechitas.png';
 
 export const Footer = () => {
   return (
-    <Card p="0.5rem"
-      bg="rgba(253, 251, 251, 0.8)">
-    <Grid
-      gridTemplateRows="auto 1fr"
-      gridTemplateColumns="1fr 2fr"
-      gap={4}
-      
+    <Card bg="rgba(253, 251, 251, 0.8)" p="0.5rem">
+      <Grid gridTemplateRows="auto 1fr" gridTemplateColumns="1fr 2fr" gap={4}>
+        <GridItem colSpan={2} textAlign="center">
+          <ChakraLink
+            as={ReactRouterLink}
+            to="/aboutus"
+            fontWeight="large"
+            fontSize={{ base: 'md', lg: 'xl' }}
           >
-      <GridItem colSpan={2} textAlign="center">
-        <ChakraLink
-          as={ReactRouterLink}
-          to="/aboutus"
-          fontWeight="large"
-          fontSize={{ base: 'md', lg: 'xl' }}
+            O nás
+          </ChakraLink>
+        </GridItem>
+        <GridItem
+          rowStart={2}
+          maxW={{ base: '100px', md: '150px' }}
+          justifySelf="center"
         >
-          O nás
-        </ChakraLink>
-      </GridItem>
-      <GridItem rowStart={2} maxW={{base: "100px", md: "150px"}} justifySelf="center">
-        <a className="a_footer" href="https://www.czechitas.cz/">
-          <img src={czechitas} alt="czechitas" />
-        </a>
-      </GridItem>
-      <GridItem rowStart={2} textAlign="center" >
-        <Text fontSize={{ base: '12px', md: '18px' }}>
-          Vytvořeno v rámci Digitální akademie web na jaře 2024
-        </Text>
-      </GridItem>
-    </Grid>
+          <a className="a_footer" href="https://www.czechitas.cz/">
+            <img src={czechitas} alt="czechitas" />
+          </a>
+        </GridItem>
+        <GridItem rowStart={2} textAlign="center">
+          <Text fontSize={{ base: '12px', md: '18px' }}>
+            Vytvořeno v rámci Digitální akademie web na jaře 2024
+          </Text>
+        </GridItem>
+      </Grid>
     </Card>
   );
 };

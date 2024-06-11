@@ -49,7 +49,7 @@ export const Films = () => {
           alt="films"
           borderRadius="lg"
         />
-        <Stack mt="6" spacing="3">
+        <Stack mt="6" mb="6" spacing="3">
           <Heading size="md">Už jsi viděla Osvícení?</Heading>
           <Text>
             Zde si můžeš přidat filmy a seriály, co máš v plánu zkouknout...
@@ -57,18 +57,24 @@ export const Films = () => {
         </Stack>
         {films ? (
           <UnorderedList>
-            {films.map((film) => (
-              <div key={film.$$id}>
-                <ListItem>{film.title}</ListItem>
-                <Button
-                  bg="yellow.500"
-                  color="white"
-                  onClick={() => handleDelete(film.$$id)}
+            <Stack>
+              {films.map((film) => (
+                <Stack
+                  key={film.$$id}
+                  direction="row"
+                  justifyContent="space-between"
                 >
-                  <DeleteIcon />
-                </Button>
-              </div>
-            ))}
+                  <ListItem>{film.title}</ListItem>
+                  <Button
+                    bg="yellow.500"
+                    color="white"
+                    onClick={() => handleDelete(film.$$id)}
+                  >
+                    <DeleteIcon />
+                  </Button>
+                </Stack>
+              ))}
+            </Stack>
           </UnorderedList>
         ) : null}
       </CardBody>
@@ -80,7 +86,7 @@ export const Films = () => {
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
-          <Button bg="yellow.500" color="white" type="submit">
+          <Button type="submit" bg="yellow.500" color="white" mt="1rem">
             Přidat film nebo seriál
           </Button>
         </form>

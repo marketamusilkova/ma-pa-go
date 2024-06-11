@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
+  Box,
   Button,
+  Card,
   FormLabel,
   Heading,
   Image,
   Input,
   Spinner,
+  Stack,
 } from '@chakra-ui/react';
-import './TaskEdit.css';
 import toys_story from './Toys_story.jpg';
 import { getTask, updateTask } from '../../library/api';
 
@@ -41,36 +43,50 @@ export const TaskEdit = () => {
   }
 
   return (
-    <div className="task_edit">
-      <form onSubmit={handleSubmit} className="form_task_edit">
-        <div className="edit_task_header">
-          <Image className="mario" src={toys_story} alt="Super Mario" borderRadius="lg" />
-          <Heading as="h2" size="xl">
-            Úprava úkolu
-          </Heading>
-        </div>
-        <div>
-          <FormLabel>Chceš změnit název?</FormLabel>
-          <Input
-            type="text"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-        </div>
-        <div>
-          <FormLabel>
-            Nebo chceš změnit datum? <small>(nepovinné)</small>
-          </FormLabel>
-          <Input
-            type="date"
-            value={date}
-            onChange={(event) => setDate(event.target.value)}
-          />
-        </div>
-        <Button bg="yellow.500" color="white" type="submit">
-          Upravit
-        </Button>
-      </form>
-    </div>
+    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+      <Stack direction={{ base: 'column', md: 'row' }}>
+        <Image
+          maxW={{ md: '50%' }}
+          src={toys_story}
+          alt="Toys Story"
+          borderRadius="lg"
+        />
+        <Box minW={{ md: '45%' }} p={{ md: '10px' }}>
+          <form onSubmit={handleSubmit}>
+            <Stack p={{ md: '20px' }} spacing="20px">
+              <Heading as="h2" size="xl" alignSelf="center" mb={{ md: '10px' }}>
+                Úprava úkolu
+              </Heading>
+              <div>
+                <FormLabel>Chceš změnit název?</FormLabel>
+                <Input
+                  type="text"
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </div>
+              <div>
+                <FormLabel>
+                  Nebo chceš změnit datum? <small>(nepovinné)</small>
+                </FormLabel>
+                <Input
+                  type="date"
+                  value={date}
+                  onChange={(event) => setDate(event.target.value)}
+                />
+              </div>
+              <Button
+                bg="yellow.500"
+                color="white"
+                type="submit"
+                alignSelf="center"
+              >
+                Upravit
+              </Button>
+            </Stack>
+          </form>
+        </Box>
+      </Stack>
+    </Card>
   );
 };

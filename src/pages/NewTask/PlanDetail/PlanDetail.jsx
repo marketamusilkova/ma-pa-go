@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Divider, Heading, Image, Spinner, Text } from '@chakra-ui/react';
+import {
+  Card,
+  Divider,
+  Heading,
+  Image,
+  Spinner,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 import { deleteTask, getPlan, listAllTasks } from '../../../library/api';
-import './PlanDetail.css';
 import tbbt from './TBBT.jpg';
 import { Task } from './Task/Task';
 
@@ -39,16 +46,23 @@ export const PlanDetail = () => {
   };
 
   return (
-    <div className="plan_detail">
-      <Image className="tbbt" src={tbbt} alt="The Big Bang Theory" borderRadius="lg"/>
-      <div className="detail_content">
-        <Heading as="h1" size="2xl">
-          {plan.title}
-        </Heading>
-        <Text>{plan.description}</Text>
-        <Divider />
-        <Task tasks={tasks} onClick={handleClick} />
-      </div>
-    </div>
+    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+      <Stack direction={{ base: 'column', md: 'row' }}>
+        <Image
+          src={tbbt}
+          alt="The Big Bang Theory"
+          borderRadius="lg"
+          maxW={{ md: '50%' }}
+        />
+        <Stack minW={{ md: '40%' }} mt={{ md: '5rem' }} ml={{ md: '3rem' }}>
+          <Heading as="h1" size="xl" alignSelf="center">
+            {plan.title}
+          </Heading>
+          <Text>{plan.description}</Text>
+          <Divider color="yellow.500" />
+          <Task tasks={tasks} onClick={handleClick} />
+        </Stack>
+      </Stack>
+    </Card>
   );
 };

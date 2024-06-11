@@ -49,26 +49,30 @@ export const Books = () => {
           alt="books"
           borderRadius="lg"
         />
-        <Stack mt="6" spacing="3">
+        <Stack mt="6" mb="6" spacing="3">
           <Heading size="md">Co si asi tak přečtu?</Heading>
           <Text>Zde si můžeš přidat knihy, co máš v plánu si přečíst...</Text>
-        </Stack>
-        {books ? (
-          <UnorderedList>
-            {books.map((book) => (
-              <div key={book.$$id}>
-                <ListItem>{book.title}</ListItem>
-                <Button
-                  bg="yellow.500"
-                  color="white"
-                  onClick={() => handleDelete(book.$$id)}
+</Stack>
+          {books ? (
+            <UnorderedList>
+              <Stack>
+              {books.map((book) => (
+                <Stack key={book.$$id} direction="row" justifyContent="space-between"
+              
                 >
-                  <DeleteIcon />
-                </Button>
-              </div>
-            ))}
-          </UnorderedList>
-        ) : null}
+                  <ListItem>{book.title}</ListItem>
+                  <Button
+                    bg="yellow.500"
+                    color="white"
+                    onClick={() => handleDelete(book.$$id)}
+                  >
+                    <DeleteIcon />
+                  </Button>
+                </Stack>
+              ))}
+            </Stack></UnorderedList>
+          ) : null}
+        
       </CardBody>
       <Divider color="yellow.500" />
       <CardFooter>
@@ -78,7 +82,7 @@ export const Books = () => {
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
-          <Button type="submit" bg="yellow.500" color="white">
+          <Button type="submit" bg="yellow.500" color="white" mt="1rem">
             Přidat knihu
           </Button>
         </form>

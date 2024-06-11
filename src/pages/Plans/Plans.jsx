@@ -1,9 +1,15 @@
-import { Heading, Image, Spinner } from '@chakra-ui/react';
+import {
+  Card,
+  Heading,
+  Image,
+  ScaleFade,
+  Spinner,
+  Stack,
+} from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
 import friends from './Friends.jpg';
-import './Plans.css';
 
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
@@ -49,8 +55,8 @@ export const Plans = () => {
   };
 
   return (
-    <div className="plan">
-      <Heading className="heading_plans" as="h2" size="xl">
+    <Card bg="rgba(253, 251, 251, 0.8)" p="0.5rem" >
+      <Heading as="h2" size="xl" alignSelf="center" m="1rem">
         Moje plány
       </Heading>
 
@@ -64,7 +70,7 @@ export const Plans = () => {
         <Spinner />
       )}
 
-      <Image className="friends" src={friends} alt="Friends" borderRadius="lg"/>
-    </div>
+      <Image src={friends} alt="Friends" borderRadius="lg" mt="2rem" />
+    </Card>
   );
 };
