@@ -18,6 +18,7 @@ const api = await new RESTfulCollections()
   .collection('books', {})
   .collection('films', {})
   .collection('notifications', {})
+  .collection('checkbox', {})
   .buildServer();
 
 const app = new Hono();

@@ -1,4 +1,10 @@
-import { deletePlan, deleteTask, updateTask } from '../../../library/api';
+import {
+  appenCheck,
+  deletePlan,
+  deleteTask,
+  listCheckedStates,
+  updateTask,
+} from '../../../library/api';
 import {
   Button,
   Card,
@@ -13,12 +19,22 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Reorder } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Plan = ({ plan, onDelete, tasks }) => {
   const [orderedTasks, setOrderedTasks] = useState(
     tasks.sort((a, b) => a.order - b.order),
   );
+  const [checkedTaskIds, setCheckedTaskIds] = useState([]);
+
+  useEffect(() => {
+    const fetchCheckedStates = async () => {
+      const data = await listCheckedStates();
+      setCheckedTaskIds(data.map((check) => check.taskId));
+    };
+
+    fetchCheckedStates();
+  }, []);
 
   const handleDeleteClick = async () => {
     await deletePlan(plan.$$id);
@@ -38,6 +54,16 @@ export const Plan = ({ plan, onDelete, tasks }) => {
     newOrder.forEach(async (task, index) => {
       await updateTask(task.$$id, { ...task, order: index });
     });
+  };
+
+  const handleCheckboxChange = async (taskId) => {
+    const newCheckedTaskIds = checkedTaskIds.includes(taskId)
+      ? checkedTaskIds.filter((id) => id !== taskId)
+      : [...checkedTaskIds, taskId];
+
+    setCheckedTaskIds(newCheckedTaskIds);
+
+    await appenCheck({ taskId, checked: !checkedTaskIds.includes(taskId) });
   };
 
   return (
@@ -94,7 +120,13 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                   position="relative"
                   cursor="move"
                 >
-                  <Checkbox colorScheme="red">{task.title}</Checkbox>
+                  <Checkbox
+                    colorScheme="red"
+                    isChecked={checkedTaskIds.includes(task.$$id)}
+                    onChange={() => handleCheckboxChange(task.$$id)}
+                  >
+                    {task.title}
+                  </Checkbox>
                   <Stack justifyContent="end" spacing={2} direction={'row'}>
                     <Button
                       bg="yellow.500"
