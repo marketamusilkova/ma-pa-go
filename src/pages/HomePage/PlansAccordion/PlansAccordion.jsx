@@ -6,11 +6,12 @@ import {
   AccordionIcon,
 } from '@chakra-ui/react';
 import { Box, Heading, ListItem, Text, UnorderedList } from '@chakra-ui/react';
-import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ReactRouterLink, useNavigate } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
-import { PlusSquareIcon } from '@chakra-ui/icons';
+import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 
 export const PlansAccordion = ({ plans, planTasks }) => {
+  const navigate = useNavigate();
   return (
     <>
       <Heading as="h2" size="xl">
@@ -28,6 +29,12 @@ export const PlansAccordion = ({ plans, planTasks }) => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
+              <Text textAlign="right">
+                <ChakraLink onClick={() => navigate(`/plan/${plan.$$id}`)}>
+                  Upravit nebo smazat úkol <EditIcon mx="2px" />
+                  <DeleteIcon mx="2px" />
+                </ChakraLink>
+              </Text>
               <UnorderedList>
                 {planTasks[plan.$$id]?.map((title, index) => (
                   <ListItem key={index}>{title}</ListItem>
@@ -42,7 +49,7 @@ export const PlansAccordion = ({ plans, planTasks }) => {
           </AccordionItem>
         ))}
       </Accordion>
-      <Heading as="h2" size={{base: "md", md: "lg"}}>
+      <Heading as="h2" size={{ base: 'md', md: 'lg' }}>
         <ChakraLink as={ReactRouterLink} to="/newplan">
           Přidat nový plán <PlusSquareIcon mx="2px" />
         </ChakraLink>
