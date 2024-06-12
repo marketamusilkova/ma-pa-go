@@ -23,12 +23,12 @@ export const Dayjs = () => {
   const zbyvaDoGalavecera = galavecer.diff(dnes, 'day');
 
   useEffect(() => {
-    const fetchNameDays = async () => {
+    const fetchName = async () => {
       const data = await nameDays();
-      setNDays(data[0].name);
+      setNDays(data.nameday.cz);
     };
 
-    fetchNameDays();
+    fetchName();
   }, []);
 
   return (

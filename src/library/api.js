@@ -155,6 +155,6 @@ export const appenCheck = async (check) => {
 
 // fetch for name-days
 export const nameDays = async () => {
-  const response = await fetch(`https://svatky.adresa.info/json`);
+  const response = await fetch('https://nameday.abalin.net/api/V1/today');
   return await response.json();
 };
