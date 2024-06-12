@@ -47,14 +47,8 @@ export const PlanDetail = () => {
 
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
-      <Stack direction={{ base: 'column', md: 'row' }}>
-        <Image
-          src={tbbt}
-          alt="The Big Bang Theory"
-          borderRadius="lg"
-          maxW={{ md: '50%' }}
-        />
-        <Stack minW={{ md: '40%' }} mt={{ md: '5rem' }} ml={{ md: '3rem' }}>
+      <Stack direction={{ md: 'row' }}>
+        <Stack minW={{ md: '60%' }} m={{ md: '2rem' }}>
           <Heading as="h1" size="xl" alignSelf="center">
             {plan.title}
           </Heading>
@@ -62,6 +56,13 @@ export const PlanDetail = () => {
           <Divider color="yellow.500" />
           <Task tasks={tasks} onClick={handleClick} />
         </Stack>
+        <Image
+          src={tbbt}
+          alt="The Big Bang Theory"
+          maxW={{ md: '30%' }}
+          objectFit="contain"
+          borderRadius="lg"
+        />
       </Stack>
     </Card>
   );
