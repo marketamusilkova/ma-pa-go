@@ -68,8 +68,8 @@ export const Plan = ({ plan, onDelete, tasks }) => {
 
   return (
     <Card key={plan.$$id} minW={{ md: '32%' }}>
-      <CardBody >
-        <Stack h="100%" >
+      <CardBody>
+        <Stack h="100%">
           <Heading as="h1" size={{ base: 'sm', lg: 'md' }}>
             {plan.title}
           </Heading>
@@ -121,7 +121,7 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                   cursor="move"
                 >
                   <Checkbox
-                    colorScheme="red"
+                    colorScheme="gray"
                     isChecked={checkedTaskIds.includes(task.$$id)}
                     onChange={() => handleCheckboxChange(task.$$id)}
                   >
@@ -152,7 +152,11 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                 </Stack>
               ))}
             </Stack>
-            <Button bg="yellow.500" color="white" size={{ base: 'sm', lg: 'md' }}>
+            <Button
+              bg="yellow.500"
+              color="white"
+              size={{ base: 'sm', lg: 'md' }}
+            >
               <ChakraLink as={ReactRouterLink} to={`/newtask`}>
                 Přidat úkol <PlusSquareIcon mx="2px" />
               </ChakraLink>

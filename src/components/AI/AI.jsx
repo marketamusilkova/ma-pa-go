@@ -40,7 +40,7 @@ export const AI = () => {
     <>
       <Button
         ref={btnRef}
-        bg="red.500"
+        bg="blackAlpha.900"
         color="white"
         onClick={onOpen}
         pos="fixed"
@@ -92,7 +92,7 @@ export const AI = () => {
             </DrawerBody>
 
             <DrawerFooter>
-              <Button bg="red.500" color="white" type="submit">
+              <Button bg="blackAlpha.900" color="white" type="submit">
                 Zeptej se
               </Button>
             </DrawerFooter>

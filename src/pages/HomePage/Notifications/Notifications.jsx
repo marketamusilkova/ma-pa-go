@@ -30,7 +30,7 @@ export const Notifications = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button bg="yellow.500" color="white" onClick={onOpen}>
+      <Button bg="blackAlpha.900" color="white" onClick={onOpen}>
         Bude dnes pršet?
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -68,7 +68,7 @@ export const Notifications = () => {
                 onChange={(event) => setEmail(event.target.value)}
               />
               <Button
-                bg="yellow.500"
+                bg="blackAlpha.900"
                 color="white"
                 type="submit"
                 onClick={onClose}
