@@ -25,10 +25,8 @@ export const NewPlan = () => {
 
   const breakpoint = useBreakpoint();
   const isSmall = breakpoint === 'base' || breakpoint === 'sm';
-  console.log(isSmall);
   const isLarge = ['md', 'lg', 'xl', '2xl'].includes(breakpoint);
 
-  console.log(isLarge);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {

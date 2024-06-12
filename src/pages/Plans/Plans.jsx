@@ -55,7 +55,7 @@ export const Plans = () => {
   };
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="0.5rem" >
+    <Card bg="rgba(253, 251, 251, 0.8)" p="0.5rem">
       <Heading as="h2" size="xl" alignSelf="center" m="1rem">
         Moje plány
       </Heading>
