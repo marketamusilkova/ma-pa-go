@@ -2,9 +2,7 @@ import {
   Card,
   Heading,
   Image,
-  ScaleFade,
   Spinner,
-  Stack,
 } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';

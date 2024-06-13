@@ -79,6 +79,11 @@ export const Plan = ({ plan, onDelete, tasks }) => {
               bg="yellow.500"
               color="white"
               size={{ base: 'sm', lg: 'md' }}
+              onClick={() => {
+                if (!confirm('Opravdu chceš začít hrát znovu?')) {
+                  e.preventDefault();
+                }
+              }}
             >
               <ChakraLink as={ReactRouterLink} to={`/plan/${plan.$$id}/edit`}>
                 <EditIcon />
