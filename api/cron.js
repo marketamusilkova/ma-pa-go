@@ -7,12 +7,12 @@ if (env['SENDGRID_API_KEY']) {
 }
 
 export const listUsers = async () => {
-  const response = await fetch(`https://ma-pa-go.deno.dev/api/notifications`);
+  const response = await fetch(`http://localhost:8000/api/notifications`);
   return await response.json();
 };
 
 export const runCron = () => {
-  Deno.cron('notification', '08 12 * * *', async () => {
+  Deno.cron('notification', '28 7 * * *', async () => {
     const users = await listUsers();
 
     users.forEach(async (user) => {
