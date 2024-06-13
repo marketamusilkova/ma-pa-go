@@ -77,7 +77,7 @@ export const Plan = ({ plan, onDelete, tasks }) => {
   };
 
   return (
-    <Card key={plan.$$id} minW={{ md: '32%' }}>
+    <Card key={plan.$$id}>
       <CardBody>
         <Stack h="100%">
           <Heading as="h1" size={{ base: 'sm', lg: 'md' }}>

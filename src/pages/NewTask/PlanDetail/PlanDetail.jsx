@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {
+  Box,
   Card,
   Divider,
   Heading,
@@ -56,13 +57,13 @@ export const PlanDetail = () => {
           <Divider color="yellow.500" />
           <Task tasks={tasks} onClick={handleClick} />
         </Stack>
+        <Box>
         <Image
           src={tbbt}
           alt="The Big Bang Theory"
-          maxW={{ md: '30%' }}
           objectFit="contain"
           borderRadius="lg"
-        />
+        /></Box>
       </Stack>
     </Card>
   );

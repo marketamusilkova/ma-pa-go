@@ -48,8 +48,9 @@ export const AI = () => {
         right="1rem"
         zIndex="1000"
         size={{ base: 'md', md: 'lg' }}
+        p={8}
       >
-        <ChatIcon />
+        <ChatIcon boxSize={8} />
       </Button>
 
       <Drawer

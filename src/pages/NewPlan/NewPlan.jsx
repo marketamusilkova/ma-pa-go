@@ -85,6 +85,7 @@ export const NewPlan = () => {
               onChange={(event) => setTitle(event.target.value)}
               required
               mb={3}
+              bg="white"
             />
             <FormLabel>
               Popiš a upřesni si tento plán <small>(nepovinný údaj)</small>

@@ -22,6 +22,7 @@ export const Task = ({ tasks, onClick }) => {
         Úkoly
       </Heading>
       <UnorderedList>
+        <Stack>
         {tasks.map((task) => (
           <Stack key={task.$$id} direction="row" justify="space-between">
             <ListItem>{task.title}</ListItem>
@@ -46,7 +47,7 @@ export const Task = ({ tasks, onClick }) => {
               </Button>
             </Stack>
           </Stack>
-        ))}
+        ))}</Stack>
       </UnorderedList>
     </Stack>
   );
