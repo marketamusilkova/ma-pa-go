@@ -12,8 +12,15 @@ import {
   Checkbox,
   Divider,
   Heading,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
   Stack,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
@@ -26,6 +33,7 @@ export const Plan = ({ plan, onDelete, tasks }) => {
     tasks ? tasks.sort((a, b) => a.order - b.order) : [],
   );
   const [checkedTaskIds, setCheckedTaskIds] = useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     const fetchCheckedStates = async () => {
@@ -43,10 +51,6 @@ export const Plan = ({ plan, onDelete, tasks }) => {
   }, [tasks]);
 
   const handleDeleteClick = async (e) => {
-    if (!confirm('Opravdu chceš tento plán smazat?')) {
-      e.preventDefault();
-      return;
-    }
     await deletePlan(plan.$$id);
     if (onDelete) {
       onDelete();
@@ -98,11 +102,40 @@ export const Plan = ({ plan, onDelete, tasks }) => {
               bg="yellow.500"
               color="white"
               type="button"
-              onClick={handleDeleteClick}
               size={{ base: 'sm', lg: 'md' }}
+              onClick={onOpen}
             >
               <DeleteIcon />
             </Button>
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Opravdu chceš tento plán smazat?</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Stack direction="row" justifyContent="space-around">
+                    <Button
+                      onClick={onClose}
+                      bg="yellow.500"
+                      color="white"
+                      type="button"
+                      size={{ base: 'sm', lg: 'md' }}
+                    >
+                      Nemazat
+                    </Button>
+                    <Button
+                      onClick={handleDeleteClick}
+                      bg="yellow.500"
+                      color="white"
+                      type="button"
+                      size={{ base: 'sm', lg: 'md' }}
+                    >
+                      Smazat plán <DeleteIcon />
+                    </Button>
+                  </Stack>
+                </ModalBody>
+              </ModalContent>
+            </Modal>
           </Stack>
 
           <Divider />
