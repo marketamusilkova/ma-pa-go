@@ -8,11 +8,11 @@ import {
   Heading,
   Image,
   Input,
-  Spinner,
   Stack,
 } from '@chakra-ui/react';
 import toys_story from './Toys_story.jpg';
 import { getTask, updateTask } from '../../library/api';
+import { Spinner } from '../Spinner/Spinner';
 
 export const TaskEdit = () => {
   const [title, setTitle] = useState('');
@@ -24,8 +24,8 @@ export const TaskEdit = () => {
   const loadTask = async () => {
     const task = await getTask(taskId);
     setTask(task);
-    setTitle(task.title);
-    setDate(task.date);
+    setTitle(task.title || '');
+    setDate(task.date || '');
   };
 
   useEffect(() => {

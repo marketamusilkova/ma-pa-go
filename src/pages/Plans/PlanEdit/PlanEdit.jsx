@@ -25,8 +25,8 @@ export const PlanEdit = () => {
   const loadPlan = async () => {
     const plan = await getPlan(planId);
     setPlan(plan);
-    setTitle(plan.title);
-    setDescription(plan.description);
+    setTitle(plan.title || '');
+    setDescription(plan.description || '');
   };
 
   useEffect(() => {
