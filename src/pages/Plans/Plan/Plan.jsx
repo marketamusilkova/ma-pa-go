@@ -6,6 +6,7 @@ import {
   updateTask,
 } from '../../../library/api';
 import {
+  Box,
   Button,
   Card,
   CardBody,
@@ -25,7 +26,7 @@ import {
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
-import { Reorder } from 'framer-motion';
+import { Reorder, px } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export const Plan = ({ plan, onDelete, tasks }) => {
@@ -113,7 +114,7 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                 <ModalHeader>Opravdu chceš tento plán smazat?</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                  <Stack direction="row" justifyContent="space-around">
+                  <Stack direction="row" justifyContent="space-around" pb="4">
                     <Button
                       onClick={onClose}
                       bg="yellow.500"
@@ -130,7 +131,10 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                       type="button"
                       size={{ base: 'sm', lg: 'md' }}
                     >
-                      Smazat plán <DeleteIcon />
+                      Smazat plán{' '}
+                      <Box as="span" ml="2">
+                        <DeleteIcon />
+                      </Box>
                     </Button>
                   </Stack>
                 </ModalBody>

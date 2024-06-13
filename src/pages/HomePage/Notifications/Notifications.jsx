@@ -12,9 +12,11 @@ import {
   Text,
   Stack,
   Image,
+  Box,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { appendUser } from '../../../library/api';
+import { EmailIcon } from '@chakra-ui/icons';
 
 export const Notifications = () => {
   const [zipCode, setZipCode] = useState('');
@@ -31,7 +33,10 @@ export const Notifications = () => {
   return (
     <>
       <Button bg="blackAlpha.900" color="white" onClick={onOpen}>
-        Bude dnes pršet?
+        Bude dnes pršet?{' '}
+        <Box as="span" ml="2">
+          <EmailIcon />
+        </Box>
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -72,9 +77,13 @@ export const Notifications = () => {
                 color="white"
                 type="submit"
                 onClick={onClose}
-                m="1rem"
+                mt="1rem"
+                mb="1rem"
               >
-                Přihlaš se k notifikacím
+                Přihlaš se k notifikacím{' '}
+                <Box as="span" ml="2">
+                  <EmailIcon />
+                </Box>
               </Button>
             </form>
           </ModalBody>
