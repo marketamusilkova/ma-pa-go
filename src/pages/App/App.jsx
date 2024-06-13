@@ -3,7 +3,7 @@ import './App.css';
 import { Footer } from './Footer/Footer';
 import { Navigation } from './Navigation/Navigation';
 import { AI } from '../../components/AI/AI';
-import { Stack, Container, Flex } from '@chakra-ui/react';
+import { Container, Flex } from '@chakra-ui/react';
 
 export const App = () => {
   return (
