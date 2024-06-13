@@ -14,15 +14,15 @@ export const PlansAccordion = ({ plans, planTasks }) => {
   const navigate = useNavigate();
   return (
     <>
-      <Heading as="h2" size="xl">
+      <Heading as="h2" size="lg">
         Aktuální plány
       </Heading>
       <Accordion allowToggle>
         {plans.map((plan) => (
-          <AccordionItem key={plan.$$id}>
+          <AccordionItem key={plan.$$id} >
             <h2>
               <AccordionButton>
-                <Box as="h2" flex="1" textAlign="left">
+                <Box fontSize="large" flex="1" textAlign="left">
                   {plan.title}
                 </Box>
                 <AccordionIcon />
@@ -49,7 +49,7 @@ export const PlansAccordion = ({ plans, planTasks }) => {
           </AccordionItem>
         ))}
       </Accordion>
-      <Heading as="h2" size={{ base: 'md', md: 'lg' }}>
+      <Heading as="h2" size={{ base: 'sm', md: 'md' }}>
         <ChakraLink as={ReactRouterLink} to="/newplan">
           Přidat nový plán <PlusSquareIcon mx="2px" />
         </ChakraLink>

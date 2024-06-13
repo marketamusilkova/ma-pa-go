@@ -1,4 +1,4 @@
-import { Card, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Box, Card, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import czechitas from './czechitas.png';
@@ -6,32 +6,29 @@ import czechitas from './czechitas.png';
 export const Footer = () => {
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p="0.5rem">
-      <Grid gridTemplateRows="auto 1fr" gridTemplateColumns="1fr 2fr" gap={4}>
-        <GridItem colSpan={2} textAlign="center">
+      
+        
           <ChakraLink
             as={ReactRouterLink}
             to="/aboutus"
             fontWeight="large"
             fontSize={{ base: 'md', lg: 'xl' }}
+            textAlign="center"
+            mt="2rem"
           >
             O nás
           </ChakraLink>
-        </GridItem>
-        <GridItem
-          rowStart={2}
-          maxW={{ base: '100px', md: '150px' }}
-          justifySelf="center"
-        >
-          <a className="a_footer" href="https://www.czechitas.cz/">
+        
+          <Flex direction="row" justifyContent="center" >
+            <Box maxW={{base: "100px", md: "200px"}}>
+          <a href="https://www.czechitas.cz/">
             <img src={czechitas} alt="czechitas" />
           </a>
-        </GridItem>
-        <GridItem rowStart={2} textAlign="center">
-          <Text fontSize={{ base: '12px', md: '18px' }}>
+        </Box>
+          <Text fontSize={{ base: '12px', md: '18px' }} alignSelf="center">
             Vytvořeno v rámci Digitální akademie web na jaře 2024
           </Text>
-        </GridItem>
-      </Grid>
+        </Flex>
     </Card>
   );
 };
