@@ -126,7 +126,7 @@ export const deleteFilm = async (filmId) => {
 
 // fetch for notifications
 export const appendUser = async (user) => {
-  const response = await fetch(`https://ma-pa-go.deno.dev/api/notifications`, {
+  const response = await fetch(`${API_URL}/notifications`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
