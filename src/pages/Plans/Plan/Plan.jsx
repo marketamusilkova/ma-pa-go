@@ -23,7 +23,7 @@ import { useEffect, useState } from 'react';
 
 export const Plan = ({ plan, onDelete, tasks }) => {
   const [orderedTasks, setOrderedTasks] = useState(
-    tasks.sort((a, b) => a.order - b.order),
+    tasks ? tasks.sort((a, b) => a.order - b.order) : [],
   );
   const [checkedTaskIds, setCheckedTaskIds] = useState([]);
 
@@ -36,7 +36,17 @@ export const Plan = ({ plan, onDelete, tasks }) => {
     fetchCheckedStates();
   }, []);
 
-  const handleDeleteClick = async () => {
+  useEffect(() => {
+    if (tasks) {
+      setOrderedTasks(tasks.sort((a, b) => a.order - b.order));
+    }
+  }, [tasks]);
+
+  const handleDeleteClick = async (e) => {
+    if (!confirm('Opravdu chceš tento plán smazat?')) {
+      e.preventDefault();
+      return;
+    }
     await deletePlan(plan.$$id);
     if (onDelete) {
       onDelete();
@@ -79,11 +89,6 @@ export const Plan = ({ plan, onDelete, tasks }) => {
               bg="yellow.500"
               color="white"
               size={{ base: 'sm', lg: 'md' }}
-              onClick={() => {
-                if (!confirm('Opravdu chceš začít hrát znovu?')) {
-                  e.preventDefault();
-                }
-              }}
             >
               <ChakraLink as={ReactRouterLink} to={`/plan/${plan.$$id}/edit`}>
                 <EditIcon />
