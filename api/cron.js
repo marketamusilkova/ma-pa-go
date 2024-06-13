@@ -12,7 +12,7 @@ export const listUsers = async () => {
 };
 
 export const runCron = () => {
-  Deno.cron('notification', '59 6 * * *', async () => {
+  Deno.cron('notification', '08 7 * * *', async () => {
     const users = await listUsers();
 
     users.forEach(async (user) => {
