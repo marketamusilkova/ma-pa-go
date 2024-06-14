@@ -29,7 +29,7 @@ import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Reorder } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-export const Plan = ({ plan, onDelete, tasks }) => {
+export const Plan = ({ plan, onDelete, tasks, style }) => {
   const [orderedTasks, setOrderedTasks] = useState(
     tasks ? tasks.sort((a, b) => a.order - b.order) : [],
   );
@@ -82,7 +82,7 @@ export const Plan = ({ plan, onDelete, tasks }) => {
   };
 
   return (
-    <Card key={plan.$$id}>
+    <Card key={plan.$$id} style={style}>
       <CardBody>
         <Stack h="100%">
           <Heading size={{ base: 'md', lg: 'lg' }}>{plan.title}</Heading>
