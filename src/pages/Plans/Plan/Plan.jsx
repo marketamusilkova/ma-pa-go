@@ -85,10 +85,8 @@ export const Plan = ({ plan, onDelete, tasks }) => {
     <Card key={plan.$$id}>
       <CardBody>
         <Stack h="100%">
-          <Heading as="h1" size={{ base: 'sm', lg: 'md' }}>
-            {plan.title}
-          </Heading>
-          <Text>{plan.description}</Text>
+          <Heading size={{ base: 'md', lg: 'lg' }}>{plan.title}</Heading>
+          <Text fontSize={{ base: 'lg', md: 'xl' }}>{plan.description}</Text>
           <Stack direction="row" justifyContent={'end'}>
             <Button
               bg="yellow.500"
@@ -172,7 +170,7 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                     isChecked={checkedTaskIds.includes(task.$$id)}
                     onChange={() => handleCheckboxChange(task.$$id)}
                   >
-                    {task.title}
+                    <Box fontSize={{ base: 'lg', md: 'xl' }}>{task.title}</Box>
                   </Checkbox>
                   <Stack justifyContent="end" spacing={2} direction={'row'}>
                     <Button
@@ -199,15 +197,17 @@ export const Plan = ({ plan, onDelete, tasks }) => {
                 </Stack>
               ))}
             </Stack>
-            <Button
-              bg="yellow.500"
-              color="white"
-              size={{ base: 'sm', lg: 'md' }}
-            >
-              <ChakraLink as={ReactRouterLink} to={`/newtask`}>
-                Přidat úkol <PlusSquareIcon mx="2px" />
-              </ChakraLink>
-            </Button>
+            <Box>
+              <Button
+                bg="yellow.500"
+                color="white"
+                size={{ base: 'sm', lg: 'md' }}
+              >
+                <ChakraLink as={ReactRouterLink} to={`/newtask`}>
+                  Přidat úkol <PlusSquareIcon mx="2px" />
+                </ChakraLink>
+              </Button>
+            </Box>
           </Stack>
         </Stack>
       </CardBody>

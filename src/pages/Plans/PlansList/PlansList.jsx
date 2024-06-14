@@ -3,7 +3,10 @@ import { Grid, GridItem, Stack } from '@chakra-ui/react';
 
 export const PlansList = ({ plans, onDelete, tasksByPlans }) => {
   return (
-    <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+    <Grid
+      templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+      gap={6}
+    >
       {plans.map((plan) => (
         <GridItem w="100%" h="100%" key={plan.$$id}>
           <Plan

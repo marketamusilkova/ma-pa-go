@@ -1,9 +1,4 @@
-import {
-  Card,
-  Heading,
-  Image,
-  Spinner,
-} from '@chakra-ui/react';
+import { Card, Heading, Image, Spinner } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
@@ -53,11 +48,10 @@ export const Plans = () => {
   };
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="0.5rem">
-      <Heading as="h2" size="xl" alignSelf="center" m="1rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
+      <Heading size={{ base: 'lg', md: 'xl' }} alignSelf="center" mb="1rem">
         Moje plány
       </Heading>
-
       {plans && tasksByPlans ? (
         <PlansList
           plans={plans}
@@ -67,7 +61,6 @@ export const Plans = () => {
       ) : (
         <Spinner />
       )}
-
       <Image src={friends} alt="Friends" borderRadius="lg" mt="2rem" />
     </Card>
   );
