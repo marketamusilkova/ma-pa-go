@@ -143,60 +143,68 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
           <Divider />
 
           <Stack direction="column" justifyContent="space-between" h="100%">
-            <Stack
-              as={Reorder.Group}
-              axis="y"
-              values={orderedTasks}
-              onReorder={handleReorder}
-            >
-              {orderedTasks.map((task) => (
-                <Stack
-                  key={task.$$id}
-                  justifyContent="space-between"
-                  spacing={2}
-                  direction={'row'}
-                  as={Reorder.Item}
-                  value={task}
-                  dragTransition={{
-                    bounceStiffness: 600,
-                  }}
-                  initial="notDragging"
-                  whileDrag="dragging"
-                  position="relative"
-                  cursor="move"
-                >
-                  <Checkbox
-                    colorScheme="gray"
-                    isChecked={checkedTaskIds.includes(task.$$id)}
-                    onChange={() => handleCheckboxChange(task.$$id)}
+            {orderedTasks.length === 0 ? (
+              <Text fontSize={{ base: 'lg', md: 'xl' }}>
+                Zatím nemáš v tomto plánu žádné úkoly.
+              </Text>
+            ) : (
+              <Stack
+                as={Reorder.Group}
+                axis="y"
+                values={orderedTasks}
+                onReorder={handleReorder}
+              >
+                {orderedTasks.map((task) => (
+                  <Stack
+                    key={task.$$id}
+                    justifyContent="space-between"
+                    spacing={2}
+                    direction={'row'}
+                    as={Reorder.Item}
+                    value={task}
+                    dragTransition={{
+                      bounceStiffness: 600,
+                    }}
+                    initial="notDragging"
+                    whileDrag="dragging"
+                    position="relative"
+                    cursor="move"
                   >
-                    <Box fontSize={{ base: 'lg', md: 'xl' }}>{task.title}</Box>
-                  </Checkbox>
-                  <Stack justifyContent="end" spacing={2} direction={'row'}>
-                    <Button
-                      bg="yellow.500"
-                      color="white"
-                      size={{ base: 'sm', lg: 'md' }}
+                    <Checkbox
+                      colorScheme="gray"
+                      isChecked={checkedTaskIds.includes(task.$$id)}
+                      onChange={() => handleCheckboxChange(task.$$id)}
                     >
-                      <ChakraLink
-                        as={ReactRouterLink}
-                        to={`/task/${task.$$id}/edit`}
+                      <Box fontSize={{ base: 'lg', md: 'xl' }}>
+                        {task.title}
+                      </Box>
+                    </Checkbox>
+                    <Stack justifyContent="end" spacing={2} direction={'row'}>
+                      <Button
+                        bg="yellow.500"
+                        color="white"
+                        size={{ base: 'sm', lg: 'md' }}
                       >
-                        <EditIcon />
-                      </ChakraLink>
-                    </Button>
-                    <Button
-                      bg="yellow.500"
-                      color="white"
-                      size={{ base: 'sm', lg: 'md' }}
-                      onClick={() => handleDeleteTaskClick(task.$$id)}
-                    >
-                      <DeleteIcon />
-                    </Button>
+                        <ChakraLink
+                          as={ReactRouterLink}
+                          to={`/task/${task.$$id}/edit`}
+                        >
+                          <EditIcon />
+                        </ChakraLink>
+                      </Button>
+                      <Button
+                        bg="yellow.500"
+                        color="white"
+                        size={{ base: 'sm', lg: 'md' }}
+                        onClick={() => handleDeleteTaskClick(task.$$id)}
+                      >
+                        <DeleteIcon />
+                      </Button>
+                    </Stack>
                   </Stack>
-                </Stack>
-              ))}
-            </Stack>
+                ))}
+              </Stack>
+            )}
             <Box>
               <Button
                 bg="yellow.500"
