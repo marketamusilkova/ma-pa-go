@@ -29,20 +29,28 @@ export const PlansAccordion = ({ plans, planTasks }) => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              <Text textAlign="right" fontSize={{ base: 'md', lg: 'lg' }}>
+              <Text
+                textAlign="right"
+                fontSize={{ base: 'md', lg: 'lg' }}
+                fontWeight="bold"
+              >
                 <ChakraLink onClick={() => navigate(`/plan/${plan.$$id}`)}>
                   Upravit nebo smazat úkol <EditIcon mx="2px" />
                   <DeleteIcon mx="2px" />
                 </ChakraLink>
               </Text>
-              <UnorderedList>
+              <UnorderedList pt="1rem" pb="1rem">
                 {planTasks[plan.$$id]?.map((title, index) => (
                   <ListItem key={index} fontSize={{ base: 'md', lg: 'lg' }}>
                     {title}
                   </ListItem>
                 ))}
               </UnorderedList>
-              <Text textAlign="right" fontSize={{ base: 'md', lg: 'lg' }}>
+              <Text
+                textAlign="right"
+                fontSize={{ base: 'md', lg: 'lg' }}
+                fontWeight="bold"
+              >
                 <ChakraLink as={ReactRouterLink} to="/newtask">
                   Přidat nový úkol <PlusSquareIcon mx="2px" />
                 </ChakraLink>
