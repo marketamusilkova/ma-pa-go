@@ -50,8 +50,10 @@ export const Books = () => {
           borderRadius="lg"
         />
         <Stack mt="6" mb="6" spacing="3">
-          <Heading size="lg">Co si asi tak přečtu?</Heading>
-          <Text fontSize="xl">
+          <Heading size={{ base: 'md', md: 'lg' }}>
+            Co si asi tak přečtu?
+          </Heading>
+          <Text fontSize={{ base: 'md', lg: 'xl' }}>
             Zde si můžeš přidat knihy, co máš v plánu si přečíst...
           </Text>
         </Stack>
@@ -64,7 +66,9 @@ export const Books = () => {
                   direction="row"
                   justifyContent="space-between"
                 >
-                  <ListItem fontSize="xl">{book.title}</ListItem>
+                  <ListItem fontSize={{ base: 'md', lg: 'xl' }}>
+                    {book.title}
+                  </ListItem>
                   <Button
                     bg="yellow.500"
                     color="white"
@@ -91,7 +95,7 @@ export const Books = () => {
             bg="yellow.500"
             color="white"
             mt="1rem"
-            fontSize="xl"
+            fontSize={{ base: 'md', lg: 'xl' }}
           >
             Přidat knihu
           </Button>

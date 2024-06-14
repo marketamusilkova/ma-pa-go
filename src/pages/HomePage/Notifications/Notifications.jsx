@@ -39,11 +39,13 @@ export const Notifications = () => {
     <>
       <Card>
         <CardHeader>
-          <Heading size="lg">Bude dneska pršet? Mám si brát deštník?</Heading>
+          <Heading size={{ base: 'md', md: 'lg' }}>
+            Bude dneska pršet? Mám si brát deštník?
+          </Heading>
         </CardHeader>
         <Divider color="yellow.500" />
         <CardBody>
-          <Text fontSize="xl" mb="1rem">
+          <Text fontSize={{ base: 'md', lg: 'xl' }} mb="1rem">
             Nech si poslat každé ráno upozornění.
           </Text>
           <Button bg="blackAlpha.900" color="white" onClick={onOpen}>
@@ -56,7 +58,7 @@ export const Notifications = () => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Chceš vědět, jestli dnes bude pršet?</ModalHeader>
-          <Stack direction="row" p="1.5rem">
+          <Stack direction={{ base: 'column', md: 'row' }} p="1.5rem">
             <Text fontSize="sm">
               Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo
               oblasti, pro kterou tě zajímá informace o dešti, a svůj email.

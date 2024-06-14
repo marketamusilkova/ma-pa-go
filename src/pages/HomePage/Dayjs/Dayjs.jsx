@@ -35,7 +35,7 @@ export const Dayjs = () => {
     <Card>
       <CardHeader>
         {nDays ? (
-          <Heading size="lg">
+          <Heading size={{ base: 'md', md: 'lg' }}>
             Dnes je {dnesNaformatovano} a svátek slaví {nDays}.
           </Heading>
         ) : null}
@@ -44,12 +44,12 @@ export const Dayjs = () => {
       <CardBody>
         <Stack spacing="4">
           <Box>
-            <Text pt="2" fontSize="xl">
+            <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
               Do Vánoc zbývá ještě {zbyvaDoVanoc} dní.
             </Text>
           </Box>
           <Box>
-            <Text pt="2" fontSize="xl">
+            <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
               Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní.
             </Text>
           </Box>

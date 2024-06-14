@@ -50,8 +50,10 @@ export const Films = () => {
           borderRadius="lg"
         />
         <Stack mt="6" mb="6" spacing="3">
-          <Heading size="lg">Už jsi viděla Osvícení?</Heading>
-          <Text fontSize="xl">
+          <Heading size={{ base: 'md', md: 'lg' }}>
+            Už jsi viděla Osvícení?
+          </Heading>
+          <Text fontSize={{ base: 'md', lg: 'xl' }}>
             Zde si můžeš přidat filmy a seriály, co máš v plánu zkouknout...
           </Text>
         </Stack>
@@ -64,7 +66,9 @@ export const Films = () => {
                   direction="row"
                   justifyContent="space-between"
                 >
-                  <ListItem fontSize="xl">{film.title}</ListItem>
+                  <ListItem fontSize={{ base: 'md', lg: 'xl' }}>
+                    {film.title}
+                  </ListItem>
                   <Button
                     bg="yellow.500"
                     color="white"
@@ -91,7 +95,7 @@ export const Films = () => {
             bg="yellow.500"
             color="white"
             mt="1rem"
-            fontSize="xl"
+            fontSize={{ base: 'md', lg: 'xl' }}
           >
             Přidat film nebo seriál
           </Button>
