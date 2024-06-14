@@ -58,8 +58,8 @@ export const Notifications = () => {
           <ModalHeader>Chceš vědět, jestli dnes bude pršet?</ModalHeader>
           <Stack direction="row" p="1.5rem">
             <Text fontSize="sm">
-              Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo, pro
-              které Tě zajímá informace o dešti, a svůj email. Pokud předpověď
+              Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo oblasti, pro
+              kterou tě zajímá informace o dešti, a svůj email. Pokud předpověď
               počasí bude ukazovat déšť, v daný den ráno ti dorazí email, aby
               sis nezapomněla vzít deštník...
             </Text>
