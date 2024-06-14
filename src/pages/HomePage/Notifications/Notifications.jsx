@@ -13,6 +13,11 @@ import {
   Stack,
   Image,
   Box,
+  Card,
+  CardHeader,
+  Divider,
+  CardBody,
+  Heading,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { appendUser } from '../../../library/api';
@@ -32,12 +37,21 @@ export const Notifications = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button bg="blackAlpha.900" color="white" onClick={onOpen}>
-        Bude dnes pršet?{' '}
-        <Box as="span" ml="2">
-          <EmailIcon />
-        </Box>
-      </Button>
+      <Card>
+        <CardHeader>
+          <Heading size="lg">Bude dneska pršet? Mám si brát deštník?</Heading>
+        </CardHeader>
+        <Divider color="yellow.500" />
+        <CardBody>
+          <Text fontSize="xl" mb="1rem">
+            Nech si poslat každé ráno upozornění.
+          </Text>
+          <Button bg="blackAlpha.900" color="white" onClick={onOpen}>
+            <EmailIcon />
+          </Button>
+        </CardBody>
+      </Card>
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

@@ -9,7 +9,7 @@ import {
 export const Navigation = () => (
   <Flex
     bg="rgba(253, 251, 251, 0.8)"
-    p="1rem"
+    p="2rem"
     justifyContent={{ base: 'center', md: 'end' }}
     borderRadius="8px"
   >

@@ -50,8 +50,8 @@ export const Films = () => {
           borderRadius="lg"
         />
         <Stack mt="6" mb="6" spacing="3">
-          <Heading size="md">Už jsi viděla Osvícení?</Heading>
-          <Text>
+          <Heading size="lg">Už jsi viděla Osvícení?</Heading>
+          <Text fontSize="xl">
             Zde si můžeš přidat filmy a seriály, co máš v plánu zkouknout...
           </Text>
         </Stack>
@@ -64,7 +64,7 @@ export const Films = () => {
                   direction="row"
                   justifyContent="space-between"
                 >
-                  <ListItem>{film.title}</ListItem>
+                  <ListItem fontSize="xl">{film.title}</ListItem>
                   <Button
                     bg="yellow.500"
                     color="white"
@@ -86,7 +86,7 @@ export const Films = () => {
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
-          <Button type="submit" bg="yellow.500" color="white" mt="1rem">
+          <Button type="submit" bg="yellow.500" color="white" mt="1rem" fontSize="xl">
             Přidat film nebo seriál
           </Button>
         </form>

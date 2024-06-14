@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
 import { Dayjs } from './Dayjs/Dayjs';
 import { PlansAccordion } from './PlansAccordion/PlansAccordion';
-import { Heading, Image, Stack, Card } from '@chakra-ui/react';
+import { Heading, Image, Stack, Card, Divider } from '@chakra-ui/react';
 import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
 import { Books } from './Books/Books';
@@ -55,7 +55,7 @@ export const HomePage = () => {
   }, [plans, tasks]);
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p="2rem">
       <Stack spacing={5}>
         <Heading size={{ base: 'lg', md: '2xl' }}>
           MY SECRET PLAN HOW TO RULE THE WORLD
@@ -65,7 +65,14 @@ export const HomePage = () => {
           alt="Batman and Superman"
           borderRadius="lg"
         />
-        <Dayjs />
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          justifyContent="space-evenly"
+          mt="2rem"
+        >
+          <Dayjs />
+          <Notifications />
+        </Stack>
         {plans === null ? (
           <Spinner />
         ) : plans.length === 0 ? (
@@ -83,11 +90,9 @@ export const HomePage = () => {
             )}
           />
         )}
-
-        <Notifications />
         <Stack
           direction={{ base: 'column', md: 'row' }}
-          justifyContent="space-around"
+          justifyContent="space-evenly"
         >
           <Books />
           <Films />

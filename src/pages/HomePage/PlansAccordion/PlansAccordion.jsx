@@ -14,22 +14,22 @@ export const PlansAccordion = ({ plans, planTasks }) => {
   const navigate = useNavigate();
   return (
     <>
-      <Heading as="h2" size="lg">
+      <Heading as="h2" size="lg" pr="8%" pl="8%" mt="2rem">
         Aktuální plány
       </Heading>
-      <Accordion allowToggle>
+      <Accordion allowToggle pr="8%" pl="8%">
         {plans.map((plan) => (
-          <AccordionItem key={plan.$$id} >
+          <AccordionItem key={plan.$$id}>
             <h2>
               <AccordionButton>
-                <Box fontSize="large" flex="1" textAlign="left">
+                <Box fontSize="xl" flex="1" textAlign="left">
                   {plan.title}
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              <Text textAlign="right">
+              <Text textAlign="right" fontSize="lg">
                 <ChakraLink onClick={() => navigate(`/plan/${plan.$$id}`)}>
                   Upravit nebo smazat úkol <EditIcon mx="2px" />
                   <DeleteIcon mx="2px" />
@@ -37,10 +37,10 @@ export const PlansAccordion = ({ plans, planTasks }) => {
               </Text>
               <UnorderedList>
                 {planTasks[plan.$$id]?.map((title, index) => (
-                  <ListItem key={index}>{title}</ListItem>
+                  <ListItem key={index} fontSize="lg">{title}</ListItem>
                 ))}
               </UnorderedList>
-              <Text textAlign="right">
+              <Text textAlign="right" fontSize="lg">
                 <ChakraLink as={ReactRouterLink} to="/newtask">
                   Přidat nový úkol <PlusSquareIcon mx="2px" />
                 </ChakraLink>
@@ -49,7 +49,7 @@ export const PlansAccordion = ({ plans, planTasks }) => {
           </AccordionItem>
         ))}
       </Accordion>
-      <Heading as="h2" size={{ base: 'sm', md: 'md' }}>
+      <Heading as="h2" size={{ base: 'sm', md: 'md' }} pr="8%" pl="8%" mb="2rem">
         <ChakraLink as={ReactRouterLink} to="/newplan">
           Přidat nový plán <PlusSquareIcon mx="2px" />
         </ChakraLink>

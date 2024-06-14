@@ -32,31 +32,29 @@ export const Dayjs = () => {
   }, []);
 
   return (
-    <div>
-      <Card>
-        <CardHeader>
-          {nDays ? (
-            <Heading size="lg">
-              Dnes je {dnesNaformatovano} a svátek slaví {nDays}.
-            </Heading>
-          ) : null}
-        </CardHeader>
-        <Divider color="yellow.500" />
-        <CardBody>
-          <Stack spacing="4">
-            <Box>
-              <Text pt="2" fontSize="lg">
-                Do Vánoc zbývá ještě {zbyvaDoVanoc} dní.
-              </Text>
-            </Box>
-            <Box>
-              <Text pt="2" fontSize="lg">
-                Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní.
-              </Text>
-            </Box>
-          </Stack>
-        </CardBody>
-      </Card>
-    </div>
+    <Card>
+      <CardHeader>
+        {nDays ? (
+          <Heading size="lg">
+            Dnes je {dnesNaformatovano} a svátek slaví {nDays}.
+          </Heading>
+        ) : null}
+      </CardHeader>
+      <Divider color="yellow.500" />
+      <CardBody>
+        <Stack spacing="4">
+          <Box>
+            <Text pt="2" fontSize="xl">
+              Do Vánoc zbývá ještě {zbyvaDoVanoc} dní.
+            </Text>
+          </Box>
+          <Box>
+            <Text pt="2" fontSize="xl">
+              Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní.
+            </Text>
+          </Box>
+        </Stack>
+      </CardBody>
+    </Card>
   );
 };
