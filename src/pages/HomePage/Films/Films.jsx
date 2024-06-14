@@ -86,7 +86,13 @@ export const Films = () => {
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
-          <Button type="submit" bg="yellow.500" color="white" mt="1rem" fontSize="xl">
+          <Button
+            type="submit"
+            bg="yellow.500"
+            color="white"
+            mt="1rem"
+            fontSize="xl"
+          >
             Přidat film nebo seriál
           </Button>
         </form>

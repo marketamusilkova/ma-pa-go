@@ -5,14 +5,13 @@ import czechitas from './czechitas.png';
 
 export const Footer = () => {
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="0.5rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
       <ChakraLink
         as={ReactRouterLink}
         to="/aboutus"
         fontWeight="large"
         fontSize={{ base: 'md', lg: 'xl' }}
         textAlign="center"
-        mt="2rem"
       >
         O nás
       </ChakraLink>

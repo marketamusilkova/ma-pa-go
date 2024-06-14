@@ -51,7 +51,9 @@ export const Books = () => {
         />
         <Stack mt="6" mb="6" spacing="3">
           <Heading size="lg">Co si asi tak přečtu?</Heading>
-          <Text fontSize="xl">Zde si můžeš přidat knihy, co máš v plánu si přečíst...</Text>
+          <Text fontSize="xl">
+            Zde si můžeš přidat knihy, co máš v plánu si přečíst...
+          </Text>
         </Stack>
         {books ? (
           <UnorderedList>
@@ -84,7 +86,13 @@ export const Books = () => {
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
-          <Button type="submit" bg="yellow.500" color="white" mt="1rem" fontSize="xl">
+          <Button
+            type="submit"
+            bg="yellow.500"
+            color="white"
+            mt="1rem"
+            fontSize="xl"
+          >
             Přidat knihu
           </Button>
         </form>

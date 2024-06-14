@@ -55,7 +55,7 @@ export const HomePage = () => {
   }, [plans, tasks]);
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="2rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
       <Stack spacing={5}>
         <Heading size={{ base: 'lg', md: '2xl' }}>
           MY SECRET PLAN HOW TO RULE THE WORLD

@@ -58,10 +58,10 @@ export const Notifications = () => {
           <ModalHeader>Chceš vědět, jestli dnes bude pršet?</ModalHeader>
           <Stack direction="row" p="1.5rem">
             <Text fontSize="sm">
-              Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo oblasti, pro
-              kterou tě zajímá informace o dešti, a svůj email. Pokud předpověď
-              počasí bude ukazovat déšť, v daný den ráno ti dorazí email, aby
-              sis nezapomněla vzít deštník...
+              Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo
+              oblasti, pro kterou tě zajímá informace o dešti, a svůj email.
+              Pokud předpověď počasí bude ukazovat déšť, v daný den ráno ti
+              dorazí email, aby sis nezapomněla vzít deštník...
             </Text>
             <Image
               src="https://media.giphy.com/media/TvVcE5NOI46tlmblLR/giphy.gif?cid=790b7611jfh9imhxo744amefh8yq2n93zo3kgrg8jhuayi84&ep=v1_gifs_search&rid=giphy.gif&ct=g"
