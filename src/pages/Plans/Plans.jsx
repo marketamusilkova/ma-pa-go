@@ -1,8 +1,9 @@
-import { Card, Heading, Image, Spinner } from '@chakra-ui/react';
+import { Card, Heading, Image } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
 import friends from './Friends.jpg';
+import { Spinner } from '../../components/Spinner/Spinner';
 
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 

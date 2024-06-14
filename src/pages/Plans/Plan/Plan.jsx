@@ -26,7 +26,7 @@ import {
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
-import { Reorder, px } from 'framer-motion';
+import { Reorder } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export const Plan = ({ plan, onDelete, tasks }) => {
