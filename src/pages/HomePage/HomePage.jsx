@@ -76,7 +76,14 @@ export const HomePage = () => {
         {plans === null ? (
           <Spinner />
         ) : plans.length === 0 ? (
-          <Heading>Nemáš ještě založené žádné plány...</Heading>
+          <Heading
+            mt="2rem"
+            mb="2rem"
+            textAlign="center"
+            size={{ base: 'md', md: 'xl' }}
+          >
+            Nemáš ještě založené žádné plány...
+          </Heading>
         ) : (
           <PlansAccordion
             plans={plans}

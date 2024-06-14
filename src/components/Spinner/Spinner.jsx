@@ -1,4 +1,4 @@
-import { Spinner as Chakraspinner } from "@chakra-ui/react";
+import { Spinner as Chakraspinner } from '@chakra-ui/react';
 
 export const Spinner = () => {
   return (

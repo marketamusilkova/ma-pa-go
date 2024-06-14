@@ -68,10 +68,15 @@ export const AI = () => {
           <DrawerCloseButton />
           <form onSubmit={handleSubmit}>
             <DrawerHeader>
-              {' '}
-              Zde se můžeš v podstatě na cokoli zeptat velmi chytré umělé
-              inteligence. Jen mysli na to, že není připojena k internetu, tudíž
-              nedokáže například stáhnout aktuální předpověď počasí.
+              <Text
+                fontSize={{ base: 'md', lg: 'xl' }}
+                mt="2rem"
+                fontWeight="400"
+              >
+                Zde se můžeš v podstatě na cokoli zeptat velmi chytré umělé
+                inteligence. Jen mysli na to, že není připojena k internetu,
+                tudíž nedokáže například stáhnout aktuální předpověď počasí.
+              </Text>
             </DrawerHeader>
 
             <DrawerBody>
