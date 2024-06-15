@@ -6,13 +6,13 @@ import {
   Divider,
   Heading,
   Image,
-  Spinner,
   Stack,
   Text,
 } from '@chakra-ui/react';
 import { deleteTask, getPlan, listAllTasks } from '../../../library/api';
 import tbbt from './TBBT.jpg';
 import { Task } from './Task/Task';
+import { Spinner } from '../../../components/Spinner/Spinner';
 
 export const PlanDetail = () => {
   const [plan, setPlan] = useState(null);
@@ -47,10 +47,14 @@ export const PlanDetail = () => {
   };
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
-      <Stack direction={{ md: 'row' }}>
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
+      <Stack direction={{ base: 'column', md: 'row' }} alignItems="center" mb={4}>
         <Stack minW={{ md: '60%' }} m={{ md: '2rem' }}>
-          <Heading as="h1" size="xl" alignSelf="center">
+          <Heading
+            as="h1"
+            size={{ base: 'lg', md: 'xl' }}
+            alignSelf="center"
+          >
             {plan.title}
           </Heading>
           <Text>{plan.description}</Text>
@@ -58,12 +62,14 @@ export const PlanDetail = () => {
           <Task tasks={tasks} onClick={handleClick} />
         </Stack>
         <Box>
-        <Image
-          src={tbbt}
-          alt="The Big Bang Theory"
-          objectFit="contain"
-          borderRadius="lg"
-        /></Box>
+          <Image
+            src={tbbt}
+            alt="The Big Bang Theory"
+            objectFit="contain"
+            borderRadius="lg"
+            mt="1rem"
+          />
+        </Box>
       </Stack>
     </Card>
   );

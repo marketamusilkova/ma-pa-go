@@ -8,10 +8,10 @@ import {
   Heading,
   Image,
   Input,
-  Spinner,
   Stack,
   Textarea,
 } from '@chakra-ui/react';
+import { Spinner } from '../../../components/Spinner/Spinner';
 import { getPlan, updatePlan } from '../../../library/api';
 import mario from './Mario.jpg';
 
@@ -44,48 +44,55 @@ export const PlanEdit = () => {
   }
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
       <Stack direction={{ base: 'column', md: 'row' }}>
         <Box minW={{ md: '50%' }} p={{ md: '10px' }}>
           <form onSubmit={handleSubmit}>
             <Stack p={{ md: '20px' }}>
               <Heading
                 as="h2"
-                size="xl"
+                size={{ base: 'lg', md: 'xl' }}
                 alignSelf={'center'}
-                mb={{ md: '10px' }}
+                mb={4}
               >
                 Úprava plánu
               </Heading>
-
               <div>
-                <FormLabel>Chceš změnit název?</FormLabel>
+                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>Chceš změnit název?</FormLabel>
                 <Input
                   type="text"
                   value={title}
                   onChange={(event) => setTitle(event.target.value)}
+                  mb={3}
+                  bg="white"
                 />
               </div>
               <div>
-                <FormLabel>Nebo chceš změnit popis?</FormLabel>
+                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>Nebo chceš změnit popis?</FormLabel>
                 <Textarea
                   rows="3"
                   value={description}
                   onChange={(event) => setDescription(event.target.value)}
+                  mb={3}
+                  bg="white"
                 ></Textarea>
               </div>
-              <Button type="submit" bg="yellow.500" color="white">
+              <Button
+                type="submit"
+                bg="yellow.500"
+                color="white"
+                fontSize={{ base: 'md', lg: 'xl' }}
+                alignSelf="center"
+                mb="1rem"
+              >
                 Upravit
               </Button>
             </Stack>
           </form>
         </Box>
-        <Image
-          maxW={{ md: '50%' }}
-          src={mario}
-          alt="Super Mario"
-          borderRadius="lg"
-        />
+        <Box maxW={{ md: '50%' }} alignSelf="center">
+          <Image src={mario} alt="Super Mario" borderRadius="lg" />
+        </Box>
       </Stack>
     </Card>
   );

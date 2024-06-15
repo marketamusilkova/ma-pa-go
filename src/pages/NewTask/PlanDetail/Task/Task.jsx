@@ -2,7 +2,6 @@ import {
   Button,
   Heading,
   ListItem,
-  Spinner,
   Stack,
   Text,
   UnorderedList,
@@ -10,6 +9,7 @@ import {
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
+import { Spinner } from '../../../../components/Spinner/Spinner';
 
 export const Task = ({ tasks, onClick }) => {
   if (!tasks) {
@@ -18,7 +18,7 @@ export const Task = ({ tasks, onClick }) => {
 
   return (
     <Stack spacing={3}>
-      <Heading as="h2" size="lg">
+      <Heading size={{ base: 'lg', md: 'xl' }} mb={4}>
         Úkoly
       </Heading>
       <UnorderedList>

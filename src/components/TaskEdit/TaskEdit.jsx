@@ -9,6 +9,7 @@ import {
   Image,
   Input,
   Stack,
+  Textarea,
 } from '@chakra-ui/react';
 import toys_story from './Toys_story.jpg';
 import { getTask, updateTask } from '../../library/api';
@@ -43,36 +44,36 @@ export const TaskEdit = () => {
   }
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
       <Stack direction={{ base: 'column', md: 'row' }}>
-        <Image
-          maxW={{ md: '50%' }}
-          src={toys_story}
-          alt="Toys Story"
-          borderRadius="lg"
-        />
+        <Box maxW={{ md: '50%' }}>
+          <Image src={toys_story} alt="Toys Story" borderRadius="lg" />
+        </Box>
         <Box minW={{ md: '45%' }} p={{ md: '10px' }}>
           <form onSubmit={handleSubmit}>
             <Stack p={{ md: '20px' }} spacing="20px">
-              <Heading as="h2" size="xl" alignSelf="center" mb={{ md: '10px' }}>
+              <Heading as="h2" size={{ base: 'lg', md: 'xl' }} alignSelf="center" mb={4}>
                 Úprava úkolu
               </Heading>
               <div>
-                <FormLabel>Chceš změnit název?</FormLabel>
-                <Input
+                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>Chceš změnit název?</FormLabel>
+                <Textarea
+                  row={3}
                   type="text"
                   value={title}
                   onChange={(event) => setTitle(event.target.value)}
+                  bg="white"
                 />
               </div>
               <div>
-                <FormLabel>
+                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
                   Nebo chceš změnit datum? <small>(nepovinné)</small>
                 </FormLabel>
                 <Input
                   type="date"
                   value={date}
                   onChange={(event) => setDate(event.target.value)}
+                  bg="white"
                 />
               </div>
               <Button
@@ -80,6 +81,8 @@ export const TaskEdit = () => {
                 color="white"
                 type="submit"
                 alignSelf="center"
+                fontSize={{ base: 'md', lg: 'xl' }}
+                mb="1rem"
               >
                 Upravit
               </Button>
