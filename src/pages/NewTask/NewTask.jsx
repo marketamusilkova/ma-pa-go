@@ -2,15 +2,17 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { appendTask, listPlans } from '../../library/api';
 import {
+  Box,
   Button,
   Card,
+  Flex,
   FormLabel,
   Heading,
   Image,
   Input,
   Select,
-  Spinner,
   Stack,
+  Textarea,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import harry_potter from './Harry_Potter.jpg';
@@ -56,24 +58,33 @@ export const NewTask = () => {
   };
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
       {!plans.length ? (
-        <Heading>
+        <Heading textAlign="center" p={{ base: '1rem', md: '2rem' }}>
           Nejprve si musíš založit nový plán a až poté můžeš přidat úkol.
         </Heading>
       ) : (
-        <Stack direction={{ base: 'column', md: 'row' }}>
-          <Stack width={{ md: '55%' }} align="center" justify="center">
-            <Heading>Přidej nový úkol</Heading>
-            <form
-              onSubmit={handleSubmit}
-              style={{ width: '100%', padding: '30px' }}
-            >
-              <FormLabel>Vyber k jakému plánu chceš přidat úkol</FormLabel>
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          textAlign="center"
+          justifyContent="center"
+          spacing="2rem"
+        >
+          <Stack
+            width={{ md: '55%' }}
+            textAlign="center"
+            justifyContent="center"
+          >
+            <Heading size={{ base: 'lg', md: 'xl' }}>Přidej nový úkol</Heading>
+            <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+              <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
+                Vyber k jakému plánu chceš přidat úkol
+              </FormLabel>
               <Select
                 aria-label="Výběr Plánu"
                 value={plan}
                 onChange={(event) => setPlan(event.target.value)}
+                bg="white"
                 required
               >
                 {plans.map((plan) => (
@@ -82,32 +93,44 @@ export const NewTask = () => {
                   </option>
                 ))}
               </Select>
-              <FormLabel>Název úkolu</FormLabel>
-              <Input
-                type="text"
+              <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
+                Název úkolu
+              </FormLabel>
+              <Textarea
+                rows="3"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
+                bg="white"
                 required
               />
-              <FormLabel>
+              <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
                 Datum <small>(nepovinné)</small>
               </FormLabel>
               <Input
                 type="date"
                 value={date}
                 onChange={(event) => setDate(event.target.value)}
+                bg="white"
               />
-              <Button type="submit" bg="yellow.500" color="white" m="4">
+              <Button
+                type="submit"
+                bg="yellow.500"
+                color="white"
+                mt="2"
+                fontSize={{ base: 'md', lg: 'xl' }}
+              >
                 Přidat
               </Button>
             </form>
           </Stack>
-          <Image
+          <Box
             maxW={{ md: '40%' }}
-            src={imageSrc}
-            alt="Harry Potter"
-            borderRadius="lg"
-          />
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Image src={imageSrc} alt="Harry Potter" borderRadius="lg" />
+          </Box>
         </Stack>
       )}
     </Card>

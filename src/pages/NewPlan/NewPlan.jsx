@@ -104,7 +104,7 @@ export const NewPlan = () => {
           p={{ md: 4 }}
           ml="30"
         >
-          <Heading as="h2" size={{ base: 'lg', md: 'xl' }} mb={4}>
+          <Heading size={{ base: 'lg', md: 'xl' }} mb={4}>
             Vytvořit nový plán
           </Heading>
           <form onSubmit={handleSubmit}>
