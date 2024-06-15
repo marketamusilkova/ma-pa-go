@@ -4,6 +4,7 @@ import {
   CardBody,
   CardHeader,
   Heading,
+  Highlight,
   Image,
   Stack,
   StackDivider,
@@ -14,37 +15,55 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 export const AboutUs = () => {
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
-      <Card
-        direction={{ base: 'column', sm: 'row' }}
-        overflow="hidden"
-        variant="outline"
-      >
-        <Image
-          objectFit="cover"
-          maxW={{ base: '100%', sm: '200px' }}
-          src="https://media.giphy.com/media/NF3zrD41FkGfLOBJhI/giphy.gif?cid=ecf05e47ba3tryiq9yy6y02i5iaepiv61h3lz3or0wslwdhv&ep=v1_gifs_search&rid=giphy.gif&ct=g"
-          alt="frineds"
-          borderRadius="lg"
-        />
-        <Stack>
-          <CardBody>
-            <Stack direction="column" justifyContent="space-around">
-              <Heading size={{ base: 'sm', md: 'md' }} fontWeight="normal">
-                Jsme dvě mámy se spoustou energie. Máme velké plány a málo
-                času...
-              </Heading>
-              <Heading
-                size={{ base: 'sm', md: 'md' }}
-                fontWeight="normal"
-                mt={2}
-              >
-                My i naše rodiny milujeme lego, z čehož vznikl design celé
-                aplikace i název ma-pa-go.
-              </Heading>
-            </Stack>
-          </CardBody>
-        </Stack>
-      </Card>
+      <Stack justifyContent="center" alignItems="center">
+        <Card
+          direction={{ base: 'column', sm: 'row' }}
+          justifyContent="space-between"
+          alignItems="center"
+          overflow="hidden"
+          variant="outline"
+          maxW={{ base: '100%', md: '90%', lg: '70%' }}
+        >
+          <Box m="1rem">
+            <Image
+              objectFit="cover"
+              maxW={{ base: '100%', sm: '200px' }}
+              src="https://media.giphy.com/media/NF3zrD41FkGfLOBJhI/giphy.gif?cid=ecf05e47ba3tryiq9yy6y02i5iaepiv61h3lz3or0wslwdhv&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+              alt="frineds"
+              borderRadius="lg"
+            />
+          </Box>
+          <Stack>
+            <CardBody>
+              <Stack direction="column" justifyContent="space-around">
+                <Heading size={{ base: 'sm', md: 'md' }} fontWeight="semibold">
+                  Jsme dvě mámy se spoustou energie. Máme velké plány a málo
+                  času...
+                </Heading>
+
+                <Heading
+                  lineHeight="tall"
+                  size={{ base: 'sm', md: 'md' }}
+                  fontWeight="normal"
+                  mt={2}
+                >
+                  <Highlight
+                    query="ma-pa-go"
+                    styles={{
+                      px: '1',
+                      rounded: 'full',
+                      bg: 'yellow.500',
+                    }}
+                  >
+                    My i naše rodiny milujeme lego, z čehož vznikl design celé
+                    aplikace i název ma-pa-go.
+                  </Highlight>
+                </Heading>
+              </Stack>
+            </CardBody>
+          </Stack>
+        </Card>
+      </Stack>
       <Stack
         direction={{ base: 'column', md: 'row' }}
         mt="2rem"
