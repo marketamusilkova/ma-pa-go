@@ -98,12 +98,7 @@ export const NewPlan = () => {
           </Grid>
         ) : null}
 
-        <Stack
-          textAlign={{ md: 'center' }}
-          width={{ md: '50%' }}
-          p={{ md: 4 }}
-          ml="30"
-        >
+        <Stack textAlign='center' width={{ md: '50%' }} p={{ md: 4 }} ml={{md: "2rem"}}>
           <Heading size={{ base: 'lg', md: 'xl' }} mb={4}>
             Vytvořit nový plán
           </Heading>
