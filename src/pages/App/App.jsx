@@ -12,6 +12,8 @@ export const App = () => {
       className="background"
       minH="100vh"
       justifyContent="center"
+      pl={{md: "2rem"}}
+      pr={{md: "2rem"}}
     >
       <header>
         <Container maxW={'8xl'}>

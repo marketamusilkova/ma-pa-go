@@ -12,55 +12,11 @@ import {
   Stack,
   Textarea,
   useBreakpointValue,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
 } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+
 import harry_potter from './Harry_Potter.jpg';
 import dumbledor from './Dumbledor.jpg';
-
-// Definice vlastní komponenty CustomSelect
-const CustomSelect = ({ options, value, onChange }) => {
-  const [selected, setSelected] = useState(
-    options.find((o) => o.value === value) || null,
-  );
-
-  const handleSelect = (option) => {
-    setSelected(option);
-    onChange(option.value);
-  };
-
-  return (
-    <Box width="100%">
-      <Menu>
-        <MenuButton
-          w="100%"
-          as={Button}
-          rightIcon={<ChevronDownIcon />}
-          bg="white"
-          borderWidth="1px"
-        >
-          {selected ? selected.label : 'Vyberte možnost'}
-        </MenuButton>
-        <MenuList>
-          {options.map((option) => (
-            <MenuItem
-              key={option.value}
-              onClick={() => handleSelect(option)}
-              _hover={{ bg: '#D69E2E', color: 'white' }} // Stylování hover efektu
-              _focus={{ bg: '#D69E2E', color: 'white' }}
-              maxW="83vw"
-            >
-              {option.label}
-            </MenuItem>
-          ))}
-        </MenuList>
-      </Menu>
-    </Box>
-  );
-};
+import { CustomSelect } from './CustomSelect/CustomSelect';
 
 export const NewTask = () => {
   const [plans, setPlans] = useState([]);
