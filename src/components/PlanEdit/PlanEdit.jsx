@@ -11,8 +11,8 @@ import {
   Stack,
   Textarea,
 } from '@chakra-ui/react';
-import { Spinner } from '../../../components/Spinner/Spinner';
-import { getPlan, updatePlan } from '../../../library/api';
+import { Spinner } from '../Spinner/Spinner';
+import { getPlan, updatePlan } from '../../library/api';
 import mario from './Mario.jpg';
 
 export const PlanEdit = () => {

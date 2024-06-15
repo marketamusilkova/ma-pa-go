@@ -10,10 +10,9 @@ import theme from './theme';
 import { Plans } from './pages/Plans/Plans';
 import { NewTask } from './pages/NewTask/NewTask';
 import { NewPlan } from './pages/NewPlan/NewPlan';
-import { PlanEdit } from './pages/Plans/PlanEdit/PlanEdit';
 import { TaskEdit } from './components/TaskEdit/TaskEdit';
 import { PlanDetail } from './components/PlanDetail/PlanDetail';
-
+import { PlanEdit } from './components/PlanEdit/PlanEdit';
 
 const router = createBrowserRouter([
   {
