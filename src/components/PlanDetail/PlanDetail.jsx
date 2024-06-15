@@ -9,10 +9,10 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { deleteTask, getPlan, listAllTasks } from '../../../library/api';
+import { deleteTask, getPlan, listAllTasks } from '../../library/api';
 import tbbt from './TBBT.jpg';
 import { Task } from './Task/Task';
-import { Spinner } from '../../../components/Spinner/Spinner';
+import { Spinner } from '../Spinner/Spinner';
 
 export const PlanDetail = () => {
   const [plan, setPlan] = useState(null);
@@ -49,15 +49,11 @@ export const PlanDetail = () => {
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
       <Stack direction={{ base: 'column', md: 'row' }} alignItems="center">
-        <Stack minW={{ md: '60%' }} m={{ md: '2rem' }}>
-          <Heading
-            as="h1"
-            size={{ base: 'lg', md: 'xl' }}
-            alignSelf="center"
-          >
+        <Stack minW={{ md: '50%' }} m={{ md: '2rem' }}>
+          <Heading size={{ base: 'lg', md: 'xl' }} alignSelf="center">
             {plan.title}
           </Heading>
-          <Text>{plan.description}</Text>
+          <Text fontSize={{ base: 'md', md: 'xl' }}>{plan.description}</Text>
           <Divider borderColor="yellow.500" />
           <Task tasks={tasks} onClick={handleClick} />
         </Stack>

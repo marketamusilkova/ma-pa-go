@@ -52,7 +52,6 @@ const CustomSelect = ({ options, value, onChange }) => {
               _hover={{ bg: '#D69E2E', color: 'white' }} // Stylování hover efektu
               _focus={{ bg: '#D69E2E', color: 'white' }}
               maxW="83vw"
-            
             >
               {option.label}
             </MenuItem>
@@ -131,7 +130,6 @@ export const NewTask = () => {
                 options={plans}
                 value={plan}
                 onChange={(value) => setPlan(value)}
-                
               />
               <FormLabel fontSize={{ base: 'md', lg: 'xl' }} mt={4}>
                 Název úkolu
@@ -146,7 +144,7 @@ export const NewTask = () => {
                 mb={3}
               />
               <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
-                Datum <small>(nepovinné)</small>
+                Deadline <small>(nepovinné)</small>
               </FormLabel>
               <Input
                 type="date"
