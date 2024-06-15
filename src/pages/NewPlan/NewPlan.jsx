@@ -95,6 +95,7 @@ export const NewPlan = () => {
               value={description}
               onChange={(event) => setDescription(event.target.value)}
               mb={3}
+              bg="white"
             />
             <Button bg="yellow.500" color="white" type="submit">Vytvořit</Button>
           </form>
