@@ -6,6 +6,11 @@ import {
   updateTask,
 } from '../../../library/api';
 import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogOverlay,
   Box,
   Button,
   Card,
@@ -13,12 +18,6 @@ import {
   Checkbox,
   Divider,
   Heading,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
   Stack,
   Text,
   useDisclosure,
@@ -27,7 +26,7 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Reorder } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const Plan = ({ plan, onDelete, tasks, style }) => {
   const [orderedTasks, setOrderedTasks] = useState(
@@ -35,6 +34,7 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
   );
   const [checkedTaskIds, setCheckedTaskIds] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
 
   useEffect(() => {
     const fetchCheckedStates = async () => {
@@ -106,15 +106,21 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
             >
               <DeleteIcon />
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>Opravdu chceš tento plán smazat?</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
+            <AlertDialog
+              isOpen={isOpen}
+              leastDestructiveRef={cancelRef}
+              onClose={onClose}
+            >
+              <AlertDialogOverlay />
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  Opravdu chceš tento plán smazat?
+                </AlertDialogHeader>
+                <AlertDialogBody>
                   <Stack direction="row" justifyContent="space-around" pb="4">
                     <Button
                       onClick={onClose}
+                      ref={cancelRef}
                       bg="yellow.500"
                       color="white"
                       type="button"
@@ -135,13 +141,11 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
                       </Box>
                     </Button>
                   </Stack>
-                </ModalBody>
-              </ModalContent>
-            </Modal>
+                </AlertDialogBody>
+              </AlertDialogContent>
+            </AlertDialog>
           </Stack>
-
           <Divider />
-
           <Stack direction="column" justifyContent="space-between" h="100%">
             {orderedTasks.length === 0 ? (
               <Text fontSize={{ base: 'lg', md: 'xl' }}>
