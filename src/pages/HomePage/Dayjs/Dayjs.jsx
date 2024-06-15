@@ -33,7 +33,7 @@ export const Dayjs = () => {
 
   let vanoce;
   if (zbyvaDoVanoc === 0) {
-    vanoce = 'Dneska jsou Vánoce!';
+    vanoce = 'Dneska je Štědrý den!';
   } else if (zbyvaDoVanoc === 1) {
     vanoce = `Do Vánoc zbývá ještě ${zbyvaDoVanoc} den.`;
   } else if (zbyvaDoVanoc >= 2 && zbyvaDoVanoc <= 4) {
@@ -44,13 +44,13 @@ export const Dayjs = () => {
 
   let galavecerDAweb;
   if (zbyvaDoGalavecera === 0) {
-    galavecerDAweb = 'Dneska je Galavečer DA web!';
+    galavecerDAweb = 'Dneska je galavečer DA web!';
   } else if (zbyvaDoGalavecera === 1) {
-    galavecerDAweb = `Do Galavečera DA web zbývá ještě ${zbyvaDoGalavecera} den.`;
+    galavecerDAweb = `Do galavečera DA web zbývá ještě ${zbyvaDoGalavecera} den.`;
   } else if (zbyvaDoGalavecera >= 2 && zbyvaDoGalavecera <= 4) {
-    galavecerDAweb = `Do Galavečera DA web zbývají ještě ${zbyvaDoGalavecera} dny.`;
+    galavecerDAweb = `Do galavečera DA web zbývají ještě ${zbyvaDoGalavecera} dny.`;
   } else {
-    galavecerDAweb = `Do Galavečera DA web zbývá ještě ${zbyvaDoGalavecera} dní.`;
+    galavecerDAweb = `Do galavečera DA web zbývá ještě ${zbyvaDoGalavecera} dní.`;
   }
 
   return (
