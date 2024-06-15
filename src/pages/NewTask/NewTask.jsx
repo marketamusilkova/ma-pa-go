@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Card,
-  Flex,
   FormLabel,
   Heading,
   Image,
@@ -75,7 +74,9 @@ export const NewTask = () => {
             textAlign="center"
             justifyContent="center"
           >
-            <Heading size={{ base: 'lg', md: 'xl' }}>Přidej nový úkol</Heading>
+            <Heading size={{ base: 'lg', md: 'xl' }} mb={4}>
+              Přidej nový úkol
+            </Heading>
             <form onSubmit={handleSubmit} style={{ width: '100%' }}>
               <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
                 Vyber k jakému plánu chceš přidat úkol
@@ -87,6 +88,7 @@ export const NewTask = () => {
                 bg="white"
                 required
                 focusBorderColor="yellow.500"
+                mb={3}
               >
                 {plans.map((plan) => (
                   <option key={plan.$$id} value={plan.$$id}>
@@ -104,6 +106,7 @@ export const NewTask = () => {
                 bg="white"
                 required
                 focusBorderColor="yellow.500"
+                mb={3}
               />
               <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
                 Datum <small>(nepovinné)</small>
@@ -114,12 +117,12 @@ export const NewTask = () => {
                 onChange={(event) => setDate(event.target.value)}
                 bg="white"
                 focusBorderColor="yellow.500"
+                mb={3}
               />
               <Button
                 type="submit"
                 bg="yellow.500"
                 color="white"
-                mt="2"
                 fontSize={{ base: 'md', lg: 'xl' }}
               >
                 Přidat
