@@ -151,7 +151,12 @@ export const AboutUs = () => {
                   Co mám ráda?
                 </Heading>
                 <Text pt="2" fontSize="sm">
-                  Zde napiš, co máš ráda...
+                Pokud jste dočetli až ke mně, můžete si zkopírovat vedlejší odstavec jen americký fotbal vyměňte za cyklistiku, jinak platí většina věcí. Studovala jsem Rekreologii, takže sportovní činnosti mohu doplnit ještě o golf a lezení, ale zrovna tyto 2 činnosti se mi s dětmi zatím moc nedaří, tak se asi nepočítají :-). Nyní jsou nahrazeny výlety s dětmi vlakem, busem, na kolech, pěšky a přespávání pod širákem. 
+                 V poslední době dělím všechen čas mezi rodinu, programování, stavbu domu a knihy, takže seriály a filmy mne míjí. Děkuji manželovi a zbytku rodiny za obrovskou podporu, díky níž jsem mohla nakouknout do jiného jazyka, tentokrát programovacího.
+                </Text>
+                <Text pt="2" fontSize="sm">
+                S Markét máme mnoho věcí společných, věřím, že to je důvod proč jsme si padly do oka a vymyslely tento projekt, který nám usnadní život a pomůže nám mít důležité úkoly vždy u sebe.
+
                 </Text>
               </Box>
               <Box>
@@ -159,7 +164,7 @@ export const AboutUs = () => {
                   A co naopak nemám ráda?
                 </Heading>
                 <Text pt="2" fontSize="sm">
-                  Zde napiš, co nemáš ráda...
+                Nespravedlnost mám na prvním místě, fronty na vlek už jsem dlouho nezažila a ledvinky a játra mi tolik nevadí. Též nesnáším, když mi někdo lže a doběla mě umí vytočit jen moje děti. Mráz mi běhá po zádech z loupání jablek a sledování hororů (oboje dělám jen s velkým sebezapřením). 
                 </Text>
               </Box>
               <Box display="flex" justifyContent="end" gap="1rem">
