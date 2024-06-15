@@ -9,8 +9,10 @@ import {
 export const Navigation = () => (
   <Flex
     bg="rgba(253, 251, 251, 0.8)"
-    p={{ base: '1rem', md: '2rem' }}
-    justifyContent="end"
+    p={{ md: '2rem' }}
+    pt={{base: "1rem"}}
+    pb={{base: "1rem"}}
+    justifyContent={{base: "center", md: "end"}}
     borderRadius="8px"
   >
     <Breadcrumb fontWeight="medium" fontSize={{ base: 'md', lg: 'xl' }}>

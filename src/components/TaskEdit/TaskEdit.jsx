@@ -52,17 +52,25 @@ export const TaskEdit = () => {
         <Box minW={{ md: '45%' }} p={{ md: '10px' }}>
           <form onSubmit={handleSubmit}>
             <Stack p={{ md: '20px' }} spacing="20px">
-              <Heading as="h2" size={{ base: 'lg', md: 'xl' }} alignSelf="center" mb={4}>
+              <Heading
+                as="h2"
+                size={{ base: 'lg', md: 'xl' }}
+                alignSelf="center"
+                mb={4}
+              >
                 Úprava úkolu
               </Heading>
               <div>
-                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>Chceš změnit název?</FormLabel>
+                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
+                  Chceš změnit název?
+                </FormLabel>
                 <Textarea
                   row={3}
                   type="text"
                   value={title}
                   onChange={(event) => setTitle(event.target.value)}
                   bg="white"
+                  focusBorderColor="yellow.500"
                 />
               </div>
               <div>
@@ -74,6 +82,7 @@ export const TaskEdit = () => {
                   value={date}
                   onChange={(event) => setDate(event.target.value)}
                   bg="white"
+                  focusBorderColor="yellow.500"
                 />
               </div>
               <Button

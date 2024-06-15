@@ -48,7 +48,7 @@ export const PlanDetail = () => {
 
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
-      <Stack direction={{ base: 'column', md: 'row' }} alignItems="center" mb={4}>
+      <Stack direction={{ base: 'column', md: 'row' }} alignItems="center">
         <Stack minW={{ md: '60%' }} m={{ md: '2rem' }}>
           <Heading
             as="h1"

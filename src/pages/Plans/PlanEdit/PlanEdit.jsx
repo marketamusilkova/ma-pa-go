@@ -65,6 +65,7 @@ export const PlanEdit = () => {
                   onChange={(event) => setTitle(event.target.value)}
                   mb={3}
                   bg="white"
+                  focusBorderColor='yellow.500'
                 />
               </div>
               <div>
@@ -75,6 +76,7 @@ export const PlanEdit = () => {
                   onChange={(event) => setDescription(event.target.value)}
                   mb={3}
                   bg="white"
+                  focusBorderColor='yellow.500'
                 ></Textarea>
               </div>
               <Button

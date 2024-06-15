@@ -86,6 +86,7 @@ export const NewTask = () => {
                 onChange={(event) => setPlan(event.target.value)}
                 bg="white"
                 required
+                focusBorderColor="yellow.500"
               >
                 {plans.map((plan) => (
                   <option key={plan.$$id} value={plan.$$id}>
@@ -102,6 +103,7 @@ export const NewTask = () => {
                 onChange={(event) => setTitle(event.target.value)}
                 bg="white"
                 required
+                focusBorderColor="yellow.500"
               />
               <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
                 Datum <small>(nepovinné)</small>
@@ -111,6 +113,7 @@ export const NewTask = () => {
                 value={date}
                 onChange={(event) => setDate(event.target.value)}
                 bg="white"
+                focusBorderColor="yellow.500"
               />
               <Button
                 type="submit"

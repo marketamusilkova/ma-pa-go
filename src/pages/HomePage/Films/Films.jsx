@@ -89,6 +89,7 @@ export const Films = () => {
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
+            focusBorderColor='yellow.500'
           />
           <Button
             type="submit"

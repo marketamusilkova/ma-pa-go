@@ -205,7 +205,7 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
                 ))}
               </Stack>
             )}
-            <Box>
+            <Box mt="1rem">
               <Button
                 bg="yellow.500"
                 color="white"

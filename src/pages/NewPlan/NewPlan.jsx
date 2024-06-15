@@ -113,6 +113,7 @@ export const NewPlan = () => {
               required
               mb={3}
               bg="white"
+              focusBorderColor='yellow.500'
             />
             <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
               Popiš a upřesni si tento plán <small>(nepovinný údaj)</small>
@@ -123,6 +124,7 @@ export const NewPlan = () => {
               onChange={(event) => setDescription(event.target.value)}
               mb={3}
               bg="white"
+              focusBorderColor='yellow.500'
             />
             <Button
               bg="yellow.500"

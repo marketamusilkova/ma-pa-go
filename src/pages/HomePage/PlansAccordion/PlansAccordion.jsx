@@ -4,6 +4,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Stack,
 } from '@chakra-ui/react';
 import { Box, Heading, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import { Link as ReactRouterLink, useNavigate } from 'react-router-dom';
@@ -13,7 +14,8 @@ import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 export const PlansAccordion = ({ plans, planTasks }) => {
   const navigate = useNavigate();
   return (
-    <>
+    <Box display="flex" minW="90%" alignSelf="center">
+    <Stack minW="100%">
       <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt="2rem">
         Aktuální plány
       </Heading>
@@ -59,11 +61,11 @@ export const PlansAccordion = ({ plans, planTasks }) => {
           </AccordionItem>
         ))}
       </Accordion>
-      <Heading as="h2" size={{ base: 'sm', md: 'md' }} mb="2rem">
+      <Heading as="h2" size={{ base: 'sm', md: 'md' }} mb="2rem" mt="1rem">
         <ChakraLink as={ReactRouterLink} to="/newplan">
           Přidat nový plán <PlusSquareIcon mx="2px" />
         </ChakraLink>
       </Heading>
-    </>
+    </Stack></Box>
   );
 };
