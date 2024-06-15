@@ -58,7 +58,7 @@ export const PlanDetail = () => {
             {plan.title}
           </Heading>
           <Text>{plan.description}</Text>
-          <Divider color="yellow.500" />
+          <Divider borderColor="yellow.500" />
           <Task tasks={tasks} onClick={handleClick} />
         </Stack>
         <Box>

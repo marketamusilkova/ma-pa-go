@@ -12,6 +12,7 @@ import {
   Select,
   Stack,
   Textarea,
+  background,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import harry_potter from './Harry_Potter.jpg';
@@ -91,7 +92,7 @@ export const NewTask = () => {
                 mb={3}
               >
                 {plans.map((plan) => (
-                  <option key={plan.$$id} value={plan.$$id}>
+                  <option key={plan.$$id} value={plan.$$id} style={{color: "#D69E2E"}}>
                     {plan.title}
                   </option>
                 ))}

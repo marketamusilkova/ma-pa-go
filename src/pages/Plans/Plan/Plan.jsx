@@ -145,7 +145,7 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
               </AlertDialogContent>
             </AlertDialog>
           </Stack>
-          <Divider />
+          <Divider borderColor="yellow.500"/>
           <Stack direction="column" justifyContent="space-between" h="100%">
             {orderedTasks.length === 0 ? (
               <Text fontSize={{ base: 'lg', md: 'xl' }}>
