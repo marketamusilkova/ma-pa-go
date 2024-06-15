@@ -58,7 +58,7 @@ export const Dayjs = () => {
       <CardHeader>
         {nDays ? (
           <Heading size={{ base: 'md', md: 'lg' }}>
-            Dnes je {dnesNaformatovano} a svátek slaví {nDays}.
+            Dneska je {dnesNaformatovano} a svátek slaví {nDays}.
           </Heading>
         ) : null}
       </CardHeader>

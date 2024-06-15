@@ -145,7 +145,7 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
               </AlertDialogContent>
             </AlertDialog>
           </Stack>
-          <Divider borderColor="yellow.500"/>
+          <Divider borderColor="yellow.500" />
           <Stack direction="column" justifyContent="space-between" h="100%">
             {orderedTasks.length === 0 ? (
               <Text fontSize={{ base: 'lg', md: 'xl' }}>
@@ -179,9 +179,16 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
                       isChecked={checkedTaskIds.includes(task.$$id)}
                       onChange={() => handleCheckboxChange(task.$$id)}
                     >
-                      <Box fontSize={{ base: 'lg', md: 'xl' }}>
-                        {task.title}
-                      </Box>
+                      <Stack direction="row" alignItems="center" spacing="1rem">
+                        <Box fontSize={{ base: 'lg', md: 'xl' }}>
+                          {task.title}
+                        </Box>
+                        {task.date === null ? null : (
+                          <Box fontSize={{ base: 'sm', md: 'md' }}>
+                            deadline: {task.date}
+                          </Box>
+                        )}
+                      </Stack>
                     </Checkbox>
                     <Stack justifyContent="end" spacing={2} direction={'row'}>
                       <Button
@@ -226,4 +233,3 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
     </Card>
   );
 };
-
