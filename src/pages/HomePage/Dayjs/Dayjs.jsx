@@ -31,6 +31,28 @@ export const Dayjs = () => {
     fetchName();
   }, []);
 
+  let vanoce;
+  if (zbyvaDoVanoc === 0) {
+    vanoce = 'Dneska jsou Vánoce!';
+  } else if (zbyvaDoVanoc === 1) {
+    vanoce = `Do Vánoc zbývá ještě ${zbyvaDoVanoc} den.`;
+  } else if (zbyvaDoVanoc >= 2 && zbyvaDoVanoc <= 4) {
+    vanoce = `Do Vánoc zbývají ještě ${zbyvaDoVanoc} dny.`;
+  } else {
+    vanoce = `Do Vánoc zbývá ještě ${zbyvaDoVanoc} dní.`;
+  }
+
+  let galavecerDAweb;
+  if (zbyvaDoGalavecera === 0) {
+    galavecerDAweb = 'Dneska je Galavečer DA web!';
+  } else if (zbyvaDoGalavecera === 1) {
+    galavecerDAweb = `Do Galavečera DA web zbývá ještě ${zbyvaDoGalavecera} den.`;
+  } else if (zbyvaDoGalavecera >= 2 && zbyvaDoGalavecera <= 4) {
+    galavecerDAweb = `Do Galavečera DA web zbývají ještě ${zbyvaDoGalavecera} dny.`;
+  } else {
+    galavecerDAweb = `Do Galavečera DA web zbývá ještě ${zbyvaDoGalavecera} dní.`;
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -45,12 +67,12 @@ export const Dayjs = () => {
         <Stack spacing="4">
           <Box>
             <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
-              Do Vánoc zbývá ještě {zbyvaDoVanoc} dní.
+              {vanoce}
             </Text>
           </Box>
           <Box>
             <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
-              Do Galavečera DA web zbývá ještě {zbyvaDoGalavecera} dní.
+              {galavecerDAweb}
             </Text>
           </Box>
         </Stack>
