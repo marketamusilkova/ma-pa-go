@@ -1,4 +1,4 @@
-import { Box, Card, Flex, Text } from '@chakra-ui/react';
+import { Box, Card, Flex, Image, Text } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import czechitas from './czechitas.png';
@@ -17,9 +17,9 @@ export const Footer = () => {
       </ChakraLink>
 
       <Flex direction="row" justifyContent="center">
-        <Box maxW={{ base: '100px', md: '200px' }}>
+        <Box maxW={{ base: '90px', md: '140px' }}>
           <a href="https://www.czechitas.cz/">
-            <img src={czechitas} alt="czechitas" />
+            <Image src={czechitas} alt="czechitas" />
           </a>
         </Box>
         <Text fontSize={{ base: '12px', md: '18px' }} alignSelf="center">
