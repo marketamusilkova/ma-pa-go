@@ -7,7 +7,12 @@ import { Container, Flex } from '@chakra-ui/react';
 
 export const App = () => {
   return (
-    <Flex direction="column" className="background" minH="100vh" justifyContent="center">
+    <Flex
+      direction="column"
+      className="background"
+      minH="100vh"
+      justifyContent="center"
+    >
       <header>
         <Container maxW={'8xl'}>
           <Navigation />

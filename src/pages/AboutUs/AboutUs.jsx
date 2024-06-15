@@ -51,7 +51,7 @@ export const AboutUs = () => {
         justifyContent={{ base: 'center', md: 'space-evenly' }}
       >
         <Card maxW={{ base: '100%', md: '40%' }}>
-          <CardHeader>
+          <CardHeader pb={0}>
             <Heading
               size={{ base: 'lg', md: 'xl' }}
               fontFamily="Shadows Into Light, cursive"
@@ -114,7 +114,7 @@ export const AboutUs = () => {
           </CardBody>
         </Card>
         <Card maxW={{ base: '100%', md: '40%' }}>
-          <CardHeader>
+          <CardHeader pb={0}>
             <Heading
               size={{ base: 'lg', md: 'xl' }}
               fontFamily="Shadows Into Light, cursive"
