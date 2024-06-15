@@ -41,7 +41,7 @@ export const NewPlan = () => {
   };
 
   return (
-    <Card bg="rgba(253, 251, 251, 0.8)" p="1rem">
+    <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
       <Flex
         direction={{ base: 'column', md: 'row' }}
         wrap="nowrap"
@@ -49,8 +49,18 @@ export const NewPlan = () => {
       >
         {isSmall ? (
           <Stack direction="row" justify="center" mb={4}>
-            <Image minWidth="50%" src={star_wars0} alt="Star wars" borderRadius="lg"/>
-            <Image minWidth="50%" src={star_wars1} alt="Star wars" borderRadius="lg"/>
+            <Image
+              minWidth="50%"
+              src={star_wars0}
+              alt="Star wars"
+              borderRadius="lg"
+            />
+            <Image
+              minWidth="50%"
+              src={star_wars1}
+              alt="Star wars"
+              borderRadius="lg"
+            />
           </Stack>
         ) : null}
         {isLarge ? (
@@ -61,10 +71,30 @@ export const NewPlan = () => {
             width="50%"
             height="auto"
           >
-            <Image src={star_wars0} alt="Star wars" objectFit="cover" borderRadius="lg"/>
-            <Image src={star_wars1} alt="Star wars" objectFit="cover" borderRadius="lg"/>
-            <Image src={star_wars2} alt="Star wars" objectFit="cover" borderRadius="lg"/>
-            <Image src={star_wars3} alt="Star wars" objectFit="cover" borderRadius="lg"/>
+            <Image
+              src={star_wars0}
+              alt="Star wars"
+              objectFit="cover"
+              borderRadius="lg"
+            />
+            <Image
+              src={star_wars1}
+              alt="Star wars"
+              objectFit="cover"
+              borderRadius="lg"
+            />
+            <Image
+              src={star_wars2}
+              alt="Star wars"
+              objectFit="cover"
+              borderRadius="lg"
+            />
+            <Image
+              src={star_wars3}
+              alt="Star wars"
+              objectFit="cover"
+              borderRadius="lg"
+            />
           </Grid>
         ) : null}
 
@@ -72,13 +102,15 @@ export const NewPlan = () => {
           textAlign={{ md: 'center' }}
           width={{ md: '50%' }}
           p={{ md: 4 }}
-          m="30"
+          ml="30"
         >
-          <Heading as="h2" size="xl" mb={4}>
+          <Heading as="h2" size={{ base: 'lg', md: 'xl' }} mb={4}>
             Vytvořit nový plán
           </Heading>
           <form onSubmit={handleSubmit}>
-            <FormLabel>Zadej název</FormLabel>
+            <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
+              Zadej název
+            </FormLabel>
             <Input
               type="text"
               value={title}
@@ -87,7 +119,7 @@ export const NewPlan = () => {
               mb={3}
               bg="white"
             />
-            <FormLabel>
+            <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
               Popiš a upřesni si tento plán <small>(nepovinný údaj)</small>
             </FormLabel>
             <Textarea
@@ -97,13 +129,31 @@ export const NewPlan = () => {
               mb={3}
               bg="white"
             />
-            <Button bg="yellow.500" color="white" type="submit">Vytvořit</Button>
+            <Button
+              bg="yellow.500"
+              color="white"
+              type="submit"
+              fontSize={{ base: 'md', lg: 'xl' }}
+              mb="1rem"
+            >
+              Vytvořit
+            </Button>
           </form>
         </Stack>
         {isSmall ? (
           <Stack direction="row" justify="center">
-            <Image minWidth="50%" src={star_wars2} alt="Star wars" borderRadius="lg"/>
-            <Image minWidth="50%" src={star_wars3} alt="Star wars" borderRadius="lg"/>
+            <Image
+              minWidth="50%"
+              src={star_wars2}
+              alt="Star wars"
+              borderRadius="lg"
+            />
+            <Image
+              minWidth="50%"
+              src={star_wars3}
+              alt="Star wars"
+              borderRadius="lg"
+            />
           </Stack>
         ) : null}
       </Flex>
