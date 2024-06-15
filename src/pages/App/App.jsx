@@ -7,13 +7,13 @@ import { Container, Flex } from '@chakra-ui/react';
 
 export const App = () => {
   return (
-    <Flex direction="column" className="background" minH="100vh">
+    <Flex direction="column" className="background" minH="100vh" justifyContent="center">
       <header>
         <Container maxW={'8xl'}>
           <Navigation />
         </Container>
       </header>
-      <Flex flexGrow={1} mt="1rem" mb="1rem">
+      <Flex flexGrow={1} mt="1rem" mb="1rem" justifyContent="center">
         <main>
           <Container maxW={'8xl'}>
             <AI />
