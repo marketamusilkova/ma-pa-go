@@ -9,14 +9,59 @@ import {
   Heading,
   Image,
   Input,
-  Select,
   Stack,
   Textarea,
-  background,
   useBreakpointValue,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import harry_potter from './Harry_Potter.jpg';
 import dumbledor from './Dumbledor.jpg';
+
+// Definice vlastní komponenty CustomSelect
+const CustomSelect = ({ options, value, onChange }) => {
+  const [selected, setSelected] = useState(
+    options.find((o) => o.value === value) || null,
+  );
+
+  const handleSelect = (option) => {
+    setSelected(option);
+    onChange(option.value);
+  };
+
+  return (
+    <Box width="100%">
+      <Menu>
+        <MenuButton
+          w="100%"
+          as={Button}
+          rightIcon={<ChevronDownIcon />}
+          bg="white"
+          borderWidth="1px"
+        >
+          {selected ? selected.label : 'Vyberte možnost'}
+        </MenuButton>
+        <MenuList>
+          {options.map((option) => (
+            <MenuItem
+              key={option.value}
+              onClick={() => handleSelect(option)}
+              _hover={{ bg: '#D69E2E', color: 'white' }} // Stylování hover efektu
+              _focus={{ bg: '#D69E2E', color: 'white' }}
+              maxW="83vw"
+            
+            >
+              {option.label}
+            </MenuItem>
+          ))}
+        </MenuList>
+      </Menu>
+    </Box>
+  );
+};
 
 export const NewTask = () => {
   const [plans, setPlans] = useState([]);
@@ -33,7 +78,7 @@ export const NewTask = () => {
 
   const fetchPlans = async () => {
     const data = await listPlans();
-    setPlans(data);
+    setPlans(data.map((plan) => ({ value: plan.$$id, label: plan.title })));
     if (data.length > 0) {
       setPlan(data[0].$$id);
     } else {
@@ -82,22 +127,13 @@ export const NewTask = () => {
               <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
                 Vyber k jakému plánu chceš přidat úkol
               </FormLabel>
-              <Select
-                aria-label="Výběr Plánu"
+              <CustomSelect
+                options={plans}
                 value={plan}
-                onChange={(event) => setPlan(event.target.value)}
-                bg="white"
-                required
-                focusBorderColor="yellow.500"
-                mb={3}
-              >
-                {plans.map((plan) => (
-                  <option key={plan.$$id} value={plan.$$id} style={{color: "#D69E2E"}}>
-                    {plan.title}
-                  </option>
-                ))}
-              </Select>
-              <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
+                onChange={(value) => setPlan(value)}
+                
+              />
+              <FormLabel fontSize={{ base: 'md', lg: 'xl' }} mt={4}>
                 Název úkolu
               </FormLabel>
               <Textarea

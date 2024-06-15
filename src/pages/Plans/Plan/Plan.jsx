@@ -226,3 +226,4 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
     </Card>
   );
 };
+
