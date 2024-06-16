@@ -18,8 +18,8 @@ export const runCron = () => {
       const data = await response.json();
       if (data.list && data.list.length > 0) {
         const filterWeather = data.list
-          .slice(0, 7) // zobrazíme prvních 8 položek (24 hodin)
-          .filter((item) => item.rain); // filtrujeme pouze položky, které obsahují déšť
+          .slice(0, 4) 
+          .filter((item) => item.rain); 
         console.log(filterWeather);
 
         if (filterWeather.length > 0) {

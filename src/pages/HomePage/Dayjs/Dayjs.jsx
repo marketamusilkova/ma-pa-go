@@ -21,8 +21,6 @@ export const Dayjs = () => {
   const zbyvaDoVanoc = stedryDen.diff(dnes, 'day');
   const galavecer = dayjs('2024-06-20');
   const zbyvaDoGalavecera = galavecer.diff(dnes, 'day');
-  const odevzdaniProjektu = dayjs('2024-06-17');
-  const zbyvaDoOdevzdaniProjektu = odevzdaniProjektu.diff(dnes, 'day');
 
   useEffect(() => {
     const fetchName = async () => {
@@ -61,22 +59,6 @@ export const Dayjs = () => {
     } dní.`;
   }
 
-  let odevzdani;
-  if (zbyvaDoOdevzdaniProjektu + 1 === 1) {
-    odevzdani = `Do odevzdání zbývá ještě ${zbyvaDoOdevzdaniProjektu + 1} den.`;
-  } else if (
-    zbyvaDoOdevzdaniProjektu + 1 >= 2 &&
-    zbyvaDoOdevzdaniProjektu + 1 <= 4
-  ) {
-    odevzdani = `Do odevzání zbývají ještě ${
-      zbyvaDoOdevzdaniProjektu + 1
-    } dny.`;
-  } else if (zbyvaDoOdevzdaniProjektu === 0) {
-    odevzdani = 'Dneska je odevzdání!';
-  } else {
-    odevzdani = `Do odevzdání zbývá ještě ${zbyvaDoOdevzdaniProjektu + 1} dní.`;
-  }
-
   return (
     <Card>
       <CardHeader>
@@ -97,11 +79,6 @@ export const Dayjs = () => {
           <Box>
             <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
               {galavecerDAweb}
-            </Text>
-          </Box>
-          <Box>
-            <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
-              {odevzdani}
             </Text>
           </Box>
         </Stack>

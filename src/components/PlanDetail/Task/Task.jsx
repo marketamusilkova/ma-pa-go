@@ -30,7 +30,7 @@ export const Task = ({ tasks, onClick }) => {
                 <ListItem fontSize={{ base: 'md', md: 'xl' }}>
                   {task.title}
                 </ListItem>
-                <Text> {task.date ? `deadline: ${task.date}` : null}</Text>
+                <Text fontSize={{ base: 'sm', md: 'md' }}> {task.date ? `deadline: ${task.date}` : null}</Text>
               </Stack>
               <Stack direction="row">
                 <Button

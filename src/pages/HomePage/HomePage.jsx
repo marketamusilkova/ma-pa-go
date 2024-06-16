@@ -68,7 +68,7 @@ export const HomePage = () => {
         <Stack
           direction={{ base: 'column', md: 'row' }}
           justifyContent="space-evenly"
-          mt="2rem"
+          mt={{lg: "2rem"}}
         >
           <Dayjs />
           <Notifications />
