@@ -26,15 +26,22 @@ import { EmailIcon } from '@chakra-ui/icons';
 export const Notifications = () => {
   const [zipCode, setZipCode] = useState('');
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await appendUser({ zipcode: zipCode, email: email });
-    setEmail('');
-    setZipCode('');
+    if (zipCode && email) {
+      await appendUser({ zipcode: zipCode, email: email });
+      setEmail('');
+      setZipCode('');
+      onClose();
+    } else {
+      setError('Prosím, vyplňte obě pole.');
+    }
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Card>
@@ -90,11 +97,15 @@ export const Notifications = () => {
                 onChange={(event) => setEmail(event.target.value)}
                 focusBorderColor="yellow.500"
               />
+              {error && (
+                <Text color="yellow.500" mt="1rem">
+                  {error}
+                </Text>
+              )}
               <Button
                 bg="blackAlpha.900"
                 color="white"
                 type="submit"
-                onClick={onClose}
                 mt="1rem"
                 mb="1rem"
               >
