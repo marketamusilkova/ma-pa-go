@@ -35,23 +35,31 @@ if (env['CORS_ORIGIN']) {
 
 const api = collections.buildServer();
 api.post('/notifications', async (c) =>
-  collections.collections.notifications.append(await c.req.json()),
+  c.json(
+    await collections.collections.notifications.append(await c.req.json()),
+  ),
 );
-api.delete('/notifications/:id', async (c) =>
-  collections.collections.notifications.delete(await c.req.param('id')),
-);
+api.delete('/notifications/:id', async (c) => {
+  await collections.collections.notifications.delete(await c.req.param('id'));
+  return c.body(null, 204);
+});
+
 app.route('/api', api);
 app.use('/*', serveStatic({ root: './' }));
 app.get('*', serveStatic({ path: './index.html' }));
 
+// funkce pro ruční smazání uživatele, který se přihlásil k notifikacím
+// const deleteUser = async () =>
+//   await collections.collections.notifications.delete(
+//     '',
+//   );
+
+// await deleteUser('');
+
 //kód, který získá všechny objekty z kolekce "notifications"
-export const listUsers = collections.collections.notifications.list;
+export const listUsers = async () =>
+  await collections.collections.notifications.list();
 
 runCron();
-
-//funkce pro ruční smazání uživatele, který se přihlásil k notifikacím
-const deleteUser = collections.collections.notifications.delete;
-
-// await deleteUser('userId')
 
 export default app;
