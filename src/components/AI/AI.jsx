@@ -33,6 +33,7 @@ export const AI = () => {
 
     const answer = await run(aiquestion);
     setAianswer(answer);
+    setAiquestion('');
     setIsLoading(false);
   };
 
@@ -87,7 +88,7 @@ export const AI = () => {
                   type="text"
                   value={aiquestion}
                   onChange={(event) => setAiquestion(event.target.value)}
-                  focusBorderColor='yellow.500'
+                  focusBorderColor="yellow.500"
                 />
                 <InputRightElement>
                   <SearchIcon />
