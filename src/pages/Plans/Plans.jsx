@@ -78,7 +78,7 @@ export const Plans = () => {
         </Stack>
       ) : (
         <Box>
-          <Heading size={{ base: 'lg', md: 'xl' }} alignSelf="center" mb="1rem">
+          <Heading size={{ base: 'lg', md: 'xl' }} align="center" mb="1rem">
             Moje plány
           </Heading>
           {plans && tasksByPlans ? (
