@@ -15,7 +15,6 @@ export const Footer = () => {
       >
         O nás
       </ChakraLink>
-
       <Flex direction="row" justifyContent="center">
         <Box maxW={{ base: '90px', md: '140px' }}>
           <a href="https://www.czechitas.cz/">

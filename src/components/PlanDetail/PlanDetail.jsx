@@ -10,9 +10,9 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { deleteTask, getPlan, listAllTasks } from '../../library/api';
-import tbbt from './TBBT.jpg';
 import { Task } from './Task/Task';
 import { Spinner } from '../Spinner/Spinner';
+import tbbt from './TBBT.jpg';
 
 export const PlanDetail = () => {
   const [plan, setPlan] = useState(null);

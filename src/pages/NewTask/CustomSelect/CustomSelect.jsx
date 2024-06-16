@@ -1,5 +1,12 @@
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Box, Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 
 export const CustomSelect = ({ options, value, onChange }) => {

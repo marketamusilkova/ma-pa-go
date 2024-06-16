@@ -12,9 +12,9 @@ import {
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
 import { appendBook, deleteBook, listBooks } from '../../../library/api';
-import { DeleteIcon } from '@chakra-ui/icons';
 
 export const Books = () => {
   const [books, setBooks] = useState(null);

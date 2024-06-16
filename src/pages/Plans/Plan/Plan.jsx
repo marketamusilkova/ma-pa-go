@@ -22,9 +22,9 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
-import { DeleteIcon, EditIcon, PlusSquareIcon } from '@chakra-ui/icons';
 import { Reorder } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
@@ -32,7 +32,7 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
   const [orderedTasks, setOrderedTasks] = useState(
     tasks ? tasks.sort((a, b) => a.order - b.order) : [],
   );
-  const [checkedStates, setCheckedStates] = useState({}); // State for checkbox states
+  const [checkedStates, setCheckedStates] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
 

@@ -4,15 +4,15 @@ import { HomePage } from './pages/HomePage/HomePage';
 import './global.css';
 import { AboutUs } from './pages/AboutUs/AboutUs';
 import { App } from './pages/App/App';
-import { ChakraProvider } from '@chakra-ui/react';
-import '@fontsource/chakra-petch/400.css';
-import theme from './theme';
 import { Plans } from './pages/Plans/Plans';
 import { NewTask } from './pages/NewTask/NewTask';
 import { NewPlan } from './pages/NewPlan/NewPlan';
 import { TaskEdit } from './components/TaskEdit/TaskEdit';
 import { PlanDetail } from './components/PlanDetail/PlanDetail';
 import { PlanEdit } from './components/PlanEdit/PlanEdit';
+import { ChakraProvider } from '@chakra-ui/react';
+import '@fontsource/chakra-petch/400.css';
+import theme from './theme';
 
 const router = createBrowserRouter([
   {

@@ -35,7 +35,11 @@ export const TaskEdit = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await updateTask(taskId, { plan: task.plan, title, date: date ? date : null});
+    await updateTask(taskId, {
+      plan: task.plan,
+      title,
+      date: date ? date : null,
+    });
     navigate('/plans');
   };
 

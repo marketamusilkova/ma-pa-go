@@ -58,25 +58,29 @@ export const PlanEdit = () => {
                 Úprava plánu
               </Heading>
               <div>
-                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>Chceš změnit název?</FormLabel>
+                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
+                  Chceš změnit název?
+                </FormLabel>
                 <Input
                   type="text"
                   value={title}
                   onChange={(event) => setTitle(event.target.value)}
                   mb={3}
                   bg="white"
-                  focusBorderColor='yellow.500'
+                  focusBorderColor="yellow.500"
                 />
               </div>
               <div>
-                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>Nebo chceš změnit popis?</FormLabel>
+                <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
+                  Nebo chceš změnit popis?
+                </FormLabel>
                 <Textarea
                   rows="3"
                   value={description}
                   onChange={(event) => setDescription(event.target.value)}
                   mb={3}
                   bg="white"
-                  focusBorderColor='yellow.500'
+                  focusBorderColor="yellow.500"
                 ></Textarea>
               </div>
               <Button

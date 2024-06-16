@@ -136,7 +136,7 @@ export const appendUser = async (user) => {
   return await response.json();
 };
 
-//fetch for checkboxes
+//fetches for checkboxes
 export const listCheckedStates = async () => {
   const response = await fetch(`${API_URL}/checkboxes`);
   return await response.json();

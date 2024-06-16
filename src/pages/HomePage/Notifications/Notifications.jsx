@@ -19,9 +19,9 @@ import {
   CardBody,
   Heading,
 } from '@chakra-ui/react';
+import { EmailIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import { appendUser } from '../../../library/api';
-import { EmailIcon } from '@chakra-ui/icons';
 
 export const Notifications = () => {
   const [zipCode, setZipCode] = useState('');
@@ -60,7 +60,6 @@ export const Notifications = () => {
           </Button>
         </CardBody>
       </Card>
-
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -78,9 +77,7 @@ export const Notifications = () => {
               maxW="40%"
             />
           </Stack>
-
           <ModalCloseButton />
-
           <ModalBody>
             <form onSubmit={handleSubmit}>
               <FormLabel>Zadej PSČ (s mezerou, např. 550 01)</FormLabel>

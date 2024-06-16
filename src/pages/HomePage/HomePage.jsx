@@ -1,18 +1,18 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
 import { useEffect, useState } from 'react';
-import { listPlans } from '../../library/api';
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
 import { Dayjs } from './Dayjs/Dayjs';
 import { PlansAccordion } from './PlansAccordion/PlansAccordion';
-import { Heading, Image, Stack, Card, Text } from '@chakra-ui/react';
-import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
+import { listPlans } from '../../library/api';
 import { Books } from './Books/Books';
 import { Films } from './Films/Films';
 import { Spinner } from '../../components/Spinner/Spinner';
-import { Link as ReactRouterLink } from 'react-router-dom';
-import { Link as ChakraLink } from '@chakra-ui/react';
+import { Heading, Image, Stack, Card, Text } from '@chakra-ui/react';
 import { PlusSquareIcon } from '@chakra-ui/icons';
+import batman_superman from './batman_superman.jpg';
 
 export const HomePage = () => {
   const [plans, setPlans] = useState(null);

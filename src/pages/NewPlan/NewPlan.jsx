@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { appendPlan } from '../../library/api';
 import { useNavigate } from 'react-router-dom';
+import { appendPlan } from '../../library/api';
 import {
   Button,
   Card,
@@ -97,8 +97,12 @@ export const NewPlan = () => {
             />
           </Grid>
         ) : null}
-
-        <Stack textAlign='center' width={{ md: '50%' }} p={{ md: 4 }} ml={{md: "2rem"}}>
+        <Stack
+          textAlign="center"
+          width={{ md: '50%' }}
+          p={{ md: 4 }}
+          ml={{ md: '2rem' }}
+        >
           <Heading size={{ base: 'lg', md: 'xl' }} mb={4}>
             Vytvořit nový plán
           </Heading>
@@ -113,7 +117,7 @@ export const NewPlan = () => {
               required
               mb={3}
               bg="white"
-              focusBorderColor='yellow.500'
+              focusBorderColor="yellow.500"
             />
             <FormLabel fontSize={{ base: 'md', lg: 'xl' }}>
               Popiš a upřesni si tento plán <small>(nepovinný údaj)</small>
@@ -124,7 +128,7 @@ export const NewPlan = () => {
               onChange={(event) => setDescription(event.target.value)}
               mb={3}
               bg="white"
-              focusBorderColor='yellow.500'
+              focusBorderColor="yellow.500"
             />
             <Button
               bg="yellow.500"

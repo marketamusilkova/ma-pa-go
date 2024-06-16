@@ -14,10 +14,10 @@ import {
   InputGroup,
   InputRightElement,
 } from '@chakra-ui/react';
+import { ChatIcon, SearchIcon } from '@chakra-ui/icons';
 import React, { useState } from 'react';
 import { run } from './AIApi/AIApi';
 import { Spinner } from '../Spinner/Spinner';
-import { ChatIcon, SearchIcon } from '@chakra-ui/icons';
 
 export const AI = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

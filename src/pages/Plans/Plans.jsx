@@ -1,14 +1,14 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
-import { Box, Card, Heading, Image, Stack, Text } from '@chakra-ui/react';
-import { PlansList } from './PlansList/PlansList';
-import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
-import friends from './Friends.jpg';
-import { Spinner } from '../../components/Spinner/Spinner';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
+import { Box, Card, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import { PlusSquareIcon } from '@chakra-ui/icons';
+import { PlansList } from './PlansList/PlansList';
+import { listPlans } from '../../library/api';
+import { Spinner } from '../../components/Spinner/Spinner';
+import friends from './Friends.jpg';
 
 export const Plans = () => {
   const [plans, setPlans] = useState(null);

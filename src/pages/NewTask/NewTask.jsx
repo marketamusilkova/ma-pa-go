@@ -13,13 +13,13 @@ import {
   Textarea,
   useBreakpointValue,
 } from '@chakra-ui/react';
+import { PlusSquareIcon } from '@chakra-ui/icons';
 import { Link as ReactRouterLink, useNavigate } from 'react-router-dom';
 import { Link as ChakraLink } from '@chakra-ui/react';
+import { CustomSelect } from './CustomSelect/CustomSelect';
+import { Spinner } from '../../components/Spinner/Spinner';
 import harry_potter from './Harry_Potter.jpg';
 import dumbledor from './Dumbledor.jpg';
-import { CustomSelect } from './CustomSelect/CustomSelect';
-import { PlusSquareIcon } from '@chakra-ui/icons';
-import { Spinner } from '../../components/Spinner/Spinner';
 
 export const NewTask = () => {
   const [plans, setPlans] = useState(null);
