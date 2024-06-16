@@ -41,7 +41,7 @@ export const updatePlan = async (planId, plan) => {
 
 // fetches for tasks
 export const listAllTasks = async (planId) => {
-  const response = await fetch(`${API_URL}/tasks/${planId}/`);
+  const response = await fetch(`${API_URL}/tasks/by-plan/${planId}/`);
   return await response.json();
 };
 

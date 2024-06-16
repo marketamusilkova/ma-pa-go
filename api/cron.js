@@ -1,15 +1,11 @@
 import sgMail from 'npm:@sendgrid/mail';
 import { load } from '@dotenv';
+import { listUsers } from './main.js';
 
 const env = await load();
 if (env['SENDGRID_API_KEY']) {
   sgMail.setApiKey(env['SENDGRID_API_KEY']);
 }
-
-export const listUsers = async () => {
-  const response = await fetch(`http://localhost:8000/api/notifications`);
-  return await response.json();
-};
 
 export const runCron = () => {
   Deno.cron('notification', '30 7 * * *', async () => {
@@ -22,14 +18,14 @@ export const runCron = () => {
       const data = await response.json();
       if (data.list && data.list.length > 0) {
         const filterWeather = data.list
-          .slice(0, 7) // Zobrazíme prvních 8 položek (24 hodin)
-          .filter((item) => item.rain); // Filtrujeme pouze položky, které obsahují déšť
+          .slice(0, 7) // zobrazíme prvních 8 položek (24 hodin)
+          .filter((item) => item.rain); // filtrujeme pouze položky, které obsahují déšť
         console.log(filterWeather);
 
         if (filterWeather.length > 0) {
           const msg = {
             to: user.email,
-            from: 'mrs.musilkova@gmail.com', // Use the email address or domain you verified above
+            from: 'mrs.musilkova@gmail.com',
             subject: 'Umbrella alert',
             text: 'Dneska bude pršet, vezmi si deštník.',
             html: '<strong>Dneska bude pršet, vezmi si deštník.</strong>',

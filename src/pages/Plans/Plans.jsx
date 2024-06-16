@@ -20,7 +20,7 @@ export const Plans = () => {
   const fetchTasks = async (plans) => {
     const allTasks = [];
     for (const plan of plans) {
-      const response = await fetch(`${API_URL}/tasks/${plan.$$id}/`);
+      const response = await fetch(`${API_URL}/tasks/by-plan/${plan.$$id}/`);
       const data = await response.json();
       allTasks.push(...data);
     }

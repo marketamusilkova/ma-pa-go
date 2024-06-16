@@ -1,25 +1,25 @@
 import { Hono } from '@hono';
-import { cors, serveStatic } from '@hono/middleware';
+import { cors } from '@hono/cors';
+import { serveStatic } from '@hono/deno';
 import { load } from '@dotenv';
-import { RESTfulCollections } from '@czechitas/restful-collections';
+import { createCollections } from '@czechitas/restful-collections';
 import { runCron } from './cron.js';
 
-const api = await new RESTfulCollections()
-  .collection('plans', {
-    keyBuilder: (value) =>
-      value.description ? [value.title, value.description] : [value.title, '*'],
-  })
-  .collection('tasks', {
-    keyBuilder: (value) =>
-      value.date
-        ? [value.plan, value.title, value.date]
-        : [value.plan, value.title, '*'],
-  })
-  .collection('books', {})
-  .collection('films', {})
-  .collection('notifications', {})
-  .collection('checkbox', {})
-  .buildServer();
+const collections = await createCollections({
+  plans: {},
+  tasks: {
+    secondaryIndexes: {
+      'by-plan': (value) =>
+        value.date ? [value.plan, value.date] : [value.plan, '*'],
+    },
+  },
+  books: {},
+  films: {},
+  notifications: {
+    internal: true,
+  },
+  checkbox: {},
+});
 
 const app = new Hono();
 
@@ -32,21 +32,26 @@ if (env['CORS_ORIGIN']) {
     }),
   );
 }
+
+const api = collections.buildServer();
+api.post('/notifications', async (c) =>
+  collections.collections.notifications.append(await c.req.json()),
+);
+api.delete('/notifications/:id', async (c) =>
+  collections.collections.notifications.delete(await c.req.param('id')),
+);
 app.route('/api', api);
 app.use('/*', serveStatic({ root: './' }));
 app.get('*', serveStatic({ path: './index.html' }));
 
+//kód, který získá všechny objekty z kolekce "notifications"
+export const listUsers = collections.collections.notifications.list;
+
 runCron();
 
-export const deletePlan = async (userId) => {
-  const response = await fetch(
-    `http://localhost:8000/api/notifications/${userId}`,
-    {
-      method: 'DELETE',
-    },
-  );
-};
+//funkce pro ruční smazání uživatele, který se přihlásil k notifikacím
+const deleteUser = collections.collections.notifications.delete;
 
-// deletePlan('');
+// await deleteUser('userId')
 
 export default app;

@@ -151,7 +151,7 @@ export const AboutUs = () => {
                   Co mám ráda?
                 </Heading>
                 <Text pt="2" fontSize="sm">
-                Pokud jste dočetli až ke mně, můžete si zkopírovat vedlejší odstavec jen americký fotbal vyměňte za cyklistiku, jinak platí většina věcí. Studovala jsem Rekreologii, takže sportovní činnosti mohu doplnit ještě o golf a lezení, ale zrovna tyto 2 činnosti se mi s dětmi zatím moc nedaří, tak se asi nepočítají :-). Nyní jsou nahrazeny výlety s dětmi vlakem, busem, na kolech, pěšky a přespávání pod širákem. 
+                Pokud jste dočetli až ke mně, můžete si zkopírovat vedlejší odstavec jen americký fotbal vyměňte za cyklistiku, jinak platí většina věcí. Studovala jsem Rekreologii, takže sportovní činnosti mohu doplnit ještě o golf a lezení, ale zrovna tyto dvě činnosti se mi s dětmi zatím moc nedaří, tak se asi nepočítají :-). Nyní jsou nahrazeny výlety s dětmi vlakem, busem, na kolech, pěšky a přespávání pod širákem. 
                  V poslední době dělím všechen čas mezi rodinu, programování, stavbu domu a knihy, takže seriály a filmy mne míjí. Děkuji manželovi a zbytku rodiny za obrovskou podporu, díky níž jsem mohla nakouknout do jiného jazyka, tentokrát programovacího.
                 </Text>
                 <Text pt="2" fontSize="sm">
