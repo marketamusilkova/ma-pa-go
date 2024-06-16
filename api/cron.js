@@ -1,14 +1,12 @@
 import sgMail from 'npm:@sendgrid/mail';
-import { load } from '@dotenv';
 import { listUsers } from './main.js';
 
-const env = await load();
-if (env['SENDGRID_API_KEY']) {
-  sgMail.setApiKey(env['SENDGRID_API_KEY']);
+if (Deno.env.has('SENDGRID_API_KEY')) {
+  sgMail.setApiKey(Deno.env.get('SENDGRID_API_KEY'));
 }
 
 export const runCron = () => {
-  Deno.cron('notification', '03 13 * * *', async () => {
+  Deno.cron('notification', '32 14 * * *', async () => {
     const users = await listUsers();
 
     users.forEach(async (user) => {
