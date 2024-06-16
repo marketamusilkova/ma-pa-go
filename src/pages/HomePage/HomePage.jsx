@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
 import { Dayjs } from './Dayjs/Dayjs';
 import { PlansAccordion } from './PlansAccordion/PlansAccordion';
-import { Heading, Image, Stack, Card, Divider } from '@chakra-ui/react';
+import { Heading, Image, Stack, Card, Text, Box } from '@chakra-ui/react';
 import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
 import { Books } from './Books/Books';
 import { Films } from './Films/Films';
 import { Spinner } from '../../components/Spinner/Spinner';
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
+import { PlusSquareIcon } from '@chakra-ui/icons';
 
 export const HomePage = () => {
   const [plans, setPlans] = useState(null);
@@ -68,7 +71,7 @@ export const HomePage = () => {
         <Stack
           direction={{ base: 'column', md: 'row' }}
           justifyContent="space-evenly"
-          mt={{lg: "2rem"}}
+          mt={{ lg: '2rem' }}
         >
           <Dayjs />
           <Notifications />
@@ -76,14 +79,26 @@ export const HomePage = () => {
         {plans === null ? (
           <Spinner />
         ) : plans.length === 0 ? (
-          <Heading
-            mt="2rem"
-            mb="2rem"
-            textAlign="center"
-            size={{ base: 'md', md: 'xl' }}
-          >
-            Nemáš ještě založené žádné plány...
-          </Heading>
+          <Stack>
+            <Heading
+              mt="2rem"
+              mb="2rem"
+              textAlign="center"
+              size={{ base: 'md', md: 'xl' }}
+            >
+              Nemáš ještě vytvořen žádný plán.
+            </Heading>
+            <Text
+              textAlign="center"
+              fontSize={{ base: 'xl', lg: '3xl' }}
+              fontWeight="bold"
+              mb="2rem"
+            >
+              <ChakraLink as={ReactRouterLink} to="/newplan">
+                Založit nový plán <PlusSquareIcon mx="2px" />
+              </ChakraLink>
+            </Text>
+          </Stack>
         ) : (
           <PlansAccordion
             plans={plans}
@@ -99,7 +114,8 @@ export const HomePage = () => {
         )}
         <Stack
           direction={{ base: 'column', md: 'row' }}
-          justifyContent="space-evenly"
+          justifyContent={{ md: 'space-evenly' }}
+          h="100%"
         >
           <Books />
           <Films />

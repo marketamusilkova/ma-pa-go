@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { appendTask, listPlans } from '../../library/api';
 import {
   Box,
@@ -10,13 +9,16 @@ import {
   Image,
   Input,
   Stack,
+  Text,
   Textarea,
   useBreakpointValue,
 } from '@chakra-ui/react';
-
+import { Link as ReactRouterLink, useNavigate } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
 import harry_potter from './Harry_Potter.jpg';
 import dumbledor from './Dumbledor.jpg';
 import { CustomSelect } from './CustomSelect/CustomSelect';
+import { PlusSquareIcon } from '@chakra-ui/icons';
 
 export const NewTask = () => {
   const [plans, setPlans] = useState([]);
@@ -59,17 +61,28 @@ export const NewTask = () => {
 
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
-      {!plans.length ? (
-        <Heading textAlign="center" p={{ base: '1rem', md: '2rem' }}>
-          Nejprve si musíš založit nový plán a až poté můžeš přidat úkol.
-        </Heading>
-      ) : (
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          textAlign="center"
-          justifyContent="center"
-          spacing="2rem"
-        >
+      <Stack
+        direction={{ base: 'column', md: 'row' }}
+        textAlign="center"
+        justifyContent="center"
+        spacing="2rem"
+      >
+        {!plans.length ? (
+          <Stack>
+            <Heading textAlign="center" p={{ base: '1rem', md: '2rem' }}>
+              Nejprve si musíš založit nový plán a až poté můžeš přidat úkol.
+            </Heading>
+            <Text
+              textAlign="center"
+              fontSize={{ base: 'xl', lg: '3xl' }}
+              fontWeight="bold"
+            >
+              <ChakraLink as={ReactRouterLink} to="/newplan">
+                Založit nový plán <PlusSquareIcon mx="2px" />
+              </ChakraLink>
+            </Text>
+          </Stack>
+        ) : (
           <Stack
             width={{ md: '55%' }}
             textAlign="center"
@@ -120,16 +133,16 @@ export const NewTask = () => {
               </Button>
             </form>
           </Stack>
-          <Box
-            maxW={{ md: '40%' }}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Image src={imageSrc} alt="Harry Potter" borderRadius="lg" />
-          </Box>
-        </Stack>
-      )}
+        )}
+        <Box
+          maxW={{ md: '40%' }}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Image src={imageSrc} alt="Harry Potter" borderRadius="lg" />
+        </Box>
+      </Stack>
     </Card>
   );
 };

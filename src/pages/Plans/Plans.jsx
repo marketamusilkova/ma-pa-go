@@ -1,11 +1,14 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
-import { Card, Heading, Image } from '@chakra-ui/react';
+import { Card, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
 import friends from './Friends.jpg';
 import { Spinner } from '../../components/Spinner/Spinner';
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
+import { PlusSquareIcon } from '@chakra-ui/icons';
 
 export const Plans = () => {
   const [plans, setPlans] = useState(null);
@@ -56,17 +59,36 @@ export const Plans = () => {
 
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
-      <Heading size={{ base: 'lg', md: 'xl' }} alignSelf="center" mb="1rem">
-        Moje plány
-      </Heading>
-      {plans && tasksByPlans ? (
-        <PlansList
-          plans={plans}
-          onDelete={handleDelete}
-          tasksByPlans={tasksByPlans}
-        />
+      {!plans || plans.length === 0 ? (
+        <Stack>
+          <Heading textAlign="center" p={{ base: '1rem', md: '2rem' }}>
+            Nemáš ještě vytvořen žádný plán.
+          </Heading>
+          <Text
+            textAlign="center"
+            fontSize={{ base: 'xl', lg: '3xl' }}
+            fontWeight="bold"
+          >
+            <ChakraLink as={ReactRouterLink} to="/newplan">
+              Založit nový plán <PlusSquareIcon mx="2px" />
+            </ChakraLink>
+          </Text>
+        </Stack>
       ) : (
-        <Spinner />
+        <Box>
+          <Heading size={{ base: 'lg', md: 'xl' }} alignSelf="center" mb="1rem">
+            Moje plány
+          </Heading>
+          {plans && tasksByPlans ? (
+            <PlansList
+              plans={plans}
+              onDelete={handleDelete}
+              tasksByPlans={tasksByPlans}
+            />
+          ) : (
+            <Spinner />
+          )}
+        </Box>
       )}
       <Image src={friends} alt="Friends" borderRadius="lg" mt="2rem" />
     </Card>
