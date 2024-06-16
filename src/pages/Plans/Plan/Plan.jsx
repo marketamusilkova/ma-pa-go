@@ -187,7 +187,7 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
                         <Box fontSize={{ base: 'lg', md: 'xl' }}>
                           {task.title}
                         </Box>
-                        {task.date === null ? null : (
+                        {task.date && (
                           <Box fontSize={{ base: 'sm', md: 'md' }}>
                             deadline: {task.date}
                           </Box>
