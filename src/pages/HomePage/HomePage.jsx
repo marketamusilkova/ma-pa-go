@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { listPlans } from '../../library/api';
 import { Dayjs } from './Dayjs/Dayjs';
 import { PlansAccordion } from './PlansAccordion/PlansAccordion';
-import { Heading, Image, Stack, Card, Text, Box } from '@chakra-ui/react';
+import { Heading, Image, Stack, Card, Text } from '@chakra-ui/react';
 import batman_superman from './batman_superman.jpg';
 import { Notifications } from './Notifications/Notifications';
 import { Books } from './Books/Books';

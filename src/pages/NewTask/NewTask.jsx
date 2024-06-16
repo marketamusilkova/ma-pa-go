@@ -19,9 +19,10 @@ import harry_potter from './Harry_Potter.jpg';
 import dumbledor from './Dumbledor.jpg';
 import { CustomSelect } from './CustomSelect/CustomSelect';
 import { PlusSquareIcon } from '@chakra-ui/icons';
+import { Spinner } from '../../components/Spinner/Spinner';
 
 export const NewTask = () => {
-  const [plans, setPlans] = useState([]);
+  const [plans, setPlans] = useState(null);
   const [plan, setPlan] = useState('');
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
@@ -67,7 +68,9 @@ export const NewTask = () => {
         justifyContent="center"
         spacing="2rem"
       >
-        {!plans.length ? (
+        {plans === null ? (
+          <Spinner />
+        ) : !plans.length ? (
           <Stack>
             <Heading textAlign="center" p={{ base: '1rem', md: '2rem' }}>
               Nejprve si musíš založit nový plán a až poté můžeš přidat úkol.

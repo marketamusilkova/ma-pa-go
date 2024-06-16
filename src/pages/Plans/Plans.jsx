@@ -59,7 +59,9 @@ export const Plans = () => {
 
   return (
     <Card bg="rgba(253, 251, 251, 0.8)" p={{ base: '1rem', md: '2rem' }}>
-      {!plans || plans.length === 0 ? (
+      {plans === null ? (
+        <Spinner />
+      ) : plans.length === 0 ? (
         <Stack>
           <Heading textAlign="center" p={{ base: '1rem', md: '2rem' }}>
             Nemáš ještě vytvořen žádný plán.
