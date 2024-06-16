@@ -1,6 +1,6 @@
 const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
-import { Card, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import { Box, Card, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';

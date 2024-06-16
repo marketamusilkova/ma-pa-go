@@ -115,6 +115,7 @@ export const HomePage = () => {
         <Stack
           direction={{ base: 'column', md: 'row' }}
           justifyContent={{ md: 'space-evenly' }}
+          alignItems={{ base: 'center', md: 'stretch' }}
           h="100%"
         >
           <Books />
