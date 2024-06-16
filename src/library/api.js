@@ -153,15 +153,6 @@ export const appendCheck = async (check) => {
   return await response.json();
 };
 
-// funkce pro ruční smazání položky z kolekce checkbox (nefunguje)
-// const deleteItem = async (itemId) => {
-//   const response = await fetch(`${API_URL}/checkboxes/${itemId}`, {
-//     method: 'DELETE',
-//   });
-// };
-
-// await deleteItem('01J036EXHPDHKGM1RN6Y9NRM2Y');
-
 // fetch for name-days
 export const nameDays = async () => {
   const response = await fetch('https://nameday.abalin.net/api/V1/today');

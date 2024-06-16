@@ -8,7 +8,7 @@ if (env['SENDGRID_API_KEY']) {
 }
 
 export const runCron = () => {
-  Deno.cron('notification', '43 10 * * *', async () => {
+  Deno.cron('notification', '52 12 * * *', async () => {
     const users = await listUsers();
 
     users.forEach(async (user) => {
