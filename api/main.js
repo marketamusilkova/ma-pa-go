@@ -59,6 +59,7 @@ app.get('*', serveStatic({ path: './index.html' }));
 //kód, který získá všechny objekty z kolekce "notifications"
 export const listUsers = async () =>
   await collections.collections.notifications.list();
+console.log(listUsers());
 
 runCron();
 
