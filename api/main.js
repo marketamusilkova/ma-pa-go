@@ -15,10 +15,10 @@ const collections = await createCollections({
   },
   books: {},
   films: {},
+  checkboxes: {},
   notifications: {
     internal: true,
   },
-  checkbox: {},
 });
 
 const app = new Hono();

@@ -136,14 +136,14 @@ export const appendUser = async (user) => {
   return await response.json();
 };
 
-//fetch for checkbox
+//fetch for checkboxes
 export const listCheckedStates = async () => {
-  const response = await fetch(`${API_URL}/checkbox`);
+  const response = await fetch(`${API_URL}/checkboxes`);
   return await response.json();
 };
 
-export const appenCheck = async (check) => {
-  const response = await fetch(`${API_URL}/checkbox`, {
+export const appendCheck = async (check) => {
+  const response = await fetch(`${API_URL}/checkboxes`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -152,6 +152,15 @@ export const appenCheck = async (check) => {
   });
   return await response.json();
 };
+
+// funkce pro ruční smazání položky z kolekce checkbox (nefunguje)
+// const deleteItem = async (itemId) => {
+//   const response = await fetch(`${API_URL}/checkboxes/${itemId}`, {
+//     method: 'DELETE',
+//   });
+// };
+
+// await deleteItem('01J036EXHPDHKGM1RN6Y9NRM2Y');
 
 // fetch for name-days
 export const nameDays = async () => {

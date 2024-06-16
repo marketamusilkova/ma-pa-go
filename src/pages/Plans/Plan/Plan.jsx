@@ -1,5 +1,5 @@
 import {
-  appenCheck,
+  appendCheck,
   deletePlan,
   deleteTask,
   listCheckedStates,
@@ -32,18 +32,9 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
   const [orderedTasks, setOrderedTasks] = useState(
     tasks ? tasks.sort((a, b) => a.order - b.order) : [],
   );
-  const [checkedTaskIds, setCheckedTaskIds] = useState([]);
+  const [checkedStates, setCheckedStates] = useState({}); // State for checkbox states
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
-
-  useEffect(() => {
-    const fetchCheckedStates = async () => {
-      const data = await listCheckedStates();
-      setCheckedTaskIds(data.map((check) => check.taskId));
-    };
-
-    fetchCheckedStates();
-  }, []);
 
   useEffect(() => {
     if (tasks) {
@@ -51,7 +42,21 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
     }
   }, [tasks]);
 
-  const handleDeleteClick = async (e) => {
+  useEffect(() => {
+    const fetchCheckedStates = async () => {
+      const response = await listCheckedStates();
+      setCheckedStates(
+        response.reduce((acc, { id, checked }) => {
+          acc[id] = checked;
+          return acc;
+        }, {}),
+      );
+    };
+
+    fetchCheckedStates();
+  }, []);
+
+  const handleDeleteClick = async () => {
     await deletePlan(plan.$$id);
     if (onDelete) {
       onDelete();
@@ -72,13 +77,12 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
   };
 
   const handleCheckboxChange = async (taskId) => {
-    const newCheckedTaskIds = checkedTaskIds.includes(taskId)
-      ? checkedTaskIds.filter((id) => id !== taskId)
-      : [...checkedTaskIds, taskId];
-
-    setCheckedTaskIds(newCheckedTaskIds);
-
-    await appenCheck({ taskId, checked: !checkedTaskIds.includes(taskId) });
+    const newCheckedState = !checkedStates[taskId];
+    setCheckedStates((prevState) => ({
+      ...prevState,
+      [taskId]: newCheckedState,
+    }));
+    await appendCheck({ id: taskId, checked: newCheckedState });
   };
 
   return (
@@ -176,7 +180,7 @@ export const Plan = ({ plan, onDelete, tasks, style }) => {
                   >
                     <Checkbox
                       colorScheme="gray"
-                      isChecked={checkedTaskIds.includes(task.$$id)}
+                      isChecked={checkedStates[task.$$id] || false}
                       onChange={() => handleCheckboxChange(task.$$id)}
                     >
                       <Stack direction="row" alignItems="center" spacing="1rem">

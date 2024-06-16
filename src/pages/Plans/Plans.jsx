@@ -1,11 +1,11 @@
+const API_URL = import.meta.env.VITE_API_URL ?? '/api';
+
 import { Card, Heading, Image } from '@chakra-ui/react';
 import { PlansList } from './PlansList/PlansList';
 import { listPlans } from '../../library/api';
 import { useEffect, useState } from 'react';
 import friends from './Friends.jpg';
 import { Spinner } from '../../components/Spinner/Spinner';
-
-const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
 export const Plans = () => {
   const [plans, setPlans] = useState(null);
@@ -39,7 +39,13 @@ export const Plans = () => {
 
   useEffect(() => {
     if (tasks) {
-      const groupedById = Object.groupBy(tasks, (task) => task.plan);
+      const groupedById = tasks.reduce((acc, task) => {
+        if (!acc[task.plan]) {
+          acc[task.plan] = [];
+        }
+        acc[task.plan].push(task);
+        return acc;
+      }, {});
       setTasksByPlans(groupedById);
     }
   }, [tasks]);
