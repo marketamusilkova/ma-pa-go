@@ -36,7 +36,7 @@ export const Notifications = () => {
       setZipCode('');
       onClose();
     } else {
-      setError('Prosím, vyplňte obě pole.');
+      setError('Prosím, vyplň obě pole.');
     }
   };
 
@@ -70,7 +70,7 @@ export const Notifications = () => {
               Déšť už tě nepřekvapí. Zadej níže poštovní směrovací číslo
               oblasti, pro kterou tě zajímá informace o dešti, a svůj email.
               Pokud předpověď počasí bude ukazovat déšť, v daný den ráno ti
-              dorazí email, aby sis nezapomněla vzít deštník...
+              dorazí email, aby sis nezapomněl/a vzít deštník...
             </Text>
             <Image
               src="https://media.giphy.com/media/TvVcE5NOI46tlmblLR/giphy.gif?cid=790b7611jfh9imhxo744amefh8yq2n93zo3kgrg8jhuayi84&ep=v1_gifs_search&rid=giphy.gif&ct=g"
