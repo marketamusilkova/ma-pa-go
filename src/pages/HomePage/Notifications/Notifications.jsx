@@ -81,14 +81,14 @@ export const Notifications = () => {
                 type="text"
                 value={zipCode}
                 onChange={(event) => setZipCode(event.target.value)}
-                focusBorderColor='yellow.500'
+                focusBorderColor="yellow.500"
               />
-              <FormLabel>Zadej email</FormLabel>
+              <FormLabel mt="1rem">Zadej email</FormLabel>
               <Input
                 type="text"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                focusBorderColor='yellow.500'
+                focusBorderColor="yellow.500"
               />
               <Button
                 bg="blackAlpha.900"

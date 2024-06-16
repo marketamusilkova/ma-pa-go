@@ -31,7 +31,9 @@ export const Books = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await appendBook({ title });
+    if (title) {
+      await appendBook({ title });
+    }
     fetchBooks();
     setTitle('');
   };
@@ -89,7 +91,7 @@ export const Books = () => {
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            focusBorderColor='yellow.500'
+            focusBorderColor="yellow.500"
           />
           <Button
             type="submit"

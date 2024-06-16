@@ -16,7 +16,7 @@ export const PlansAccordion = ({ plans, planTasks }) => {
   return (
     <Box display="flex" minW="90%" alignSelf="center">
       <Stack minW="100%">
-        <Heading size={{ base: 'md', md: 'lg' }} mt={{lg: "2rem"}}>
+        <Heading size={{ base: 'md', md: 'lg' }} mt={{ lg: '2rem' }}>
           Aktuální plány
         </Heading>
         <Accordion allowToggle>
@@ -61,15 +61,11 @@ export const PlansAccordion = ({ plans, planTasks }) => {
             </AccordionItem>
           ))}
         </Accordion>
-        <Heading
-          size={{ base: 'sm', md: 'md' }}
-          mb={{ lg: '2rem' }}
-          mt= '1rem'
-        >
+        <Text fontSize="xl" mb={{ lg: '2rem' }} mt="1rem" fontWeight="bold">
           <ChakraLink as={ReactRouterLink} to="/newplan">
             Přidat nový plán <PlusSquareIcon mx="2px" />
           </ChakraLink>
-        </Heading>
+        </Text>
       </Stack>
     </Box>
   );
