@@ -51,10 +51,10 @@ app.get('*', serveStatic({ path: './index.html' }));
 // funkce pro ruční smazání uživatele, který se přihlásil k notifikacím
 const deleteUser = async () =>
   await collections.collections.notifications.delete(
-    '01J0H4AZ6837SBNG4D92ES4J98',
+    '01J0H4ATB9YCJAWZQGNAC3DART',
   );
 
-await deleteUser('01J0H4AZ6837SBNG4D92ES4J98');
+await deleteUser('01J0H4ATB9YCJAWZQGNAC3DART');
 
 //kód, který získá všechny objekty z kolekce "notifications"
 export const listUsers = async () =>
