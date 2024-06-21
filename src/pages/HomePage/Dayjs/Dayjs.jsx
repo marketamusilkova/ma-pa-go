@@ -19,8 +19,6 @@ export const Dayjs = () => {
   const dnesNaformatovano = dnes.format('DD. MM. YYYY');
   const stedryDen = dayjs('2024-12-24');
   const zbyvaDoVanoc = stedryDen.diff(dnes, 'day');
-  const galavecer = dayjs('2024-06-20');
-  const zbyvaDoGalavecera = galavecer.diff(dnes, 'day');
 
   useEffect(() => {
     const fetchName = async () => {
@@ -42,23 +40,6 @@ export const Dayjs = () => {
     vanoce = `Do Vánoc zbývá ještě ${zbyvaDoVanoc + 1} dní.`;
   }
 
-  let galavecerDAweb;
-  if (zbyvaDoGalavecera + 1 === 1) {
-    galavecerDAweb = `Do galavečera DA web zbývá ještě ${
-      zbyvaDoGalavecera + 1
-    } den.`;
-  } else if (zbyvaDoGalavecera + 1 >= 2 && zbyvaDoGalavecera + 1 <= 4) {
-    galavecerDAweb = `Do galavečera DA web zbývají ještě ${
-      zbyvaDoGalavecera + 1
-    } dny.`;
-  } else if (zbyvaDoGalavecera === 0) {
-    galavecerDAweb = 'Dneska je galavečer DA web!';
-  } else {
-    galavecerDAweb = `Do galavečera DA web zbývá ještě ${
-      zbyvaDoGalavecera + 1
-    } dní.`;
-  }
-
   return (
     <Card>
       <CardHeader>
@@ -74,11 +55,6 @@ export const Dayjs = () => {
           <Box>
             <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
               {vanoce}
-            </Text>
-          </Box>
-          <Box>
-            <Text pt="2" fontSize={{ base: 'md', lg: 'xl' }}>
-              {galavecerDAweb}
             </Text>
           </Box>
         </Stack>
